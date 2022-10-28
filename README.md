@@ -10,7 +10,7 @@
 
 Sistem ini dibuat untuk memudahkan masyarakat untuk melakukan pembuatan surat-menyurat tanpa perlu datang ke desa untuk mengurus surat tersebut, melainkan langsung mengambil surat yang sudah selesai dibuat.
 
-## Website ini dibangun menggunakan
+## Website ini dibangun menggunakan Hati
 
 ---
 
