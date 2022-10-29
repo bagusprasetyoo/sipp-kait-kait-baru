@@ -40,12 +40,14 @@ Tim TSA studi kasus `Pelayanan Publik Desa Kait-Kait Baru.`
 
 @bagus.prasetyo, @mauladi19, @rizqi.amalia.fatmaningrum, @sherly.fitriani
 
+- Dosen Pembimbing : **Fathurrahmani, M.Kom**
+
 ## Special Thanks
 
-Terima kasih kepada Bapak **Fathurrahmani, M.Kom** selaku dosen pembimbing.
-Terima kasih juga kepada dosen pembimbing lainnya.
-Terima kasih kepada [Politeknik Negeri Tanah Laut](https://politala.ac.id/id/).
-Terima kasih kepada [Digital Talent - Talent Scouting Academy](https://digitalent.kominfo.go.id/).
+- Terima kasih kepada Bapak **Fathurrahmani, M.Kom** selaku dosen pembimbing.
+- Terima kasih juga kepada dosen pembimbing lainnya.
+- Terima kasih kepada [Politeknik Negeri Tanah Laut](https://politala.ac.id/id/).
+- Terima kasih kepada [Digital Talent - Talent Scouting Academy](https://digitalent.kominfo.go.id/).
 
 ## License
 
