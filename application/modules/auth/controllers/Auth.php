@@ -9,7 +9,7 @@ class Auth extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
     }
-    public function index()
+    public function login()
     {
         // rules
         $this->form_validation->set_rules('nik', 'NIK', 'trim|required');
@@ -53,21 +53,21 @@ class Auth extends CI_Controller
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <small><i class="icon fas fa-check"></i> Password salah!</small></div>');
-                    redirect('auth');
+                    redirect('auth/login');
                 }
             } else {
                 //pesan jika user tidak aktif
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <small><i class="icon fas fa-check"></i> NIK belum diaktifasi!</small></div>');
-                redirect('auth');
+                redirect('auth/login');
             }
         } else {
             //pesan sebelum redirect
             $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <small><i class="icon fas fa-check"></i> NIK belum diregistrasi!</small></div>');
-            redirect('auth');
+            redirect('auth/login');
         }
     }
 
@@ -114,7 +114,7 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <small><i class="icon fas fa-check"></i> Selamat, NIK anda berhasil diregistrasi! Silahkan Login</small></div>');
-            redirect('auth');
+            redirect('auth/login');
         }
     }
 

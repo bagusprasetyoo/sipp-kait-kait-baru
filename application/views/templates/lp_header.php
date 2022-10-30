@@ -61,10 +61,10 @@
                     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                         <!--Nama Pengguna dan Dropdown Profile -->
                         <li class="nav-item">
-                            <a href="<?= base_url('auth'); ?>" class="btn btn-outline-light mx-2" style="color: #eaeaea;">LOGIN</a>
+                            <a href="<?= base_url('auth/login'); ?>" class="btn btn-outline-light mx-2 btn-flat" style="color: #eaeaea;">LOGIN</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn btn-light text-green">DAFTAR</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn btn-light btn-flat text-green">DAFTAR</a>
                         </li>
                     </ul>
 

@@ -11,7 +11,7 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <form action="<?= base_url('auth'); ?>" method="post">
+        <form action="<?= base_url('auth/login'); ?>" method="post">
           <div class="form-group mb-3">
             <div class="input-group">
               <input type="text" class="form-control" id="nik" name="nik" placeholder="NIK" value="<?= set_value('nik'); ?>">
@@ -38,8 +38,13 @@
             <div class="col">
               <button type="submit" class="btn btn-success btn-block">Login</button>
             </div>
-            <!-- /.col -->
           </div>
+          <div class="row">
+            <div class="col mt-2">
+              <a href="<?= base_url(); ?>" class="btn btn-default btn-block">Batalkan</a>
+            </div>
+          </div>
+
         </form>
         <hr>
         <p class="mb-1">

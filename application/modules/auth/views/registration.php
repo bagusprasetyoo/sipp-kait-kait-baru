@@ -71,6 +71,11 @@
             </div>
             <!-- /.col -->
           </div>
+          <div class="row">
+            <div class="col mt-2">
+              <a href="<?= base_url(); ?>" class="btn btn-default btn-block">Batalkan</a>
+            </div>
+          </div>
         </form>
         <hr>
         <p>
