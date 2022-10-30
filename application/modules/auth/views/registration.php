@@ -44,25 +44,25 @@
           </div>
           <div class="input-group mb-3">
             <div class="input-group">
-              <input type="password" class="form-control <?= form_error('password1') ? 'is-invalid' : null ?>" id="password1" name="password1" placeholder="Password" value="<?= set_value('password1'); ?>">
+              <input type="password" class="form-control <?= form_error('password') ? 'is-invalid' : null ?>" id="password" name="password" placeholder="Password" value="<?= set_value('password'); ?>">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
                 </div>
               </div>
             </div>
-            <?= form_error('password1') ?>
+            <?= form_error('password') ?>
           </div>
           <div class="input-group mb-3">
             <div class="input-group">
-              <input type="password" class="form-control <?= form_error('password2') ? 'is-invalid' : null ?>" id="password2" name="password2" placeholder="Tulis ulang password" value="<?= set_value('password2'); ?>">
+              <input type="password" class="form-control <?= form_error('passconf') ? 'is-invalid' : null ?>" id="passconf" name="passconf" placeholder="Tulis ulang password" value="<?= set_value('passconf'); ?>">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
                 </div>
               </div>
             </div>
-            <?= form_error('password2') ?>
+            <?= form_error('passconf') ?>
           </div>
 
           <div class="row">

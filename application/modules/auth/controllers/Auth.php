@@ -3,17 +3,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
-    /**It loads the form_validation library.*/
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
+        $this->load->model('auth_model');
     }
+
     public function login()
     {
-        // rules
-        $this->form_validation->set_rules('nik', 'NIK', 'trim|required');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        // rules untuk form validation halaaman Login
+        $this->form_validation->set_rules('nik', 'NIK', 'trim|required', [
+            'required' => 'NIK harus diisi !'
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'trim|required', [
+            'required' => 'Password harus diisi !'
+        ]);
+
+        // jika form validasi salah maka akan kembali ke halaman login
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login';
             $this->load->view('templates/auth_header', $data);
@@ -47,7 +53,7 @@ class Auth extends CI_Controller
                     //simpan data ke dalam session
                     $this->session->set_userdata($data);
                     //arahkan ke controller yang diinginkan
-                    redirect('user');
+                    redirect('pengguna');
                 } else {
                     //pesan jika password salah
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
@@ -73,18 +79,29 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        //rules form validation
-        $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]', [
-            'is_unique' => 'NIK sudah diregistrasi'
+        //rules untuk form validation halaaman Registrasi
+        $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]|callback_validate_member', [
+            'required' => 'NIK harus diisi !',
+            'is_unique' => 'NIK sudah diregistrasi !',
+            'callback_validate_member' => 'NIK tidak terdafatar.'
         ]);
-        $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email');
-        $this->form_validation->set_rules('nohp',  'NoHP', 'required|trim');
-        $this->form_validation->set_rules('password1',  'Password', 'required|trim|min_length[3]|matches[password2]', [
+        $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email', [
+            'required' => 'Email harus diisi !',
+            'valid_email' => 'Penulisan email tidak valid !'
+        ]);
+        $this->form_validation->set_rules('nohp',  'NoHP', 'required|trim', [
+            'required' => 'No Handphone harus diisi !'
+        ]);
+        $this->form_validation->set_rules('password',  'Password', 'required|trim|min_length[3]|matches[passconf]', [
+            'required' => 'Password harus diisi !',
             'matches' => 'Password tidak cocok!',
             'min_length' => 'Password terlalu pendek!'
         ]);
-        $this->form_validation->set_rules('password2',  'Password', 'required|trim|matches[password1]');
+        $this->form_validation->set_rules('passconf',  'Password', 'required|trim|matches[password]', [
+            'required' => 'Tulis ulang Password !'
+        ]);
 
+        //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
         //menampilkan form registrasi
@@ -105,10 +122,8 @@ class Auth extends CI_Controller
                 'nik' => htmlspecialchars($this->input->post('nik', true))
             ];
 
-
             //nanti akan dimasukkan ke model
             $this->db->insert('tb_pengguna', $data);
-
 
             //pesan sebelum redirect
             $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
@@ -118,10 +133,19 @@ class Auth extends CI_Controller
         }
     }
 
+    public function validate_member($str)
+    {
+        $nik = $str;
+        if ($this->auth_model->validate_member($nik)) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
     public function logout()
     {
         $this->session->unset_userdata('nik');
-        $this->session->unset_userdata('role_id');
+        $this->session->unset_userdata('role');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
