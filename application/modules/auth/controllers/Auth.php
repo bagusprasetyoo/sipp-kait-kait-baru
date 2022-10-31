@@ -37,7 +37,7 @@ class Auth extends CI_Controller
         $nik = $this->input->post('nik');
         $password = $this->input->post('password');
 
-        //select * from user where nik=$nik
+        //select * from tb_pengguna where nik=$nik
         $user = $this->db->get_where('tb_pengguna', ['nik' => $nik])->row_array();
 
         // jika usernya ada
@@ -56,14 +56,14 @@ class Auth extends CI_Controller
                 //pesan jika password salah
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <small><i class="icon fas fa-check"></i> Password salah!</small></div>');
+                    <small><i class="icon fas fa-triangle-exclamation"></i> Password salah!</small></div>');
                 redirect('auth/login');
             }
         } else {
             //pesan sebelum redirect
             $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <small><i class="icon fas fa-check"></i> NIK belum diregistrasi!</small></div>');
+            <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum diregistrasi!</small></div>');
             redirect('auth/login');
         }
     }
