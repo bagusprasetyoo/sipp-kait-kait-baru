@@ -8,11 +8,6 @@ class Auth_model extends CI_Model
         return $this->db->get('tb_penduduk')->result();
     }
 
-    // public function login($data)
-    // {
-    //     return $this->db->get_where('tb_pengguna', $data);
-    // }
-    
     public function login($post)
     {
         $this->db->from('tb_pengguna');
@@ -21,5 +16,4 @@ class Auth_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-
 }
