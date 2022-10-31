@@ -89,24 +89,24 @@
                 <!--Nama Pengguna dan Modal-->
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= base_url('assets/'); ?>dist/img/avatar5.png" class="user-image img-circle  " alt="User Image">
+                        <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="user-image img-circle  " alt="User Image">
                         <span class="d-none d-md-inline">Nama Admin</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
                         <li class="user-header bg-green">
-                            <img src="<?= base_url('assets/'); ?>dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                            <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image">
 
                             <p>
                                 Nama Admin - Admin
-                                <small>Bergabung sejak 2022</small>
+                                <small><?= $user['nik']; ?></small>
                             </p>
                         </li>
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <a href="/xadmin/pengaturan.html" class="btn btn-default btn-flat">Pengaturan</a>
-                            <a href="<?= base_url('landingpage/'); ?>" class="btn btn-danger btn-flat float-right">Logout</a>
+                            <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger btn-flat float-right">Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -133,7 +133,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('assets/'); ?>dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <span class="username"><a href="/xadmin/pengaturan.html" class="d-block">Nama Admin</a></span>
@@ -193,7 +193,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url(''); ?>/landingpage" class="nav-link text-red">
+                            <a href="<?= base_url('auth/logout'); ?>" class="nav-link text-red">
                                 <i class="nav-icon fas fa-right-from-bracket"></i>
                                 <p>Logout</p>
                             </a>
