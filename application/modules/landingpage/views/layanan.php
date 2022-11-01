@@ -7,24 +7,72 @@
             <div class="col-lg-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title m-0"><b>Surat Keterangan Kelahiran</b></h3>
+                        <h3 class="card-title m-0"><b>Surat Keterangan Kematian</b></h3>
                     </div>
                     <div class="card-body">
                         <!-- <h6 class="card-title">Judul</h6> -->
                         <p class="card-text">Keterangan Surat</p>
-                        <a href="login.html" class="btn btn-success">Buat Surat</a>
+                        <a href="#" class="btn btn-success">Buat Surat</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title m-0"><b>Surat Keterangan Kematian</b></h3>
+                        <h3 class="card-title m-0"><b>Surat Keterangan Belum Menikah</b></h3>
                     </div>
                     <div class="card-body">
                         <!-- <h6 class="card-title">Judul</h6> -->
                         <p class="card-text">Keterangan Surat</p>
-                        <a href="login.html" class="btn btn-success">Buat Surat</a>
+                        <a href="#" class="btn btn-success">Buat Surat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title m-0"><b>Surat Keterangan Usaha</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- <h6 class="card-title">Judul</h6> -->
+                        <p class="card-text">Keterangan Surat</p>
+                        <a href="#" class="btn btn-success">Buat Surat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title m-0"><b>Surat Keterangan Domisili</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- <h6 class="card-title">Judul</h6> -->
+                        <p class="card-text">Keterangan Surat</p>
+                        <a href="#" class="btn btn-success">Buat Surat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title m-0"><b>Surat Keterangan Tidak Mampu</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- <h6 class="card-title">Judul</h6> -->
+                        <p class="card-text">Keterangan Surat</p>
+                        <a href="#" class="btn btn-success">Buat Surat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title m-0"><b>Surat Keterangan Kepemilikan Tanah</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- <h6 class="card-title">Judul</h6> -->
+                        <p class="card-text">Keterangan Surat</p>
+                        <a href="#" class="btn btn-success">Buat Surat</a>
                     </div>
                 </div>
             </div>

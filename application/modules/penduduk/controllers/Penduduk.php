@@ -14,10 +14,11 @@ class Penduduk extends CI_Controller
         $data['row'] = $this->pend_model->getPend();
 
         $data['title'] = 'Data Penduduk';
-        $this->load->view('templates/admin_header', $data);
-        $this->load->view('templates/admin_breadcrumb', $data);
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('templates/user_header', $data);
+        $this->load->view('templates/user_sidebar', $data);
         $this->load->view('penduduk/tampil_pend', $data);
-        $this->load->view('templates/admin_footer');
+        $this->load->view('templates/user_footer');
     }
 
     public function add_pend()
@@ -30,9 +31,10 @@ class Penduduk extends CI_Controller
         $penduduk->nik = null;
 
         $data['title'] = 'Data Penduduk';
-        $this->load->view('templates/admin_header', $data);
-        $this->load->view('templates/admin_breadcrumb', $data);
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('templates/user_header', $data);
+        $this->load->view('templates/user_sidebar', $data);
         $this->load->view('penduduk/form_pend', $data);
-        $this->load->view('templates/admin_footer');
+        $this->load->view('templates/user_footer');
     }
 }

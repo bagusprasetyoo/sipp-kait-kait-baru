@@ -11,6 +11,7 @@ class Auth extends CI_Controller
 
     public function login()
     {
+        check_already_login();
         // rules untuk form validation halaaman Login
         $this->form_validation->set_rules('nik', 'NIK', 'trim|required', [
             'required' => 'NIK harus diisi !'
@@ -45,6 +46,7 @@ class Auth extends CI_Controller
             //cek password
             if (password_verify($password, $user['password'])) {
                 $data = [
+                    'idpengguna' => $user['id_pengguna'],
                     'nik' => $user['nik'],
                     'role' => $user['role']
                 ];
@@ -61,7 +63,7 @@ class Auth extends CI_Controller
             }
         } else {
             //pesan sebelum redirect
-            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
+            $this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum diregistrasi!</small></div>');
             redirect('auth/login');
@@ -95,6 +97,7 @@ class Auth extends CI_Controller
         //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
+
         //menampilkan form registrasi
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Registrasi Pengguna';
@@ -102,25 +105,37 @@ class Auth extends CI_Controller
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');
         } else {
-            $data = [
+            $nik = $this->input->post('nik');
 
-                'email' => htmlspecialchars($this->input->post('email', true)),
-                'no_hp' => htmlspecialchars($this->input->post('nohp', true)),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'image' => 'default.jpg',
-                'role' => "Pengguna",
-                'tanggal_daftar' => time(),
-                'nik' => htmlspecialchars($this->input->post('nik', true))
-            ];
+            //select * from tb_pengguna where nik=$nik
+            $penduduk = $this->db->get_where('tb_penduduk', ['nik' => $nik])->row_array();
 
-            //nanti akan dimasukkan ke model
-            $this->db->insert('tb_pengguna', $data);
+            if ($nik == $penduduk['nik']) {
+                $data = [
 
-            //pesan sebelum redirect
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <small><i class="icon fas fa-check"></i> Selamat, NIK anda berhasil diregistrasi! Silahkan Login</small></div>');
-            redirect('auth/login');
+                    'email' => htmlspecialchars($this->input->post('email', true)),
+                    'no_hp' => htmlspecialchars($this->input->post('nohp', true)),
+                    'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                    'image' => 'default.jpg',
+                    'role' => "Pengguna",
+                    'tanggal_daftar' => time(),
+                    'nik' => htmlspecialchars($this->input->post('nik', true))
+                ];
+
+                //opsional bisa dimasukkan ke model
+                $this->db->insert('tb_pengguna', $data);
+
+                //pesan sebelum redirect
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-check"></i> Selamat, NIK anda berhasil diregistrasi! Silahkan Login</small></div>');
+                redirect('auth/login');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum terdata di desa!</small></div>');
+                redirect('auth/registration');
+            }
         }
     }
 
@@ -135,12 +150,10 @@ class Auth extends CI_Controller
     }
     public function logout()
     {
+        $this->session->unset_userdata('idpengguna');
         $this->session->unset_userdata('nik');
         $this->session->unset_userdata('role');
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <small><i class="icon fas fa-check"></i>Kamu berhasil logout!</small></div>');
         redirect('landingpage');
     }
 }

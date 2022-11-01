@@ -111,7 +111,7 @@
     <div class="container-fluid text-center my-3" style="background-color: #eaeaea;">
         <div class="row">
             <div class="col pt-3">
-                <h5 style="color: #207030;"><b>FITUR SISTEM INFORMASI LAYANAN DESA</b></h>
+                <h5 style="color: #207030;"><b>STATISTIK PENDUDUK</b></h>
             </div>
         </div>
         <div class="row fs-1" style="color: #47AF42;">

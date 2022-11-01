@@ -2,10 +2,12 @@
   <div class="register-box">
     <div class="card card-outline card-success">
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1 font-weight-bold text-green">REGISTRASI</a>
+        <a href="<?= base_url(); ?>" class="h1 font-weight-bold text-green">REGISTRASI</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Registrasi untuk pengguna baru</p>
+
+        <?= $this->session->flashdata('message'); ?>
 
         <form action="<?= base_url('auth/registration') ?>" method="post">
           <div class="form-group mb-3">

@@ -4,7 +4,7 @@
 
     <div class="card card-outline card-success">
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1 font-weight-bold text-green">LOGIN</a>
+        <a href="<?= base_url(); ?>" class="h1 font-weight-bold text-green">LOGIN</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Silahkan login</p>
