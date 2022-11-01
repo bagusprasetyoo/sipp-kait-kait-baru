@@ -38,14 +38,14 @@ class Penduduk extends CI_Controller
         $this->load->view('templates/user_footer');
     }
 
-    public function delete($nik){
+    public function delete_pend($nik)
+    {
         $query = $this->pend_model->delete($nik);
-        if($query = true){
-          $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        if ($query = true) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
           Data Berhasil diHapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span></button></div>');
-          redirect('penduduk');
+            redirect('penduduk');
         }
     }
-
 }
