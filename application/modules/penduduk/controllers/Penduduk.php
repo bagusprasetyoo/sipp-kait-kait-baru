@@ -40,6 +40,7 @@ class Penduduk extends CI_Controller
         $penduduk->rw = null;
         $penduduk->desa = null;
         $penduduk->dusun = null;
+        $penduduk->kec_kab = "Kecamatan Bati-Bati Kabupaten Tanah Laut";
         $penduduk->agama = null;
         $penduduk->status_nikah = null;
         $penduduk->pekerjaan = null;
@@ -59,13 +60,27 @@ class Penduduk extends CI_Controller
         $this->load->view('templates/user_footer');
     }
 
-    public function delete($nik){
+    public function process()
+    {
+        $post = $this->input->post(null, TRUE);
+        if (isset($_POST['add'])) {
+            $this->pend_model->add($post);
+        }
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data Berhasil diTambah!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
+        redirect('penduduk/tampil_pend');
+    }
+
+    public function delete($nik)
+    {
         $query = $this->pend_model->delete($nik);
         if ($query = true) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
           Data Berhasil diHapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span></button></div>');
-          redirect('penduduk');
+            redirect('penduduk/tampil_pend');
         }
     }
 }

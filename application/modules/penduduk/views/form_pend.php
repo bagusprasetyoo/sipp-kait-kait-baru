@@ -9,7 +9,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url('penduduk/process')?>" method="post">
+                    <form class="form-horizontal" action="<?= base_url('penduduk/process') ?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
@@ -74,6 +74,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Kec/Kab</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="kec_kab" placeholder="Kec/Kab" value="<?= $row->kec_kab ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="exampleFormAgama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="agama" id="exampleFormAgama">
@@ -126,7 +132,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" name="<?=$page?>" class="btn btn-success">Submit</i></button>
+                            <button type="submit" name="<?= $page ?>" class="btn btn-success">Submit</i></button>
                             <a href="<?= base_url('penduduk/tampil_pend'); ?>" class="btn btn-secondary">Cancel</i></a>
                         </div>
                         <!-- /.card-footer -->
