@@ -73,10 +73,9 @@ class Auth extends CI_Controller
     public function registration()
     {
         //rules untuk form validation halaaman Registrasi
-        $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]|callback_validate_member', [
+        $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]', [
             'required' => 'NIK harus diisi !',
-            'is_unique' => 'NIK sudah diregistrasi !',
-            'callback_validate_member' => 'NIK tidak terdafatar.'
+            'is_unique' => 'NIK sudah diregistrasi !'
         ]);
         $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email', [
             'required' => 'Email harus diisi !',
@@ -139,15 +138,6 @@ class Auth extends CI_Controller
         }
     }
 
-    public function validate_member($str)
-    {
-        $nik = $str;
-        if ($this->auth_model->validate_member($nik)) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
     public function logout()
     {
         $this->session->unset_userdata('idpengguna');
