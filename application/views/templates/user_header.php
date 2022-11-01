@@ -69,7 +69,7 @@
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="user-image img-circle  " alt="User Image">
-                        <span class="d-none d-md-inline">Nama User</span>
+                        <span class="d-none d-md-inline"><?= $this->fungsi->user_login()->nama; ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
@@ -77,7 +77,7 @@
                             <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image">
 
                             <p>
-                                Nama User - <?= $user['role']; ?>
+                                <?= $this->fungsi->user_login()->nama; ?> - <?= $user['role']; ?>
                                 <small><?= $user['nik']; ?></small>
                             </p>
                         </li>

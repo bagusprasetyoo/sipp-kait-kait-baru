@@ -72,7 +72,7 @@
             <!-- Left col -->
             <div class="col">
                 <div class="callout callout-success">
-                    <h5>Hai, </h5>
+                    <h5>Hai 👋, <?= $this->fungsi->user_login()->nama; ?></h5>
 
                     <p>Selamat datang di Sistem Informasi Pelayanan Publik
                         <br> Desa Kait-Kait Baru
