@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/xadmin/dashboard.html" class="brand-link" style="background-color: #207030;">
+    <a href="<?= base_url('dashboard'); ?>" class="brand-link" style="background-color: #207030;">
         <img src="<?= base_url('assets/'); ?>img/logoTala.svg" alt="AdminLTE Logo" class="brand-image">
         <span class="brand-text font-weight-light">SIPP DKKB</span>
     </a>
@@ -14,7 +14,7 @@
                 <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <span class="username"><a href="#" class="d-block">Nama User</a></span>
+                <span class="username"><a href="#" class="d-block"><?= $this->fungsi->user_login()->nama; ?></a></span>
             </div>
         </div>
 

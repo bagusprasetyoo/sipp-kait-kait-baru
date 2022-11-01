@@ -7,6 +7,8 @@ class Penduduk extends CI_Controller
     {
         parent::__construct();
         $this->load->model('pend_model');
+        //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
+        $this->load->model('pengguna/peng_model');
     }
 
     public function tampil_pend()
@@ -57,27 +59,13 @@ class Penduduk extends CI_Controller
         $this->load->view('templates/user_footer');
     }
 
-    public function process(){
-        $post = $this->input->post(null, TRUE);
-        if(isset($_POST['add'])){
-            $this->pend_model->add($post);
-        }
-       
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil diTambah!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button></div>');
-            redirect('penduduk/tampil_pend');
-          
-    }
-
     public function delete($nik){
         $query = $this->pend_model->delete($nik);
-        if($query = true){
-          $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        if ($query = true) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
           Data Berhasil diHapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span></button></div>');
-          redirect('penduduk/tampil_pend');
+          redirect('penduduk');
         }
     }
-
 }

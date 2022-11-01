@@ -14,7 +14,7 @@
         <form action="<?= base_url('auth/login'); ?>" method="post">
           <div class="form-group mb-3">
             <div class="input-group">
-              <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= set_value('nik'); ?>">
+              <input type="text" class="form-control <?= form_error('nik') ? 'is-invalid' : null ?>" name="nik" placeholder="NIK" value="<?= set_value('nik'); ?>">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>
@@ -25,7 +25,7 @@
           </div>
           <div class="input-group mb-3">
             <div class="input-group">
-              <input type="password" class="form-control" name="password" placeholder="Password">
+              <input type="password" class="form-control <?= form_error('nik') ? 'is-invalid' : null ?>" name="password" placeholder="Password">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
