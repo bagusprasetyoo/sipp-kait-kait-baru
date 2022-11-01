@@ -12,4 +12,10 @@ class Pend_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function delete($nik){
+        $this->db->where('nik', $nik);
+        $this->db->delete('tb_penduduk');
+      }
+
 }

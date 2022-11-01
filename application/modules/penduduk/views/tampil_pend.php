@@ -6,6 +6,7 @@
                 <div class="card">
 
                     <!-- /.content-header -->
+                    <?= $this->session->flashdata('pesan'); ?>
                     <div class="content-header">
                         <div class="container-fluid">
                             <div class="row">
@@ -52,7 +53,7 @@
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                <a href="<?= base_url('penduduk/delete/').$data->nik; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                     </tr>
                                 <?php } ?>
