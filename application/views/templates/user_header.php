@@ -84,8 +84,8 @@
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <a href="/xadmin/pengaturan.html" class="btn btn-default btn-flat">Pengaturan</a>
-                            <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger btn-flat float-right">Logout</a>
+                            <a href="<?= base_url('pengaturan/edit_profile'); ?>" class="btn btn-default btn-flat">Pengaturan</a>
+                            <a href="<?= base_url('auth/logout'); ?>" onclick="return confirm('Anda yakin Ingin Keluar?')" class="btn btn-danger btn-flat float-right">Logout</a>
                         </li>
                     </ul>
                 </li>
