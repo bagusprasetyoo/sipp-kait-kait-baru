@@ -29,6 +29,25 @@ class Penduduk extends CI_Controller
         //lempar data null untuk  tambah data
         $penduduk = new stdClass();
         $penduduk->nik = null;
+        $penduduk->nama = null;
+        $penduduk->tempat_lahir = null;
+        $penduduk->tanggal_lahir = null;
+        $penduduk->jenis_kelamin = null;
+        $penduduk->alamat = null;
+        $penduduk->rt = null;
+        $penduduk->rw = null;
+        $penduduk->desa = null;
+        $penduduk->dusun = null;
+        $penduduk->agama = null;
+        $penduduk->status_nikah = null;
+        $penduduk->pekerjaan = null;
+        $penduduk->kewarganegaraan = null;
+        $penduduk->gol_darah = null;
+
+        $data = array(
+            'page' => 'add',
+            'row' => $penduduk
+        );
 
         $data['title'] = 'Data Penduduk';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
@@ -38,14 +57,27 @@ class Penduduk extends CI_Controller
         $this->load->view('templates/user_footer');
     }
 
-    public function delete($nik){
-        $query = $this->pend_model->delete($nik);
-        if($query = true){
-          $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-          Data Berhasil diHapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    public function process()
+    {
+        $post = $this->input->post(null, TRUE);
+        if(isset($_POST['add'])) {
+            $this->pend_model->add_pend($post);
+        }
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+          Data Berhasil diSimpan!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span></button></div>');
           redirect('penduduk');
-        }
     }
 
+    public function delete($nik)
+    {
+        $query = $this->pend_model->delete($nik);
+        if ($query = true) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+          Data Berhasil diHapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button></div>');
+            redirect('penduduk');
+        }
+    }
 }

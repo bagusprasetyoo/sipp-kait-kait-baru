@@ -14,117 +14,119 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nik" placeholder="NIK">
+                                    <input type="number" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+                                    <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?= $row->nama ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tempatlahir" placeholder="Tempat Lahir">
+                                    <input type="text" class="form-control" name="tempatlahir" placeholder="Tempat Lahir" value="<?= $row->tempat_lahir ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col sm-10 input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input type="date" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggallahir" placeholder="Tanggal Lahir" />
+                                    <input type="date" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggallahir" placeholder="Tanggal Lahir" value="<?= $row->tanggal_lahir ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="exampleFormJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelaminn</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="exampleFormJenisKelamin">
-                                        <option>Pengguna</option>
-                                        <option>Admin</option>
-                                        <option>Kepala Desa</option>
+                                    <select class="form-control" name="jeniskelamin" id="exampleFormJenisKelamin">
+                                        <option>-Pilih-</option>
+                                        <option>Laki-Laki</option>
+                                        <option>Perempuan</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="alamat" placeholder="Alamat">
+                                    <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?= $row->alamat ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">RT</label>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="rt" placeholder="RT">
+                                <label class="col-sm-2 col-form-label">RT/RW</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" name="rt" placeholder="RT" value="<?= $row->rt ?>" required>
                                 </div>
-                                <label class="col-sm-2 col-form-label">RW</label>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="rw" placeholder="RW">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Dusun</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="dusun" placeholder="Dusun">
+
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" name="rw" placeholder="RW" value="<?= $row->rw ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Desa</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="dsea" placeholder="Desa">
-                                </div>
-                            </div>
-                            <!-- <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Kacamatan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kec" placeholder="Kecamatan">
+                                    <input type="text" class="form-control" name="desa" placeholder="Desa" value="<?= $row->desa ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Kabupaten</label>
+                                <label class="col-sm-2 col-form-label">Dusun</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kab" placeholder="Kabupaten">
+                                    <input type="text" class="form-control" name="dusun" placeholder="Dusun" value="<?= $row->dusun ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Provinsi</label>
+                                <label for="exampleFormAgama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="prov" placeholder="Provinsi">
-                                </div>
-                            </div> -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Agama</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="agama" placeholder="Agama">
+                                    <select class="form-control" name="agama" id="exampleFormAgama">
+                                        <option>-Pilih-</option>
+                                        <option>Islam</option>
+                                        <option>Kristen Protestan</option>
+                                        <option>Katolik</option>
+                                        <option>Hindu</option>
+                                        <option>Buddha</option>
+                                        <option>Konghucu</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Status Perkawinan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="status_nikah" placeholder="Status Perkawinan">
+                                    <select class="form-control" name="status_nikah" id="status_nikah">
+                                        <option>-Pilih-</option>
+                                        <option>Belum Kawin</option>
+                                        <option>Kawin</option>
+                                        <option>Cerai Hidup</option>
+                                        <option>Cerai Mati</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Pekerjaan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
+                                    <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan" value="<?= $row->pekerjaan ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Kewarganegaraan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kewarganegaraan" placeholder="Kewarganegaraan">
+                                    <input type="text" class="form-control" name="kewarganegaraan" placeholder="Kewarganegaraan" value="<?= $row->kewarganegaraan ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Golongan Darah</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="gol_darah" placeholder="Golongan Darah">
+                                    <select class="form-control" name="gol_darah" id="gol_darah">
+                                        <option>-Pilih-</option>
+                                        <option>A</option>
+                                        <option>B</option>
+                                        <option>O</option>
+                                        <option>AB</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <a href="#" class="btn btn-success">Submit</i></a>
+                            <button type="submit" name="<?= $page ?>" class="btn btn-success">Submit</i></button>
                             <a href="<?= base_url('penduduk/tampil_pend'); ?>" class="btn btn-secondary">Cancel</i></a>
                         </div>
                         <!-- /.card-footer -->
