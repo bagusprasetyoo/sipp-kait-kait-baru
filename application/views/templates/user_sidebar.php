@@ -55,7 +55,7 @@
                     </li>
                 <?php  } ?>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('surat/tampil_surat'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>Surat</p>
                     </a>
