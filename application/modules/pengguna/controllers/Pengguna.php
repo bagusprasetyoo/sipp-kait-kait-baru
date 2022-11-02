@@ -17,10 +17,10 @@ class Pengguna extends CI_Controller
 
         $data['title'] = 'Data Pengguna';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
         $this->load->view('pengguna/tampil_peng', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 
     public function add_peng()
@@ -56,10 +56,10 @@ class Pengguna extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Tambah Data Pengguna';
             $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-            $this->load->view('templates/user_header', $data);
-            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
             $this->load->view('pengguna/add_peng', $data);
-            $this->load->view('templates/user_footer');
+            $this->load->view('template/user_footer');
         } else {
             $nik = $this->input->post('nik');
 
@@ -119,10 +119,10 @@ class Pengguna extends CI_Controller
                 $data['row'] = $query->row();
                 $data['title'] = 'Edit Data Pengguna';
                 $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-                $this->load->view('templates/user_header', $data);
-                $this->load->view('templates/user_sidebar', $data);
+                $this->load->view('template/user_header', $data);
+                $this->load->view('template/user_sidebar', $data);
                 $this->load->view('pengguna/edit_peng', $data);
-                $this->load->view('templates/user_footer');
+                $this->load->view('template/user_footer');
             } else {
                 echo "<script>alert('Data tidak ditemukan');";
                 echo "window.location='" . base_url('pengguna') . "';</script>";

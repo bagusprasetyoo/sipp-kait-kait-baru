@@ -18,10 +18,10 @@ class Penduduk extends CI_Controller
 
         $data['title'] = 'Data Penduduk';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
         $this->load->view('penduduk/tampil_pend', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 
     public function add_pend()
@@ -57,10 +57,10 @@ class Penduduk extends CI_Controller
 
         $data['title'] = ' Tambah Data Penduduk';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
         $this->load->view('penduduk/form_pend', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 
     public function edit($nik)
@@ -75,10 +75,10 @@ class Penduduk extends CI_Controller
             );
             $data['title'] = 'Edit Data Penduduk';
             $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-            $this->load->view('templates/user_header', $data);
-            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
             $this->load->view('penduduk/form_pend', $data);
-            $this->load->view('templates/user_footer');
+            $this->load->view('template/user_footer');
         }
     }
 

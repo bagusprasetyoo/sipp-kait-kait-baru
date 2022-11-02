@@ -15,9 +15,9 @@ class Dashboard extends CI_Controller
         check_not_login();
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar');
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar');
         $this->load->view('dashboard');
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 }
