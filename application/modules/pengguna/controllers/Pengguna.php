@@ -43,6 +43,9 @@ class Pengguna extends CI_Controller
         $this->form_validation->set_rules('passconf',  'Password', 'required|trim|matches[password]', [
             'required' => 'Tulis ulang Password !'
         ]);
+        $this->form_validation->set_rules('role',  'Role', 'required|trim', [
+            'required' => 'Role belum di pilih !'
+        ]);
 
         //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
@@ -50,7 +53,7 @@ class Pengguna extends CI_Controller
         //menampilkan form registrasi
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Tambah Data Pengguna';
-            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array;
+            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
             $this->load->view('templates/user_header', $data);
             $this->load->view('templates/user_sidebar', $data);
             $this->load->view('pengguna/add_peng', $data);
@@ -63,7 +66,6 @@ class Pengguna extends CI_Controller
 
             if ($nik == $penduduk['nik']) {
                 $data = [
-
                     'email' => htmlspecialchars($this->input->post('email', true)),
                     'no_hp' => htmlspecialchars($this->input->post('nohp', true)),
                     'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
