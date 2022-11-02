@@ -9,6 +9,7 @@ class Pengaturan extends CI_Controller
         $this->load->model('penduduk/pend_model');
         //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
         $this->load->model('pengguna/peng_model');
+        check_not_login();
     }
 
     public function edit_profile()
