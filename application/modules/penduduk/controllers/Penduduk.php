@@ -9,6 +9,7 @@ class Penduduk extends CI_Controller
         $this->load->model('pend_model');
         //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
         $this->load->model('pengguna/peng_model');
+        check_not_login();
     }
 
     public function tampil_pend()
