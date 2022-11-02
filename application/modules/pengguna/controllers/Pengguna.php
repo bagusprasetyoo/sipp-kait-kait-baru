@@ -8,6 +8,7 @@ class Pengguna extends CI_Controller
         parent::__construct();
         $this->load->model('peng_model');
         check_not_login();
+        check_admin();
     }
 
     public function tampil_peng()

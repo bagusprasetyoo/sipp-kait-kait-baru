@@ -17,3 +17,12 @@ function check_not_login()
         redirect('landingpage');
     }
 }
+
+function check_admin()
+{
+    $ci = &get_instance();
+    $ci->load->library('fungsi');
+    if ($ci->fungsi->user_login()->role != 'Admin') {
+        redirect('dashboard');
+    }
+}

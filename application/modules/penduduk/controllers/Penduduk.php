@@ -26,7 +26,9 @@ class Penduduk extends CI_Controller
 
     public function add_pend()
     {
-        /*dikarenakan form tambah & edit dijadikan satu 
+        check_admin();
+        /*dikarenakan 
+        form tambah & edit dijadikan satu 
         kita inisialisasikan untuk membedakan
         */
         //lempar data null untuk  tambah data
@@ -63,6 +65,7 @@ class Penduduk extends CI_Controller
 
     public function edit($nik)
     {
+        check_admin();
         $query = $this->pend_model->getPend($nik);
         if ($query->num_rows() > 0) {
             $penduduk = $query->row();
@@ -81,6 +84,7 @@ class Penduduk extends CI_Controller
 
     public function process()
     {
+        check_admin();
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
             $this->pend_model->add($post);
@@ -99,6 +103,7 @@ class Penduduk extends CI_Controller
 
     public function delete($nik)
     {
+        check_admin();
         $query = $this->pend_model->delete($nik);
         if ($query = true) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">

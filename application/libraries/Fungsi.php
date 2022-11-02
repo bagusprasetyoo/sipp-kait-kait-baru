@@ -16,4 +16,8 @@ class Fungsi
         $user_data = $this->ci->peng_model->getPeng($idpengguna)->row();
         return $user_data;
     }
+
+    function count_data($table){
+        return $this->ci->db->get($table)->num_rows();
+    }
 }
