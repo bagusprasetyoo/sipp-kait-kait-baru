@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/daterangepicker/daterangepicker.css">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-green navbar-dark fixed-top">
+        <nav class="main-header navbar navbar-expand navbar-green navbar-dark">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -69,7 +69,7 @@
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="user-image img-circle  " alt="User Image">
-                        <span class="d-none d-md-inline">Nama User</span>
+                        <span class="d-none d-md-inline"><?= $this->fungsi->user_login()->nama; ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
@@ -77,15 +77,15 @@
                             <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image">
 
                             <p>
-                                Nama User - <?= $user['role']; ?>
+                                <?= $this->fungsi->user_login()->nama; ?> - <?= $user['role']; ?>
                                 <small><?= $user['nik']; ?></small>
                             </p>
                         </li>
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <a href="/xadmin/pengaturan.html" class="btn btn-default btn-flat">Pengaturan</a>
-                            <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger btn-flat float-right">Logout</a>
+                            <a href="<?= base_url('pengaturan/edit_profile'); ?>" class="btn btn-default btn-flat">Pengaturan</a>
+                            <a href="<?= base_url('auth/logout'); ?>" onclick="return confirm('Anda yakin Ingin Keluar?')" class="btn btn-danger btn-flat float-right">Logout</a>
                         </li>
                     </ul>
                 </li>

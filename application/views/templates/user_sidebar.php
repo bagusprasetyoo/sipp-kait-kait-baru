@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/xadmin/dashboard.html" class="brand-link" style="background-color: #207030;">
+    <a href="<?= base_url('dashboard'); ?>" class="brand-link" style="background-color: #207030;">
         <img src="<?= base_url('assets/'); ?>img/logoTala.svg" alt="AdminLTE Logo" class="brand-image">
         <span class="brand-text font-weight-light">SIPP DKKB</span>
     </a>
@@ -14,7 +14,7 @@
                 <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <span class="username"><a href="#" class="d-block">Nama User</a></span>
+                <span class="username"><a href="<?= base_url('pengaturan/edit_profile'); ?>" class="d-block"><?= $this->fungsi->user_login()->nama; ?></a></span>
             </div>
         </div>
 
@@ -69,13 +69,13 @@
                     </li>
                 <?php  } ?>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('pengaturan/edit_profile'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-gear"></i>
                         <p>Pengaturan</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('auth/logout'); ?>" class="nav-link text-red">
+                    <a href="<?= base_url('auth/logout'); ?>" class="nav-link text-red" onclick="return confirm('Anda yakin Ingin Keluar?')">
                         <i class="nav-icon fas fa-right-from-bracket"></i>
                         <p>Logout</p>
                     </a>

@@ -5,11 +5,11 @@
             <div class="col-12">
                 <div class="card card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Data Penduduk</h3>
+                        <h3 class="card-title"><?= $title; ?></h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url('penduduk/proses'); ?>">
+                    <form class="form-horizontal" action="<?= base_url('penduduk/process') ?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
@@ -26,19 +26,19 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tempatlahir" placeholder="Tempat Lahir" value="<?= $row->tempat_lahir ?>" required>
+                                    <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $row->tempat_lahir ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col sm-10 input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input type="date" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggallahir" placeholder="Tanggal Lahir" value="<?= $row->tanggal_lahir ?>" required>
+                                    <input type="date" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal_lahir" placeholder="Tanggal Lahir" value="<?= $row->tanggal_lahir ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="exampleFormJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelaminn</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="jeniskelamin" id="exampleFormJenisKelamin">
+                                    <select class="form-control" name="jenis_kelamin" id="exampleFormJenisKelamin">
                                         <option>-Pilih-</option>
                                         <option>Laki-Laki</option>
                                         <option>Perempuan</option>
@@ -71,6 +71,12 @@
                                 <label class="col-sm-2 col-form-label">Dusun</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="dusun" placeholder="Dusun" value="<?= $row->dusun ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Kec/Kab</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="kec_kab" placeholder="Kec/Kab" value="<?= $row->kec_kab ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">

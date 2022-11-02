@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped table-sm">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
                                         <th>Nik</th>
                                         <th>Nama</th>
@@ -39,9 +39,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <?php $no = 1;
-                                        foreach ($row->result() as $key => $data) { ?>
+                                    <?php $no = 1;
+                                    foreach ($row->result() as $key => $data) { ?>
+                                        <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->nik; ?></td>
                                             <td><?= $data->nama; ?></td>
@@ -52,11 +52,11 @@
                                             <td>
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
-                                                <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                <a href="<?= base_url('penduduk/delete_pend/').$data->nik; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                <a href="<?= base_url('penduduk/edit/') . $data->nik; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('penduduk/delete/') . $data->nik; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
-                                    </tr>
-                                <?php } ?>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
