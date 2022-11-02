@@ -42,10 +42,10 @@
                                             <td><?= $data->no_hp; ?></td>
                                             <td><?= $data->role; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
+                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
-                                                <a href="<?= base_url('pengguna/edit_peng/'); ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a>
-                                                <a href="<?= base_url('pengguna/delete_peng/') . $data->nik; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+                                                <a href="<?= base_url('pengguna/edit_peng/'); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('pengguna/delete_peng/') . $data->nik; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
