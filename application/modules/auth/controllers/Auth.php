@@ -117,7 +117,7 @@ class Auth extends CI_Controller
                     'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                     'image' => 'default.jpg',
                     'role' => "Pengguna",
-                    'tanggal_daftar' => time(),
+                    'tanggal_daftar' => date('Y-m-d'),
                     'nik' => htmlspecialchars($this->input->post('nik', true))
                 ];
 
