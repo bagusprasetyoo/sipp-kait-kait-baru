@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="exampleFormJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelaminn</label>
+                                <label for="exampleFormJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="jenis_kelamin" id="exampleFormJenisKelamin">
                                         <option>-Pilih-</option>
