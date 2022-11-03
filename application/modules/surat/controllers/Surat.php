@@ -14,13 +14,34 @@ class Surat extends CI_Controller
 
     public function tampil_surat()
     {
-        //$data['row'] = $this->surat_model->getSurat();
+        $data['row'] = $this->surat_model->get_surat();
 
+        $data['penduduk'] = $this->surat_model->view_penduduk();
         $data['title'] = 'Data Surat';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
         $this->load->view('template/user_sidebar', $data);
         $this->load->view('surat/tampil_surat', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function add_surat()
+    {
+        $data['title'] = 'Buat Surat';
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/add_surat', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function sk_domisili()
+    {
+        $data['title'] = 'Surat Keterangan Domisili';
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/sk_domisili', $data);
         $this->load->view('template/user_footer');
     }
 
