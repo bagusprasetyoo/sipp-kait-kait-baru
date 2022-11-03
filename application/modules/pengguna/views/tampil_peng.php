@@ -28,6 +28,7 @@
                                         <th>Email</th>
                                         <th>No HP</th>
                                         <th>Role</th>
+                                        <th>Tanggal Daftar</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -41,6 +42,7 @@
                                             <td><?= $data->email; ?></td>
                                             <td><?= $data->no_hp; ?></td>
                                             <td><?= $data->role; ?></td>
+                                            <td><?= $data->tanggal_daftar; ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>

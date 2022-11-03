@@ -27,7 +27,7 @@
                             <table id="example1" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th>No</th>
+                                        
                                         <th>Nik</th>
                                         <th>Nama</th>
                                         <th>Tempat Lahir</th>
@@ -38,14 +38,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $no = 1;
-                                    foreach ($row->result() as $key => $data) { ?>
+                                    <?php foreach ($row->result() as $key => $data) { ?>
                                         <tr>
-                                            <td><?= $no++; ?></td>
                                             <td><?= $data->nik; ?></td>
                                             <td><?= $data->nama; ?></td>
                                             <td><?= $data->tempat_lahir; ?></td>
-                                            <td><?= $data->tanggal_lahir; ?></td>
+                                            <td><?= date('d-m-Y', strtotime($data->tanggal_lahir)); ?></td>
                                             <td><?= $data->jenis_kelamin; ?></td>
                                             <td><?= $data->alamat; ?></td>
                                             <td>
