@@ -11,8 +11,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a href="<?= base_url('pengguna/add_peng'); ?>" class="btn btn-success">+ Tambah
-                                        Data Pengguna</a>
+                                    <a href="<?= base_url('pengguna/add_peng'); ?>" class="btn btn-success">+ Tambah Data Pengguna</a>
                                 </div>
                             </div>
                         </div>
@@ -21,7 +20,7 @@
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped table-sm">
                                 <thead>
-                                    <tr>
+                                    <tr  class="text-center">
                                         <th>No</th>
                                         <th>Nik</th>
                                         <th>Nama</th>
