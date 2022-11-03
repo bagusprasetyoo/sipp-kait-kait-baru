@@ -38,10 +38,20 @@
                             <div class="form-group row">
                                 <label for="exampleFormJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="jenis_kelamin" id="exampleFormJenisKelamin">
-                                        <option>-Pilih-</option>
-                                        <option>Laki-Laki</option>
-                                        <option>Perempuan</option>
+                                    <select class="form-control" name="jenis_kelamin">
+                                        <?php if ($penduduk['jenis_kelamin'] == 'Laki-Laki') { ?>
+                                            <option value="">-Pilih-</option>
+                                            <option value="Laki-Laki" selected>Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        <?php } else if ($penduduk['jenis_kelamin'] == 'Laki-Laki') { ?>
+                                            <option value="">-Pilih-</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan" selected>Perempuan</option>
+                                        <?php } else { ?>
+                                            <option value="" selected>-Pilih-</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>

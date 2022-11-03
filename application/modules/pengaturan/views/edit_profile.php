@@ -1,3 +1,4 @@
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -9,9 +10,10 @@
                     <img class="profile-user-img img-fluid img-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Username</h3>
+                <h3 class="profile-username text-center"><?= $this->fungsi->user_login()->nama; ?></h3>
 
-                <p class="text-muted text-center">Role</p>
+                <p class="text-muted text-center"><?= $user['role']; ?></p>
+                <?= $this->session->flashdata('pesan'); ?>
 
                 <!-- <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
@@ -19,35 +21,39 @@
                     </li>
                 </ul> -->
                 <form class="form-horizontal">
+                <form class="form-horizontal" action="<?= base_url('pengaturan/edit_profile') ?>" method="post">
                     <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                        <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nama" placeholder="nama" value="<?= $this->fungsi->user_login()->nama; ?>" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">NIK</label>
+                        <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $user['nik']; ?>">
+                            <?= form_error('nik', '<small class="text-danger pl-3">','</small>'); ?>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Email</label>
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="email" placeholder="Email" value="<?= $user['email']; ?>">
+                            <?= form_error('email', '<small class="text-danger pl-3">','</small>'); ?>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">No Handphone</label>
+                        <label for="nohp" class="col-sm-2 col-form-label">No Handphone</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nohp" placeholder="No Handphone" value="<?= $user['no_hp']; ?>">
+                            <?= form_error('nohp', '<small class="text-danger pl-3">','</small>'); ?>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Gambar Profil</label>
+                        <label for="file" class="col-sm-2 col-form-label">Gambar Profil</label>
                         <div class="col-sm-10">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="image"">
+                                <input type="file" class="custom-file-input" name="image" value="<?= $user['image']; ?>">
                                 <label class=" custom-file-label" for="image">Ubah Gambar</label>
                             </div>
                         </div>
@@ -60,6 +66,7 @@
                                 Simpan Perubahan</button>
                         </div>
                     </div>
+                </form>
                 </form>
             </div>
             <!-- /.card-body -->

@@ -42,6 +42,14 @@
 <!-- date-range-picker -->
 <script src="<?= base_url('assets/'); ?>plugins/daterangepicker/daterangepicker.js"></script>
 
+<!-- custom file profile -->
+<script>
+    $('.custom-file-input').on('change', function(){
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+</script>
+
 <!-- table page script -->
 <script>
     $(function() {
