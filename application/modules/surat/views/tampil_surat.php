@@ -7,14 +7,16 @@
 
                     <!-- /.content-header -->
                     <div class="content-header">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <a href="<?= base_url('surat/add_surat'); ?>" class="btn btn-success"> + Buat
-                                        Surat </a>
+                        <?php if ($this->fungsi->user_login()->role == 'Pengguna') { ?>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="<?= base_url('surat/add_surat'); ?>" class="btn btn-success"> + Buat
+                                            Surat </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -41,7 +43,11 @@
                                             <td><?= $data->nik; ?></td>
                                             <td><?= $data->nama; ?></td>
                                             <td><?= $data->tanggal_surat; ?></td>
-                                            <td></td>
+                                            <td>
+                                                <?php if ($data->valid_RT == '1') { ?>
+                                                    
+                                                <?php } ?>
+                                            </td>
                                             <td></td>
                                             <td><span class="badge bg-info"><?= $data->status; ?></span></td>
                                             <td>

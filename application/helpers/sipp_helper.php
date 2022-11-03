@@ -26,3 +26,12 @@ function check_admin()
         redirect('dashboard');
     }
 }
+
+function check_pengguna()
+{
+    $ci = &get_instance();
+    $ci->load->library('fungsi');
+    if ($ci->fungsi->user_login()->role != 'Pengguna') {
+        redirect('dashboard');
+    }
+}

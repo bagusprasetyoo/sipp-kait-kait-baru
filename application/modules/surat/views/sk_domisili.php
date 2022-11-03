@@ -16,12 +16,13 @@
                                 <label>NIK</label>
                                 <select name="nik" class="select2 form-control custom-select" required>
                                     <?php
-                                    foreach ($penduduk as $penduduk) :
+                                    foreach ($penduduk as $penduduk) : {
                                     ?>
-                                        <option value="<?php echo $penduduk->nik; ?>">
-                                            <?php echo $penduduk->nik; ?> - <?php echo $penduduk->nama; ?>
-                                        </option>
+                                            <option value="<?php echo $penduduk->nik; ?>">
+                                                <?php echo $penduduk->nik; ?> - <?php echo $penduduk->nama; ?>
+                                            </option>
                                     <?php
+                                        }
                                     endforeach;
                                     ?>
                                 </select>

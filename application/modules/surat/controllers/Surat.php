@@ -27,6 +27,7 @@ class Surat extends CI_Controller
 
     public function add_surat()
     {
+        check_pengguna();
         $data['title'] = 'Buat Surat';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
@@ -37,6 +38,7 @@ class Surat extends CI_Controller
 
     public function sk_domisili()
     {
+        check_pengguna();
         $data['title'] = 'Surat Keterangan Domisili';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
