@@ -14,7 +14,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" required>
+                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -86,7 +86,7 @@
                                 <label for="exampleFormAgama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="agama" id="exampleFormAgama">
-                                    <?php $agama = $this->input->post('agama') ? $this->input->post('agama') : $row->agama; ?>
+                                        <?php $agama = $this->input->post('agama') ? $this->input->post('agama') : $row->agama; ?>
                                         <option value="">-Pilih-</option>
                                         <option value="Islam" <?= $agama == 'Islam' ? "selected" : null; ?>>Islam</option>
                                         <option value="Kristen Protestan" <?= $agama == 'Kristen Protestan' ? "selected" : null; ?>>Kristen Protestan</option>
@@ -102,7 +102,7 @@
                                 <label class="col-sm-2 col-form-label">Status Perkawinan</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="status_nikah" id="status_nikah">
-                                    <?php $status_nikah = $this->input->post('status_nikah') ? $this->input->post('status_nikah') : $row->status_nikah; ?>
+                                        <?php $status_nikah = $this->input->post('status_nikah') ? $this->input->post('status_nikah') : $row->status_nikah; ?>
                                         <option value="">-Pilih-</option>
                                         <option value="Belum Kawin" <?= $status_nikah == 'Belum Kawin' ? "selected" : null; ?>>Belum Kawin</option>
                                         <option value="Kawin" <?= $status_nikah == 'Kawin' ? "selected" : null; ?>>Kawin</option>
@@ -128,7 +128,7 @@
                                 <label class="col-sm-2 col-form-label">Golongan Darah</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="gol_darah" id="gol_darah">
-                                    <?php $gol_darah = $this->input->post('gol_darah') ? $this->input->post('gol_darah') : $row->gol_darah; ?>
+                                        <?php $gol_darah = $this->input->post('gol_darah') ? $this->input->post('gol_darah') : $row->gol_darah; ?>
                                         <option value="">-Pilih-</option>
                                         <option value="A" <?= $gol_darah == 'A' ? "selected" : null; ?>>A</option>
                                         <option value="B" <?= $gol_darah == 'B' ? "selected" : null; ?>>B</option>

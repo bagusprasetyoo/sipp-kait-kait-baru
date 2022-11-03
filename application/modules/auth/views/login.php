@@ -47,9 +47,9 @@
 
         </form>
         <hr>
-        <p class="mb-1">
+        <!-- <p class="mb-1">
           <a href="forgot-password.html">Lupa password</a>
-        </p>
+        </p> -->
         <p class="mb-0">
           Belum memiliki akun? <a href="<?= base_url('auth/registration'); ?>" class="text-center">Silahkan registrasi</a>
         </p>
