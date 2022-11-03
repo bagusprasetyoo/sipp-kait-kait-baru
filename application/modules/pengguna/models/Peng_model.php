@@ -14,9 +14,18 @@ class Peng_model extends CI_Model
         return $query;
     }
 
-    public function delete($nik)
+    public function edit_peng($post)
     {
-        $this->db->where('nik', $nik);
-        $this->db->delete('tb_penduduk');
+        $params['email'] = $post['email'];
+        $params['no_hp'] = $post['nohp'];
+        $params['role'] = $post['role'];
+        $this->db->where('id_pengguna', $post['idpengguna']);
+        $this->db->update('tb_pengguna', $params);
+    }
+
+    public function delPeng($id)
+    {
+        $this->db->where('id_pengguna', $id);
+        $this->db->delete('tb_pengguna');
     }
 }

@@ -40,13 +40,15 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <?php if ($this->session->userdata('role') == 'Admin' || $this->session->userdata('role') == 'Kepala Desa' || $this->session->userdata('role') == 'RT') { ?>
+                <?php if ($this->fungsi->user_login()->role == 'Admin' || $this->fungsi->user_login()->role == 'Kepala Desa' || $this->fungsi->user_login()->role == 'RT') { ?>
                     <li class="nav-item">
                         <a href="<?= base_url('penduduk/tampil_pend'); ?>" class="nav-link">
                             <i class="nav-icon fas fa-address-card"></i>
                             <p>Data Penduduk</p>
                         </a>
                     </li>
+                <?php }
+                if ($this->fungsi->user_login()->role == 'Admin') { ?>
                     <li class="nav-item">
                         <a href="<?= base_url('pengguna/tampil_peng'); ?>" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
@@ -60,7 +62,7 @@
                         <p>Surat</p>
                     </a>
                 </li>
-                <?php if ($this->session->userdata('role') == 'Admin' || $this->session->userdata('role') == 'Kepala Desa' || $this->session->userdata('role') == 'RT') { ?>
+                <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-building"></i>

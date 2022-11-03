@@ -7,18 +7,42 @@ class Surat extends CI_Controller
     {
         parent::__construct();
         $this->load->model('surat_model');
+        //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
+        $this->load->model('pengguna/peng_model');
+        check_not_login();
     }
 
     public function tampil_surat()
     {
-        $data['row'] = $this->surat_model->getSurat();
+        $data['row'] = $this->surat_model->get_surat();
 
+        $data['penduduk'] = $this->surat_model->view_penduduk();
         $data['title'] = 'Data Surat';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
-        $this->load->view('penduduk/tampil_pend', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/tampil_surat', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function add_surat()
+    {
+        $data['title'] = 'Buat Surat';
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/add_surat', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function sk_domisili()
+    {
+        $data['title'] = 'Surat Keterangan Domisili';
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/sk_domisili', $data);
+        $this->load->view('template/user_footer');
     }
 
     public function delete($nosurat)

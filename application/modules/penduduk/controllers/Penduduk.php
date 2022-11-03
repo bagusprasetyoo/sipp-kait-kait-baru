@@ -9,6 +9,7 @@ class Penduduk extends CI_Controller
         $this->load->model('pend_model');
         //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
         $this->load->model('pengguna/peng_model');
+        check_not_login();
     }
 
     public function tampil_pend()
@@ -17,15 +18,17 @@ class Penduduk extends CI_Controller
 
         $data['title'] = 'Data Penduduk';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
         $this->load->view('penduduk/tampil_pend', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 
     public function add_pend()
     {
-        /*dikarenakan form tambah & edit dijadikan satu 
+        check_admin();
+        /*dikarenakan 
+        form tambah & edit dijadikan satu 
         kita inisialisasikan untuk membedakan
         */
         //lempar data null untuk  tambah data
@@ -54,14 +57,15 @@ class Penduduk extends CI_Controller
 
         $data['title'] = ' Tambah Data Penduduk';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
         $this->load->view('penduduk/form_pend', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 
     public function edit($nik)
     {
+        check_admin();
         $query = $this->pend_model->getPend($nik);
         if ($query->num_rows() > 0) {
             $penduduk = $query->row();
@@ -71,15 +75,16 @@ class Penduduk extends CI_Controller
             );
             $data['title'] = 'Edit Data Penduduk';
             $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-            $this->load->view('templates/user_header', $data);
-            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
             $this->load->view('penduduk/form_pend', $data);
-            $this->load->view('templates/user_footer');
+            $this->load->view('template/user_footer');
         }
     }
 
     public function process()
     {
+        check_admin();
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
             $this->pend_model->add($post);
@@ -98,6 +103,7 @@ class Penduduk extends CI_Controller
 
     public function delete($nik)
     {
+        check_admin();
         $query = $this->pend_model->delete($nik);
         if ($query = true) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">

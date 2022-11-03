@@ -10,53 +10,40 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url('pengguna/add_peng') ?>" method="post">
+                    <form class="form-horizontal" action="" method="post">
                         <div class="card-body">
 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= set_value('nik'); ?>">
+                                    <input type="hidden" name="idpengguna" value="<?= $row->id_pengguna; ?>">
+                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $this->input->post('nik') ?? $row->nik; ?>" readonly>
                                     <?= form_error('nik') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="email" placeholder="Email" value="<?= set_value('email'); ?>">
+                                    <input type="text" class="form-control" name="email" placeholder="Email" value="<?= $this->input->post('email') ?? $row->email; ?>">
                                     <?= form_error('email') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">No Handphone</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nohp" placeholder="No Handphone" value="<?= set_value('nohp'); ?>">
+                                    <input type="text" class="form-control" name="nohp" placeholder="No Handphone" value="<?= $this->input->post('nohp') ?? $row->no_hp; ?>">
                                     <?= form_error('nohp') ?>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password" placeholder="Password" value="<?= set_value('password'); ?>">
-                                    <?= form_error('password') ?>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Tulis Ulang Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="passconf" placeholder="Tulis ulang password" value="<?= set_value('passconf'); ?>">
-                                    <?= form_error('passconf') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Role</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="role">
-                                        <option value="">-Pilih-</option>
-                                        <option value="Pengguna" <?= set_value('role') == 'Pengguna' ? "selected" : null; ?>>Pengguna</option>
-                                        <option value="RT" <?= set_value('role') == 'RT' ? "selected" : null; ?>>RT</option>
-                                        <option value="Kepala Desa" <?= set_value('role') == 'Kepala Desa' ? "selected" : null; ?>>Kepala Desa</option>
-                                        <option value="Admin" <?= set_value('role') == 'Admin' ? "selected" : null; ?>>Admin</option>
+                                        <?php $role = $this->input->post('role') ? $this->input->post('role') : $row->role; ?>
+                                        <option value="Pengguna" <?= $role == 'Pengguna' ? "selected" : null; ?>>Pengguna</option>
+                                        <option value="RT" <?= $role == 'RT' ? "selected" : null; ?>>RT</option>
+                                        <option value="Kepala Desa" <?= $role == 'Kepala Desa' ? "selected" : null; ?>>Kepala Desa</option>
+                                        <option value="Admin" <?= $role == 'Admin' ? "selected" : null; ?>>Admin</option>
                                     </select>
                                     <?= form_error('role') ?>
                                 </div>
