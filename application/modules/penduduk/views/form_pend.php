@@ -39,19 +39,12 @@
                                 <label for="exampleFormJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="jenis_kelamin">
-                                        <?php if ($penduduk['jenis_kelamin'] == 'Laki-Laki') { ?>
-                                            <option value="">-Pilih-</option>
-                                            <option value="Laki-Laki" selected>Laki-Laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        <?php } else if ($penduduk['jenis_kelamin'] == 'Laki-Laki') { ?>
-                                            <option value="">-Pilih-</option>
-                                            <option value="Laki-Laki">Laki-Laki</option>
-                                            <option value="Perempuan" selected>Perempuan</option>
-                                        <?php } else { ?>
-                                            <option value="" selected>-Pilih-</option>
-                                            <option value="Laki-Laki">Laki-Laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        <?php } ?>
+                                        <?php $jenis_kelamin = $this->input->post('jenis_kelamin') ? $this->input->post('jenis_kelamin') : $row->jenis_kelamin; ?>
+                                        <option value="">-Pilih-</option>
+                                        <option value="Laki-Laki" <?= $jenis_kelamin == 'Laki-Laki' ? "selected" : null; ?>>Laki - laki</option>
+                                        <option value="Perempuan" <?= $jenis_kelamin == 'Perempuan' ? "selected" : null; ?>>Perempuan</option>
+                                    </select>
+                                    <?= form_error('role') ?>
                                     </select>
                                 </div>
                             </div>
@@ -93,26 +86,30 @@
                                 <label for="exampleFormAgama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="agama" id="exampleFormAgama">
-                                        <option>-Pilih-</option>
-                                        <option>Islam</option>
-                                        <option>Kristen Protestan</option>
-                                        <option>Katolik</option>
-                                        <option>Hindu</option>
-                                        <option>Buddha</option>
-                                        <option>Konghucu</option>
+                                    <?php $agama = $this->input->post('agama') ? $this->input->post('agama') : $row->agama; ?>
+                                        <option value="">-Pilih-</option>
+                                        <option value="Islam" <?= $agama == 'Islam' ? "selected" : null; ?>>Islam</option>
+                                        <option value="Kristen Protestan" <?= $agama == 'Kristen Protestan' ? "selected" : null; ?>>Kristen Protestan</option>
+                                        <option value="Katolik" <?= $agama == 'Katolik' ? "selected" : null; ?>>Katolik</option>
+                                        <option value="Hindu" <?= $agama == 'Hindu' ? "selected" : null; ?>>Hindu</option>
+                                        <option value="Buddha" <?= $agama == 'Buddha' ? "selected" : null; ?>>Buddha</option>
+                                        <option value="Konghucu" <?= $agama == 'Konghucu' ? "selected" : null; ?>>Konghucu</option>
                                     </select>
+                                    <?= form_error('role') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Status Perkawinan</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="status_nikah" id="status_nikah">
-                                        <option>-Pilih-</option>
-                                        <option>Belum Kawin</option>
-                                        <option>Kawin</option>
-                                        <option>Cerai Hidup</option>
-                                        <option>Cerai Mati</option>
+                                    <?php $status_nikah = $this->input->post('status_nikah') ? $this->input->post('status_nikah') : $row->status_nikah; ?>
+                                        <option value="">-Pilih-</option>
+                                        <option value="Belum Kawin" <?= $status_nikah == 'Belum Kawin' ? "selected" : null; ?>>Belum Kawin</option>
+                                        <option value="Kawin" <?= $status_nikah == 'Kawin' ? "selected" : null; ?>>Kawin</option>
+                                        <option value="Cerai Hidup" <?= $status_nikah == 'Cerai Hidup' ? "selected" : null; ?>>Cerai Hidup</option>
+                                        <option value="Cerai Mati" <?= $status_nikah == 'Cerai Mati' ? "selected" : null; ?>>Cerai Mati</option>
                                     </select>
+                                    <?= form_error('role') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -131,12 +128,14 @@
                                 <label class="col-sm-2 col-form-label">Golongan Darah</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="gol_darah" id="gol_darah">
-                                        <option>-Pilih-</option>
-                                        <option>A</option>
-                                        <option>B</option>
-                                        <option>O</option>
-                                        <option>AB</option>
+                                    <?php $gol_darah = $this->input->post('gol_darah') ? $this->input->post('gol_darah') : $row->gol_darah; ?>
+                                        <option value="">-Pilih-</option>
+                                        <option value="A" <?= $gol_darah == 'A' ? "selected" : null; ?>>A</option>
+                                        <option value="B" <?= $gol_darah == 'B' ? "selected" : null; ?>>B</option>
+                                        <option value="O" <?= $gol_darah == 'O' ? "selected" : null; ?>>O</option>
+                                        <option value="AB" <?= $gol_darah == 'AB' ? "selected" : null; ?>>AB</option>
                                     </select>
+                                    <?= form_error('role') ?>
                                 </div>
                             </div>
                         </div>

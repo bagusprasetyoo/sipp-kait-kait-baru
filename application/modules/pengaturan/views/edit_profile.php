@@ -31,7 +31,7 @@
                     <div class="form-group row">
                         <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $user['nik']; ?>">
+                            <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $user['nik']; ?>" readonly>
                             <?= form_error('nik', '<small class="text-danger pl-3">','</small>'); ?>
                         </div>
                     </div>

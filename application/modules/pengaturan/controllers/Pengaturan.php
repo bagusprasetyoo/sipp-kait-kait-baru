@@ -16,9 +16,9 @@ class Pengaturan extends CI_Controller
     {
         $data['title'] = 'Pengaturan Profile';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-        $this->load->view('templates/user_header', $data);
-        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
         $this->load->view('pengaturan/edit_profile', $data);
-        $this->load->view('templates/user_footer');
+        $this->load->view('template/user_footer');
     }
 }
