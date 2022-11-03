@@ -21,4 +21,5 @@ class Pengaturan extends CI_Controller
         $this->load->view('pengaturan/edit_profile', $data);
         $this->load->view('template/user_footer');
     }
+
 }
