@@ -22,7 +22,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-dark navbar-green">
             <div class="container">
                 <a href="userberanda.html" class="navbar-brand">
-                    <img src="<?= base_url('assets/'); ?>/img/logoTala.svg" alt="AdminLTE Logo" class="brand-image ">
+                    <img src="<?= base_url('assets/'); ?>/img/logoTala.svg" alt="Tanah Laut Logo" class="brand-image ">
                     <span class="brand-text font-weight-light"><b>SIPP Desa Kait-Kait Baru</b></span>
                 </a>
 
@@ -57,9 +57,8 @@
                         </li>
                     </ul>
 
-                    <!-- Right navbar links -->
+                    <!-- Right navbar links berisi tombol LOGIN DAN DAFTAR/REGISTRASI -->
                     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                        <!--Nama Pengguna dan Dropdown Profile -->
                         <li class="nav-item">
                             <a href="<?= base_url('auth/login'); ?>" class="btn btn-outline-light mx-2 btn-flat" style="color: #eaeaea;">LOGIN</a>
                         </li>
@@ -67,7 +66,6 @@
                             <a href="<?= base_url('auth/registration'); ?>" class="btn btn-light btn-flat text-green">DAFTAR</a>
                         </li>
                     </ul>
-
                 </div>
         </nav>
         <!-- /.navbar -->
