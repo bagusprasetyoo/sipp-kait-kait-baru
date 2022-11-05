@@ -7,14 +7,13 @@ class Surat extends CI_Controller
     {
         parent::__construct();
         $this->load->model('surat_model');
-        //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
-        $this->load->model('pengguna/peng_model');
+        $this->load->model('penduduk/pend_model');
         check_not_login();
     }
 
-    public function tampil_surat()
+    public function show()
     {
-        $data['row'] = $this->surat_model->get_surat();
+        $data['row'] = $this->surat_model->get();
 
         $data['penduduk'] = $this->surat_model->view_penduduk();
         $data['title'] = 'Data Surat';
@@ -25,9 +24,11 @@ class Surat extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
-    public function add_surat()
+    public function add()
     {
         check_pengguna();
+        $data['row'] = $this->pend_model->get();
+
         $data['title'] = 'Buat Surat';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
@@ -39,6 +40,8 @@ class Surat extends CI_Controller
     public function sk_domisili()
     {
         check_pengguna();
+        $data['penduduk'] = $this->db->get_where('tb_penduduk', ['nik' => $this->session->userdata('nik')])->row_array();
+
         $data['title'] = 'Surat Keterangan Domisili';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
@@ -47,14 +50,16 @@ class Surat extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
-    public function delete($nosurat)
+    public function delete()
     {
-        $query = $this->surat_model->delete($nosurat);
-        if ($query = true) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-          Data Berhasil diHapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button></div>');
-            redirect('surat');
+        $id = $this->input->post('id_surat');
+        $this->surat_model->delete($id);
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-trash"></i> Data berhasil dihapus.</small></div>');
+            redirect('surat/show');
         }
     }
 }

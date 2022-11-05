@@ -3,14 +3,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <?= $this->session->flashdata('message'); ?>
+                <?= $this->session->flashdata('alert_peng'); ?>
                 <div class="card card-success">
                     <div class="card-header">
                         <h3 class="card-title"><?= $title; ?></h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url('pengguna/add_peng') ?>" method="post">
+                    <form class="form-horizontal" action="<?= base_url('pengguna/add') ?>" method="post">
                         <div class="card-body">
 
                             <div class="form-group row">
@@ -65,7 +65,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" name="pengguna" class="btn btn-success">Simpan</i></button>
-                            <a href="<?= base_url('pengguna/tampil_peng'); ?>" class="btn btn-secondary">Kembali</i></a>
+                            <a href="<?= base_url('pengguna/show'); ?>" class="btn btn-secondary">Kembali</i></a>
                         </div>
                         <!-- /.card-footer -->
                     </form>

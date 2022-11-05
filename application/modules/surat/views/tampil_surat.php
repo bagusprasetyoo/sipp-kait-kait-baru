@@ -11,7 +11,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <a href="<?= base_url('surat/add_surat'); ?>" class="btn btn-success"> + Buat
+                                        <a href="<?= base_url('surat/add'); ?>" class="btn btn-success"> + Buat
                                             Surat </a>
                                     </div>
                                 </div>
@@ -42,20 +42,40 @@
                                             <td><?= $data->jenis_surat; ?></td>
                                             <td><?= $data->nik; ?></td>
                                             <td><?= $data->nama; ?></td>
-                                            <td><?= $data->tanggal_surat; ?></td>
-                                            <td>
-                                                <?php if ($data->valid_RT == '1') { ?>
-                                                    
+                                            <td><?= date('d-m-Y', strtotime($data->tanggal_surat)); ?></td>
+                                            <td class="text-center">
+                                                <?php if ($data->valid_rt == '1') { ?>
+                                                    <i class="fa-solid fa-check text-success"></i>
+                                                <?php } else { ?>
+                                                    <i class="fa-solid fa-clock text-warning"></i>
                                                 <?php } ?>
                                             </td>
-                                            <td></td>
-                                            <td><span class="badge bg-info"><?= $data->status; ?></span></td>
+                                            <td class="text-center">
+                                                <?php if ($data->valid_kades == '1') { ?>
+                                                    <i class="fa-solid fa-check text-success"></i>
+                                                <?php } else { ?>
+                                                    <i class="fa-solid fa-clock text-warning"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($data->valid_rt == '1' && $data->valid_kades == '0') { ?>
+                                                    <span class="badge bg-info">Diterima</span>
+                                                <?php } else if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
+                                                    <span class="badge bg-success">Selesai</span>
+                                                <?php } else { ?>
+                                                    <span class="badge bg-warning">Menunggu</span>
+                                                <?php }  ?>
+
+                                            </td>
                                             <td>
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend">
                                                     <i class="fas fa-eye"></i></button>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                    <form action="<?= base_url('surat/delete') ?>" method="post">
+                                                        <input type="hidden" name="id_surat" value="<?= $data->id_surat; ?>">
+                                                        <button onclick="return confirm('Apakah anda yakin ingin menghapus data?')" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                                    </form>
                                                 <?php } ?>
                                                 <?php if ($this->fungsi->user_login()->role == 'RT') { ?>
                                                     <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-check"></i></a>

@@ -3,16 +3,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <?= $this->session->flashdata('alert_pend'); ?>
                 <div class="card">
-
                     <!-- /.content-header -->
-                    <?= $this->session->flashdata('pesan'); ?>
                     <div class="content-header">
                         <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <a href="<?= base_url('penduduk/add_pend'); ?>" class="btn btn-success">+ Tambah
+                                        <a href="<?= base_url('penduduk/add'); ?>" class="btn btn-success">+ Tambah
                                             Data Penduduk</a>
                                     </div>
                                 </div>
@@ -27,7 +26,6 @@
                             <table id="example1" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        
                                         <th>Nik</th>
                                         <th>Nama</th>
                                         <th>Tempat Lahir</th>
@@ -83,7 +81,11 @@
                         <div class="modal-body">
                             <table class="table table-borderless table-sm">
                                 <tr>
-                                    <th style="width:50%">NIK</th>
+                                    <th style="width:50%">No KK</th>
+                                    <td><?= $data->nokk; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>NIK/No KTP</th>
                                     <td><?= $data->nik; ?></td>
                                 </tr>
                                 <tr>
@@ -126,8 +128,12 @@
                                     <td><?= $data->desa; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Kecamatan-Kabupaten</th>
-                                    <td><?= $data->kec_kab; ?></td>
+                                    <th>Kecamatan</th>
+                                    <td>Bati-Bati</td>
+                                </tr>
+                                <tr>
+                                    <th>Kabupaten</th>
+                                    <td>Tanah Laut</td>
                                 </tr>
                                 <tr class="border-bottom">
                                     <th>Provinsi</th>
@@ -160,6 +166,14 @@
                                 <tr>
                                     <th>Gol. Darah</th>
                                     <td><?= $data->gol_darah; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ayah</th>
+                                    <td><?= $data->nama_ayah; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ibu</th>
+                                    <td><?= $data->nama_ibu; ?></td>
                                 </tr>
                             </table>
                         </div>

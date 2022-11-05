@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pend_model extends CI_Model
 {
-    public function getPend($id = null)
+    public function get($id = null)
     {
         $this->db->from('tb_penduduk');
         if ($id != null) {
@@ -17,7 +17,7 @@ class Pend_model extends CI_Model
     {
         $params = [
             'nik' => $post['nik'],
-            'no_kk' => $post['no_kk'],
+            'nokk' => $post['nokk'],
             'nama' => $post['nama'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
@@ -25,9 +25,9 @@ class Pend_model extends CI_Model
             'alamat' => $post['alamat'],
             'rt' => $post['rt'],
             'rw' => $post['rw'],
-            'desa' => $post['desa'],
             'dusun' => $post['dusun'],
-            'kec_kab' => $post['kec_kab'],
+            'desa' => 'Desa Kait-Kait Baru',
+            'kec_kab_prov' => 'Kecamatan Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan',
             'agama' => $post['agama'],
             'status_nikah' => $post['status_nikah'],
             'pekerjaan' => $post['pekerjaan'],
@@ -35,6 +35,8 @@ class Pend_model extends CI_Model
             'nama_ayah' => $post['nama_ayah'],
             'nama_ibu' => $post['nama_ibu'],
             'gol_darah' => $post['gol_darah'],
+            'nama_ayah' => $post['nama_ayah'],
+            'nama_ibu' => $post['nama_ibu'],
         ];
         $this->db->insert('tb_penduduk', $params);
     }
@@ -43,7 +45,7 @@ class Pend_model extends CI_Model
     {
         $params = [
             'nik' => $post['nik'],
-            'no_kk' => $post['no_kk'],
+            'nokk' => $post['nokk'],
             'nama' => $post['nama'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
@@ -51,9 +53,9 @@ class Pend_model extends CI_Model
             'alamat' => $post['alamat'],
             'rt' => $post['rt'],
             'rw' => $post['rw'],
-            'desa' => $post['desa'],
             'dusun' => $post['dusun'],
-            'kec_kab' => $post['kec_kab'],
+            'desa' => 'Desa Kait-Kait Baru',
+            'kec_kab_prov' => 'Kecamatan Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan',
             'agama' => $post['agama'],
             'status_nikah' => $post['status_nikah'],
             'pekerjaan' => $post['pekerjaan'],
@@ -61,6 +63,8 @@ class Pend_model extends CI_Model
             'nama_ayah' => $post['nama_ayah'],
             'nama_ibu' => $post['nama_ibu'],
             'gol_darah' => $post['gol_darah'],
+            'nama_ayah' => $post['nama_ayah'],
+            'nama_ibu' => $post['nama_ibu'],
         ];
         $this->db->where('nik', $post['nik']);
         $this->db->update('tb_penduduk', $params);
