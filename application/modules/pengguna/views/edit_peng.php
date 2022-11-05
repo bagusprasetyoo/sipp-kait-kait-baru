@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <?= $this->session->flashdata('message'); ?>
+                <?= $this->session->flashdata('alert_peng'); ?>
                 <div class="card card-success">
                     <div class="card-header">
                         <h3 class="card-title"><?= $title; ?></h3>
@@ -51,8 +51,8 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" name="pengguna" class="btn btn-success">Simpan</i></button>
-                            <a href="<?= base_url('pengguna/tampil_peng'); ?>" class="btn btn-secondary">Kembali</i></a>
+                            <button type="submit" name="pengguna" class="btn btn-success">Simpan Perubahan</i></button>
+                            <a href="<?= base_url('pengguna/show'); ?>" class="btn btn-secondary">Kembali</i></a>
                         </div>
                         <!-- /.card-footer -->
                     </form>

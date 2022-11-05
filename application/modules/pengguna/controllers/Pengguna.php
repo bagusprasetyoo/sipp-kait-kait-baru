@@ -11,9 +11,9 @@ class Pengguna extends CI_Controller
         check_admin();
     }
 
-    public function tampil_peng()
+    public function show()
     {
-        $data['row'] = $this->peng_model->getPeng();
+        $data['row'] = $this->peng_model->get();
 
         $data['title'] = 'Data Pengguna';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
@@ -23,7 +23,7 @@ class Pengguna extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
-    public function add_peng()
+    public function add()
     {
         //rules untuk form validation halaaman Registrasi
         $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]', [
@@ -81,20 +81,20 @@ class Pengguna extends CI_Controller
                 $this->db->insert('tb_pengguna', $data);
 
                 //pesan sebelum redirect
-                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
+                $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <small><i class="icon fas fa-check"></i> Selamat data berhasil ditambahkan.</small></div>');
-                redirect('pengguna/tampil_peng');
+                redirect('pengguna/show');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show">
+                $this->session->set_flashdata('alert_peng', '<div class="alert alert-warning alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum terdata di Data Penduduk</small></div>');
-                redirect('pengguna/add_peng');
+                redirect('pengguna/add');
             }
         }
     }
 
-    public function edit_peng($id)
+    public function edit($id)
     {
         //rules untuk form validation halaaman Registrasi
         $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email', [
@@ -114,7 +114,7 @@ class Pengguna extends CI_Controller
 
         //menampilkan form registrasi
         if ($this->form_validation->run() == false) {
-            $query = $this->peng_model->getPeng($id);
+            $query = $this->peng_model->get($id);
             if ($query->num_rows() > 0) {
                 $data['row'] = $query->row();
                 $data['title'] = 'Edit Data Pengguna';
@@ -129,24 +129,26 @@ class Pengguna extends CI_Controller
             }
         } else {
             $post = $this->input->post(null, TRUE);
-            $this->peng_model->edit_peng($post);
+            $this->peng_model->edit($post);
             if ($this->db->affected_rows() > 0) {
-                echo "<script>alert('Data berhasil disimpan');</script>";
+                $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-check"></i> Data berhasil diedit.</small></div>');
             }
-            echo "<script>window.location='" . base_url('pengguna/tampil_peng') . "';</script>";
+            echo "<script>window.location='" . base_url('pengguna/show') . "';</script>";
         }
     }
 
-    public function delete_peng()
+    public function delete()
     {
         $id = $this->input->post('id_pengguna');
-        $this->peng_model->delPeng($id);
+        $this->peng_model->delete($id);
 
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
+            $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-triangle-exclamation"></i> Data berhasil dihapus.</small></div>');
-            redirect('pengguna/tampil_peng');
+                <small><i class="icon fas fa-trash"></i> Data berhasil dihapus.</small></div>');
+            redirect('pengguna/show');
         }
     }
 }

@@ -7,14 +7,13 @@ class Penduduk extends CI_Controller
     {
         parent::__construct();
         $this->load->model('pend_model');
-        //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
         $this->load->model('pengguna/peng_model');
         check_not_login();
     }
 
-    public function tampil_pend()
+    public function show()
     {
-        $data['row'] = $this->pend_model->getPend();
+        $data['row'] = $this->pend_model->get();
 
         $data['title'] = 'Data Penduduk';
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
@@ -24,7 +23,7 @@ class Penduduk extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
-    public function add_pend()
+    public function add()
     {
         check_admin();
         /*dikarenakan 
@@ -34,6 +33,7 @@ class Penduduk extends CI_Controller
         //lempar data null untuk  tambah data
         $penduduk = new stdClass();
         $penduduk->nik = null;
+        $penduduk->nokk = null;
         $penduduk->nama = null;
         $penduduk->tempat_lahir = null;
         $penduduk->tanggal_lahir = null;
@@ -41,14 +41,14 @@ class Penduduk extends CI_Controller
         $penduduk->alamat = null;
         $penduduk->rt = null;
         $penduduk->rw = null;
-        $penduduk->desa = null;
         $penduduk->dusun = null;
-        $penduduk->kec_kab = "Kecamatan Bati-Bati Kabupaten Tanah Laut";
         $penduduk->agama = null;
         $penduduk->status_nikah = null;
         $penduduk->pekerjaan = null;
         $penduduk->kewarganegaraan = null;
         $penduduk->gol_darah = null;
+        $penduduk->nama_ayah = null;
+        $penduduk->nama_ibu = null;
 
         $data = array(
             'page' => 'add',
@@ -66,7 +66,7 @@ class Penduduk extends CI_Controller
     public function edit($nik)
     {
         check_admin();
-        $query = $this->pend_model->getPend($nik);
+        $query = $this->pend_model->get($nik);
         if ($query->num_rows() > 0) {
             $penduduk = $query->row();
             $data = array(
@@ -87,17 +87,32 @@ class Penduduk extends CI_Controller
         check_admin();
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
-            $this->pend_model->add($post);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_penduduk.nik]', [
+                'required' => 'NIK harus diisi !',
+                'is_unique' => 'NIK sudah ada di data !'
+            ]);
+            //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
+            $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
+
+            //menampilkan form registrasi
+            if ($this->form_validation->run() == false) {
+                $this->session->set_flashdata('alert_pend', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            NIK sudah digunakan!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
+                redirect('penduduk/add');
+            } else {
+                $this->pend_model->add($post);
+                $this->session->set_flashdata('alert_pend', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             Data Berhasil di Tambah!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span></button></div>');
-            redirect('penduduk/tampil_pend');
+                redirect('penduduk/show');
+            }
         } else if (isset($_POST['edit'])) {
             $this->pend_model->edit($post);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            $this->session->set_flashdata('alert_pend', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             Data Berhasil di Edit!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span></button></div>');
-            redirect('penduduk/tampil_pend');
+            redirect('penduduk/show');
         }
     }
 
@@ -106,10 +121,10 @@ class Penduduk extends CI_Controller
         check_admin();
         $query = $this->pend_model->delete($nik);
         if ($query = true) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            $this->session->set_flashdata('alert_pend', '<div class="alert alert-success alert-dismissible fade show" role="alert">
           Data Berhasil di Hapus!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span></button></div>');
-            redirect('penduduk/tampil_pend');
+            redirect('penduduk/show');
         }
     }
 }

@@ -42,7 +42,7 @@
                 </li>
                 <?php if ($this->fungsi->user_login()->role == 'Admin' || $this->fungsi->user_login()->role == 'Kepala Desa' || $this->fungsi->user_login()->role == 'RT') { ?>
                     <li class="nav-item">
-                        <a href="<?= base_url('penduduk/tampil_pend'); ?>" class="nav-link">
+                        <a href="<?= base_url('penduduk/show'); ?>" class="nav-link">
                             <i class="nav-icon fas fa-address-card"></i>
                             <p>Data Penduduk</p>
                         </a>
@@ -50,14 +50,14 @@
                 <?php }
                 if ($this->fungsi->user_login()->role == 'Admin') { ?>
                     <li class="nav-item">
-                        <a href="<?= base_url('pengguna/tampil_peng'); ?>" class="nav-link">
+                        <a href="<?= base_url('pengguna/show'); ?>" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
                             <p>Data Pengguna</p>
                         </a>
                     </li>
                 <?php  } ?>
                 <li class="nav-item">
-                    <a href="<?= base_url('surat/tampil_surat'); ?>" class="nav-link">
+                    <a href="<?= base_url('surat/show'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>Surat</p>
                     </a>

@@ -6,7 +6,6 @@ class Dashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //meload pengguna model untuk mengambil nama (pengguna/ nanti dihapus)  
         $this->load->model('pengguna/peng_model');
     }
 
