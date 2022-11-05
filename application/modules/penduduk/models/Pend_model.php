@@ -17,11 +17,7 @@ class Pend_model extends CI_Model
     {
         $params = [
             'nik' => $post['nik'],
-<<<<<<< HEAD
             'nokk' => $post['nokk'],
-=======
-            'no_kk' => $post['no_kk'],
->>>>>>> 32e3a1b971ee3a7570e3663fc88488374deab4d9
             'nama' => $post['nama'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
@@ -49,11 +45,7 @@ class Pend_model extends CI_Model
     {
         $params = [
             'nik' => $post['nik'],
-<<<<<<< HEAD
             'nokk' => $post['nokk'],
-=======
-            'no_kk' => $post['no_kk'],
->>>>>>> 32e3a1b971ee3a7570e3663fc88488374deab4d9
             'nama' => $post['nama'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
