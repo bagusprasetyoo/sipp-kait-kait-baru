@@ -14,13 +14,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nomor KK</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="no_kk" placeholder="Nomor KK" value="<?= $row->no_kk ?>" required>
+                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -101,6 +95,7 @@
                                         <option value="Buddha" <?= $agama == 'Buddha' ? "selected" : null; ?>>Buddha</option>
                                         <option value="Konghucu" <?= $agama == 'Konghucu' ? "selected" : null; ?>>Konghucu</option>
                                     </select>
+                                    <?= form_error('role') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -114,6 +109,7 @@
                                         <option value="Cerai Hidup" <?= $status_nikah == 'Cerai Hidup' ? "selected" : null; ?>>Cerai Hidup</option>
                                         <option value="Cerai Mati" <?= $status_nikah == 'Cerai Mati' ? "selected" : null; ?>>Cerai Mati</option>
                                     </select>
+                                    <?= form_error('role') ?>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -151,6 +147,7 @@
                                         <option value="O" <?= $gol_darah == 'O' ? "selected" : null; ?>>O</option>
                                         <option value="AB" <?= $gol_darah == 'AB' ? "selected" : null; ?>>AB</option>
                                     </select>
+                                    <?= form_error('role') ?>
                                 </div>
                             </div>
                         </div>
