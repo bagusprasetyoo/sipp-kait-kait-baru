@@ -21,4 +21,6 @@ class Pengaturan extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
+    
+
 }

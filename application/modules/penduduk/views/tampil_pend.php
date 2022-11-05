@@ -89,6 +89,10 @@
                                     <td><?= $data->nik; ?></td>
                                 </tr>
                                 <tr>
+                                    <th>Nomor KK</th>
+                                    <td><?= $data->no_kk; ?></td>
+                                </tr>
+                                <tr>
                                     <th>Nama</th>
                                     <td><?= $data->nama; ?></td>
                                 </tr>
@@ -150,6 +154,14 @@
                                 <tr>
                                     <th>Kewarganegaraan</th>
                                     <td><?= $data->kewarganegaraan; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ayah</th>
+                                    <td><?= $data->nama_ayah; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ibu</th>
+                                    <td><?= $data->nama_ibu; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Gol. Darah</th>

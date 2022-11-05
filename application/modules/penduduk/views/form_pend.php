@@ -15,6 +15,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">No KK</label>
                                 <div class="col-sm-10">
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="nokk" placeholder="No KK" value="<?= $row->nokk ?>" required>
                                 </div>
                             </div>
@@ -23,6 +24,9 @@
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>">
                                     <?= form_error('nik') ?>
+=======
+                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>">
+>>>>>>> 32e3a1b971ee3a7570e3663fc88488374deab4d9
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -99,6 +103,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Dusun</label>
                                 <div class="col-sm-10">
+<<<<<<< HEAD
                                     <select class="form-control" name="dusun">
                                         <?php $rt = $this->input->post('dusun') ? $this->input->post('dusun') : $row->dusun; ?>
                                         <option value="">-Pilih Dusun-</option>
@@ -109,6 +114,15 @@
                                         <option value="V" <?= $rt == 'V' ? "selected" : null; ?>>V</option>
                                         <option value="VI" <?= $rt == 'VI' ? "selected" : null; ?>>VI</option>
                                     </select>
+=======
+                                    <input type="text" class="form-control" name="dusun" placeholder="Dusun" value="<?= $row->dusun ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Kec/Kab</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="kec_kab" placeholder="Kec/Kab" value="<?= $row->kec_kab_prov ?>" required>
+>>>>>>> 32e3a1b971ee3a7570e3663fc88488374deab4d9
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -149,6 +163,18 @@
                                 <label class="col-sm-2 col-form-label">Kewarganegaraan</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="kewarganegaraan" placeholder="Kewarganegaraan" value="<?= $row->kewarganegaraan ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Ayah</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nama_ayah" placeholder="Nama Ayah" value="<?= $row->nama_ayah ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Ibu</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nama_ibu" placeholder="Nama Ibu" value="<?= $row->nama_ibu ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
