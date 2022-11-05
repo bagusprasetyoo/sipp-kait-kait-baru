@@ -17,6 +17,7 @@ class Pend_model extends CI_Model
     {
         $params = [
             'nik' => $post['nik'],
+            'no_kk' => $post['no_kk'],
             'nama' => $post['nama'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
@@ -31,6 +32,8 @@ class Pend_model extends CI_Model
             'status_nikah' => $post['status_nikah'],
             'pekerjaan' => $post['pekerjaan'],
             'kewarganegaraan' => $post['kewarganegaraan'],
+            'nama_ayah' => $post['nama_ayah'],
+            'nama_ibu' => $post['nama_ibu'],
             'gol_darah' => $post['gol_darah'],
         ];
         $this->db->insert('tb_penduduk', $params);
@@ -40,6 +43,7 @@ class Pend_model extends CI_Model
     {
         $params = [
             'nik' => $post['nik'],
+            'no_kk' => $post['no_kk'],
             'nama' => $post['nama'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
@@ -54,6 +58,8 @@ class Pend_model extends CI_Model
             'status_nikah' => $post['status_nikah'],
             'pekerjaan' => $post['pekerjaan'],
             'kewarganegaraan' => $post['kewarganegaraan'],
+            'nama_ayah' => $post['nama_ayah'],
+            'nama_ibu' => $post['nama_ibu'],
             'gol_darah' => $post['gol_darah'],
         ];
         $this->db->where('nik', $post['nik']);

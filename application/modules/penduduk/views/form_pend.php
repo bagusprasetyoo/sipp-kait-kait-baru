@@ -14,7 +14,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" readonly>
+                                    <input type="text" class="form-control" name="nik" placeholder="NIK" value="<?= $row->nik ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nomor KK</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="no_kk" placeholder="Nomor KK" value="<?= $row->no_kk ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -120,6 +126,18 @@
                                 <label class="col-sm-2 col-form-label">Kewarganegaraan</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="kewarganegaraan" placeholder="Kewarganegaraan" value="<?= $row->kewarganegaraan ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Ayah</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nama_ayah" placeholder="Nama Ayah" value="<?= $row->nama_ayah ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Ibu</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nama_ibu" placeholder="Nama Ibu" value="<?= $row->nama_ibu ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">

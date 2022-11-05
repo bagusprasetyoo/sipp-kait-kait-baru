@@ -13,13 +13,8 @@
                 <h3 class="profile-username text-center"><?= $this->fungsi->user_login()->nama; ?></h3>
 
                 <p class="text-muted text-center"><?= $user['role']; ?></p>
+                
                 <?= $this->session->flashdata('pesan'); ?>
-
-                <!-- <ul class="list-group list-group-unbordered mb-3">
-                    <li class="list-group-item">
-                        <b>Bargabung Sejak</b> <a class="float-right">2022</a>
-                    </li>
-                </ul> -->
                 <form class="form-horizontal">
                 <form class="form-horizontal" action="<?= base_url('pengaturan/edit_profile') ?>" method="post">
                     <div class="form-group row">
