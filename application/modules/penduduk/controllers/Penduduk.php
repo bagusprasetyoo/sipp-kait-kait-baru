@@ -32,8 +32,8 @@ class Penduduk extends CI_Controller
         */
         //lempar data null untuk  tambah data
         $penduduk = new stdClass();
-        $penduduk->nik = null;
         $penduduk->nokk = null;
+        $penduduk->nik = null;
         $penduduk->nama = null;
         $penduduk->tempat_lahir = null;
         $penduduk->tanggal_lahir = null;
@@ -42,6 +42,7 @@ class Penduduk extends CI_Controller
         $penduduk->rt = null;
         $penduduk->rw = null;
         $penduduk->dusun = null;
+        $penduduk->kec_kab_prov = null;
         $penduduk->agama = null;
         $penduduk->status_nikah = null;
         $penduduk->pekerjaan = null;

@@ -15,7 +15,6 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">No KK</label>
                                 <div class="col-sm-10">
-<<<<<<< HEAD
                                     <input type="text" class="form-control" name="nokk" placeholder="No KK" value="<?= $row->nokk ?>" required>
                                 </div>
                             </div>
@@ -99,7 +98,6 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Dusun</label>
                                 <div class="col-sm-10">
-<<<<<<< HEAD
                                     <select class="form-control" name="dusun">
                                         <?php $rt = $this->input->post('dusun') ? $this->input->post('dusun') : $row->dusun; ?>
                                         <option value="">-Pilih Dusun-</option>
@@ -110,14 +108,12 @@
                                         <option value="V" <?= $rt == 'V' ? "selected" : null; ?>>V</option>
                                         <option value="VI" <?= $rt == 'VI' ? "selected" : null; ?>>VI</option>
                                     </select>
-=======
-                                    <input type="text" class="form-control" name="dusun" placeholder="Dusun" value="<?= $row->dusun ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Kec/Kab</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kec_kab" placeholder="Kec/Kab" value="<?= $row->kec_kab_prov ?>" required>
+                                    <input type="text" class="form-control" name="kec_kab_prov" placeholder="Kec/Kab/Prov" value="<?= $row->kec_kab_prov ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
