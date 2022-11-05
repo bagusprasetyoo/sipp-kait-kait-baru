@@ -82,12 +82,17 @@
 
 <!-- Script Date Picker -->
 <script>
+
     $(function() {
-        //Date picker
-        $('#reservationdate').datetimepicker({
-            format: 'L'
+        $(document).ready(function(){
+            $('#reservationdate').datetimepicker({
+                format: 'dd/mm/yyyy',
+                todayHightLight: true,
+                language: "id",
+                locale: "id",
+            });
         });
-    })
+    });
 </script>
 
 <script>

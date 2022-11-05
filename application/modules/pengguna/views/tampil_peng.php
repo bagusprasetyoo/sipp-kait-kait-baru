@@ -69,9 +69,9 @@
         <?php foreach ($row->result() as $key => $data) { ?>
             <div class="modal fade" id="modalpend<?= $data->nik; ?>">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Detail Data Penduduk</h4>
+                            <h4 class="modal-title">Detail Data Pengguna</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -79,7 +79,11 @@
                         <div class="modal-body">
                             <table class="table table-borderless table-sm">
                                 <tr>
-                                    <th style="width:50%">NIK</th>
+                                    <th style="width:50%">No KK</th>
+                                    <td><?= $data->nokk; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>NIK/No KTP</th>
                                     <td><?= $data->nik; ?></td>
                                 </tr>
                                 <tr>
@@ -106,7 +110,7 @@
                                     <th>RT/RW</th>
                                     <td>
                                         <?= $data->rt; ?>/
-                                        <?= $data->rt; ?>
+                                        <?= $data->rw; ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -118,8 +122,12 @@
                                     <td><?= $data->desa; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Kecamatan-Kabupaten</th>
-                                    <td><?= $data->kec_kab; ?></td>
+                                    <th>Kecamatan</th>
+                                    <td>Bati-Bati</td>
+                                </tr>
+                                <tr>
+                                    <th>Kabupaten</th>
+                                    <td>Tanah Laut</td>
                                 </tr>
                                 <tr class="border-bottom">
                                     <th>Provinsi</th>
@@ -144,6 +152,14 @@
                                 <tr>
                                     <th>Gol. Darah</th>
                                     <td><?= $data->gol_darah; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ayah</th>
+                                    <td><?= $data->nama_ayah; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ibu</th>
+                                    <td><?= $data->nama_ibu; ?></td>
                                 </tr>
                             </table>
                         </div>

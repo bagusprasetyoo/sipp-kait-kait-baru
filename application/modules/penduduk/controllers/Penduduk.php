@@ -42,6 +42,7 @@ class Penduduk extends CI_Controller
         $penduduk->rt = null;
         $penduduk->rw = null;
         $penduduk->dusun = null;
+        $penduduk->desa = null;
         $penduduk->kec_kab_prov = null;
         $penduduk->agama = null;
         $penduduk->status_nikah = null;
