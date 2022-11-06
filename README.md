@@ -38,7 +38,7 @@ Tim TSA studi kasus `Pelayanan Publik Desa Kait-Kait Baru.`
 - 👩‍💻**Sherly Fitriani**
 - 👩‍💻**Wardati Ulfah**
 
-@bagus.prasetyo, @mauladi19, @rizqi.amalia.fatmaningrum, @sherly.fitriani
+@bagus.prasetyo, @mauladi19, @rizqi.amalia.fatmaningrum, @sherly.fitriani, @wardati.ulfah
 
 - Dosen Pembimbing : **Fathurrahmani, M.Kom**
 
