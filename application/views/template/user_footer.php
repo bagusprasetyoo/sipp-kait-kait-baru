@@ -44,7 +44,7 @@
 
 <!-- custom file profile -->
 <script>
-    $('.custom-file-input').on('change', function(){
+    $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();
         $(this).next('.custom-file-label').addClass("selected").html(fileName);
     });
@@ -70,6 +70,17 @@
     });
 </script>
 
+<!-- table page script -->
+<script>
+    $(function() {
+        $("#example3").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", ]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
 <!-- Script Menampilkan Menu active -->
 <script>
     $(function() {
@@ -82,9 +93,8 @@
 
 <!-- Script Date Picker -->
 <script>
-
     $(function() {
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('#reservationdate').datetimepicker({
                 format: 'dd/mm/yyyy',
                 todayHightLight: true,

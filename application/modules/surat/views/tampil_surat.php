@@ -20,7 +20,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped table-sm">
+                            <table id="example3" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -28,8 +28,8 @@
                                         <th>NIK</th>
                                         <th>Dikirim Oleh</th>
                                         <th>Tanggal Surat</th>
-                                        <th>Validasi RT</th>
-                                        <th>Validasi Kades</th>
+                                        <th>Valid RT</th>
+                                        <th>Valid Kades</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -45,16 +45,16 @@
                                             <td><?= date('d-m-Y', strtotime($data->tanggal_surat)); ?></td>
                                             <td class="text-center">
                                                 <?php if ($data->valid_rt == '1') { ?>
-                                                    <i class="fa-solid fa-check text-success"></i>
+                                                    <span class="badge bg-success"><i class="fas fa-check"></i></span>
                                                 <?php } else { ?>
-                                                    <i class="fa-solid fa-clock text-warning"></i>
+                                                    <span class="badge bg-secondary"><i class="far fa-clock"></i></span>
                                                 <?php } ?>
                                             </td>
                                             <td class="text-center">
                                                 <?php if ($data->valid_kades == '1') { ?>
-                                                    <i class="fa-solid fa-check text-success"></i>
+                                                    <span class="badge bg-success"><i class="fas fa-check"></i></span>
                                                 <?php } else { ?>
-                                                    <i class="fa-solid fa-clock text-warning"></i>
+                                                    <span class="badge bg-secondary"><i class="far fa-clock"></i></span>
                                                 <?php } ?>
                                             </td>
                                             <td>
@@ -68,14 +68,11 @@
 
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend">
-                                                    <i class="fas fa-eye"></i></button>
+                                                <a href="<?= base_url('surat/view_surat/') . $data->id_surat; ?>" class="btn btn-info btn-sm">
+                                                    <i class="fas fa-eye"></i></a>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
-                                                    <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                    <form action="<?= base_url('surat/delete') ?>" method="post">
-                                                        <input type="hidden" name="id_surat" value="<?= $data->id_surat; ?>">
-                                                        <button onclick="return confirm('Apakah anda yakin ingin menghapus data?')" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                    </form>
+                                                    <!-- <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a> -->
+                                                    <a href="<?= base_url('surat/delete/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                 <?php } ?>
                                                 <?php if ($this->fungsi->user_login()->role == 'RT') { ?>
                                                     <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-check"></i></a>

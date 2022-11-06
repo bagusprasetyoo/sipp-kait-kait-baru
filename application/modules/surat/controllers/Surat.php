@@ -63,9 +63,30 @@ class Surat extends CI_Controller
         redirect('surat/show');
     }
 
-    public function delete()
+    public function view_surat($id)
     {
-        $id = $this->input->post('id_surat');
+        //mengambil data surat dari tb_surat
+        $surat = $this->db->get_where('tb_surat', ['id_surat' => $id])->row_array();
+
+        if ($surat['jenis_surat'] == 'SK Domisili') {
+            $isisurat = json_decode($surat['isi_surat']);
+            // var_dump($isisurat->waktumenetap);
+
+            //melempar data $isisurat berupa $row ke view/read/sk_domisili
+            $data['row'] = $isisurat;
+
+            $data['title'] = 'Surat Keterangan Domisili';
+            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
+            $this->load->view('surat/read/sk_domisili', $data);
+            $this->load->view('template/user_footer');
+        }
+    }
+
+    public function delete($id)
+    {
+        check_admin();
         $this->surat_model->delete($id);
 
         if ($this->db->affected_rows() > 0) {
