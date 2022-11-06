@@ -23,14 +23,17 @@ class Surat_model extends CI_Model
     public function add_skdomisili($post)
     {
         $isi = [
+            'nik' => $post['nik'],
             'nama' => $post['nama'],
-            'ttl' => $post['ttl'],
+            'tempat_lahir' => $post['tempat_lahir'],
+            'tanggal_lahir' => $post['tanggal_lahir'],
             'jenis_kelamin' => $post['jenis_kelamin'],
             'agama' => $post['agama'],
             'status_nikah' => $post['status_nikah'],
             'pekerjaan' => $post['pekerjaan'],
             'alamat' => $post['alamat'],
             'waktumenetap' => $post['waktumenetap'],
+            'tanggal_surat' => date('Y-m-d'),
         ];
         $isisurat = json_encode($isi);
         $params = [

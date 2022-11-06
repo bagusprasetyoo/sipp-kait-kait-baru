@@ -25,9 +25,15 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Tempat Lahir/Tanggal Lahir</label>
+                                <label class="col-sm-2 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="ttl" placeholder="Tempat Lahir" value="<?= $penduduk['tempat_lahir']; ?>, <?= $penduduk['tanggal_lahir']; ?>" readonly>
+                                    <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $penduduk['tempat_lahir']; ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir" value="<?= date('d-m-Y', strtotime($penduduk['tanggal_lahir'])); ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -57,7 +63,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Alamat/Tempat Tinggal</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="alamat" placeholder="Alamat/Tempat Tinggal" value="<?= $penduduk['alamat']; ?> RT <?= $penduduk['rt']; ?>/<?= $penduduk['rw']; ?> Dusun <?= $penduduk['dusun']; ?> <?= $penduduk['desa']; ?>" readonly>
+                                    <input type="text" class="form-control" name="alamat" placeholder="Alamat/Tempat Tinggal" value="<?= $penduduk['alamat']; ?> RT <?= $penduduk['rt']; ?>/ RW <?= $penduduk['rw']; ?> Dusun <?= $penduduk['dusun']; ?> <?= $penduduk['desa']; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
