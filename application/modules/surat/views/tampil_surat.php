@@ -71,7 +71,9 @@
                                                 <a href="<?= base_url('surat/view_surat/') . $data->id_surat; ?>" class="btn btn-info btn-sm">
                                                     <i class="fas fa-eye"></i></a>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
-                                                    <!-- <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a> -->
+                                                    <?php if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
+                                                        <a target="blank" href="<?= base_url('surat/print/') . $data->id_surat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-print"></i></a>
+                                                    <?php } ?>
                                                     <a href="<?= base_url('surat/delete/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                 <?php } ?>
                                                 <?php if ($this->fungsi->user_login()->role == 'RT') { ?>

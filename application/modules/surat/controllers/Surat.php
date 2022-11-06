@@ -84,6 +84,24 @@ class Surat extends CI_Controller
         }
     }
 
+    public function print($id)
+    {
+        check_admin();
+        //mengambil data surat dari tb_surat
+        $surat = $this->db->get_where('tb_surat', ['id_surat' => $id])->row_array();
+
+        if ($surat['jenis_surat'] == 'SK Domisili') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            //melempar data $isisurat berupa $row ke view/read/sk_domisili
+            $data['row'] = $isisurat;
+
+            $data['title'] = 'Surat Keterangan Domisili';
+            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+            $this->load->view('surat/print/sk_domisili', $data);
+        }
+    }
+
     public function delete($id)
     {
         check_admin();
