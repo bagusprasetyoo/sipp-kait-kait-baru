@@ -20,6 +20,28 @@ class Surat_model extends CI_Model
         return $query;
     }
 
+    public function add_skdomisili($post)
+    {
+        $isi = [
+            'nama' => $post['nama'],
+            'ttl' => $post['ttl'],
+            'jenis_kelamin' => $post['jenis_kelamin'],
+            'agama' => $post['agama'],
+            'status_nikah' => $post['status_nikah'],
+            'pekerjaan' => $post['pekerjaan'],
+            'alamat' => $post['alamat'],
+            'waktumenetap' => $post['waktumenetap'],
+        ];
+        $isisurat = json_encode($isi);
+        $params = [
+            'jenis_surat' => 'SK Domisili',
+            'isi_surat' => $isisurat,
+            'tanggal_surat' => date('Y-m-d'),
+            'nik' => $post['nik'],
+        ];
+        $this->db->insert('tb_surat', $params);
+    }
+
     public function delete($id)
     {
         $this->db->where('id_surat', $id);

@@ -65,7 +65,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" name="pengguna" class="btn btn-success">Simpan</i></button>
-                            <a href="<?= base_url('pengguna/show'); ?>" class="btn btn-secondary">Kembali</i></a>
+                            <a href="<?= base_url('pengguna/show'); ?>" class="btn btn-secondary">Batal</i></a>
                         </div>
                         <!-- /.card-footer -->
                     </form>

@@ -22,7 +22,6 @@
                                     <tr class="text-center">
                                         <th>No</th>
                                         <th>Nik</th>
-                                        <th>Nama</th>
                                         <th>Email</th>
                                         <th>No HP</th>
                                         <th>Role</th>
@@ -35,8 +34,7 @@
                                     foreach ($row->result() as $key => $data) { ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><?= $data->nik; ?></td>
-                                            <td><?= $data->nama; ?></td>
+                                            <td><a href="" class="text-dark" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>"><strong><?= $data->nik; ?></strong></a></td>
                                             <td><?= $data->email; ?></td>
                                             <td><?= $data->no_hp; ?></td>
                                             <td><?= $data->role; ?></td>
@@ -45,10 +43,7 @@
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <a href="<?= base_url('pengguna/edit/' . $data->id_pengguna); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                <form action="<?= base_url('pengguna/delete') ?>" method="post">
-                                                    <input type="hidden" name="id_pengguna" value="<?= $data->id_pengguna; ?>">
-                                                    <button onclick="return confirm('Apakah anda yakin ingin menghapus data?')" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </form>
+                                                <a href="<?= base_url('pengguna/delete/') . $data->id_pengguna; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -69,7 +64,7 @@
         <?php foreach ($row->result() as $key => $data) { ?>
             <div class="modal fade" id="modalpend<?= $data->nik; ?>">
                 <div class="modal-dialog">
-                <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Detail Data Pengguna</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -78,6 +73,9 @@
                         </div>
                         <div class="modal-body">
                             <table class="table table-borderless table-sm">
+                                <tr class="border-bottom">
+                                    <th>Info Pribadi</th>
+                                </tr>
                                 <tr>
                                     <th style="width:50%">No KK</th>
                                     <td><?= $data->nokk; ?></td>
@@ -88,83 +86,59 @@
                                 </tr>
                                 <tr>
                                     <th>Nama</th>
-                                    <td><?= $data->nama; ?></td>
+                                    <td><strong><?= $data->nama; ?></strong></td>
                                 </tr>
                                 <tr>
-                                    <th>Tempat Lahir</th>
-                                    <td><?= $data->tempat_lahir; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Tanggal Lahir</th>
-                                    <td><?= $data->tanggal_lahir; ?></td>
+                                    <th>Tempat/Tanggal Lahir</th>
+                                    <td><?= $data->tempat_lahir; ?>, <?= date('d-m-Y', strtotime($data->tanggal_lahir)); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Jenis Kelamin</th>
                                     <td><?= $data->jenis_kelamin; ?></td>
                                 </tr>
-                                <tr class="border-top">
+                                <tr>
                                     <th>Alamat</th>
                                     <td><?= $data->alamat; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>RT/RW</th>
+                                    <th>RT/RW/Dusun</th>
                                     <td>
                                         <?= $data->rt; ?>/
-                                        <?= $data->rw; ?>
+                                        <?= $data->rw; ?>/
+                                        <?= $data->dusun; ?>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <th>Dusun</th>
-                                    <td><?= $data->dusun; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Kel/Desa</th>
                                     <td><?= $data->desa; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Kecamatan</th>
-                                    <td>Bati-Bati</td>
+                                    <th></th>
+                                    <td> Kecamatan Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan</td>
+                                </tr>
+                                <tr class="border-top border-bottom">
+                                    <th>Info Pengguna</th>
                                 </tr>
                                 <tr>
-                                    <th>Kabupaten</th>
-                                    <td>Tanah Laut</td>
-                                </tr>
-                                <tr class="border-bottom">
-                                    <th>Provinsi</th>
-                                    <td>Kalimantan Selatan</td>
+                                    <th>Email</th>
+                                    <td><?= $data->email; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Agama</th>
-                                    <td><?= $data->agama; ?></td>
+                                    <th>No Telephone</th>
+                                    <td><?= $data->no_hp; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Status Perkawinan</th>
-                                    <td><?= $data->status_nikah; ?></td>
+                                    <th>Role</th>
+                                    <td><?= $data->role; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Pekerjaan</th>
-                                    <td><?= $data->pekerjaan; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Kewarganegaraan</th>
-                                    <td><?= $data->kewarganegaraan; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Gol. Darah</th>
-                                    <td><?= $data->gol_darah; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Nama Ayah</th>
-                                    <td><?= $data->nama_ayah; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Nama Ibu</th>
-                                    <td><?= $data->nama_ibu; ?></td>
+                                    <th>Bergabung Sejak</th>
+                                    <td><?= date('d-m-Y', strtotime($data->tanggal_daftar)); ?></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="modal-footer right-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                             <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                         </div>
                     </div>

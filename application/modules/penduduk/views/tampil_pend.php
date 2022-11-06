@@ -30,8 +30,9 @@
                                         <th>Nama</th>
                                         <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Jenis Kelamin</th>
+                                        <th>JK</th>
                                         <th>Alamat</th>
+                                        <th>RT/RW</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -42,8 +43,9 @@
                                             <td><?= $data->nama; ?></td>
                                             <td><?= $data->tempat_lahir; ?></td>
                                             <td><?= date('d-m-Y', strtotime($data->tanggal_lahir)); ?></td>
-                                            <td><?= $data->jenis_kelamin; ?></td>
+                                            <td><?php if ($data->jenis_kelamin == 'Laki-Laki') { ?>LK<?php } else { ?>PR<?php } ?></td>
                                             <td><?= $data->alamat; ?></td>
+                                            <td><?= $data->rt; ?>/<?= $data->rw; ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
@@ -98,7 +100,7 @@
                                 </tr>
                                 <tr>
                                     <th>Tanggal Lahir</th>
-                                    <td><?= $data->tanggal_lahir; ?></td>
+                                    <td><?= date('d-m-Y', strtotime($data->tanggal_lahir)); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Jenis Kelamin</th>
@@ -123,18 +125,11 @@
                                     <th>Kel/Desa</th>
                                     <td><?= $data->desa; ?></td>
                                 </tr>
-                                <tr>
-                                    <th>Kecamatan</th>
-                                    <td>Bati-Bati</td>
-                                </tr>
-                                <tr>
-                                    <th>Kabupaten</th>
-                                    <td>Tanah Laut</td>
-                                </tr>
                                 <tr class="border-bottom">
-                                    <th>Provinsi</th>
-                                    <td>Kalimantan Selatan</td>
+                                    <th></th>
+                                    <td><?= $data->kec_kab_prov; ?></td>
                                 </tr>
+
                                 <tr>
                                     <th>Agama</th>
                                     <td><?= $data->agama; ?></td>
@@ -166,7 +161,7 @@
                             </table>
                         </div>
                         <div class="modal-footer right-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                             <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                         </div>
                     </div>

@@ -139,9 +139,8 @@ class Pengguna extends CI_Controller
         }
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $id = $this->input->post('id_pengguna');
         $this->peng_model->delete($id);
 
         if ($this->db->affected_rows() > 0) {

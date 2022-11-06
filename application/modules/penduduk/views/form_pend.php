@@ -111,12 +111,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Kec/Kab</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kec_kab_prov" placeholder="Kec/Kab/Prov" value="<?= $row->kec_kab_prov ?>" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="exampleFormAgama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="agama" id="exampleFormAgama">
@@ -184,8 +178,8 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" name="<?= $page ?>" class="btn btn-success">Submit</i></button>
-                            <a href="<?= base_url('penduduk/show'); ?>" class="btn btn-secondary">Cancel</i></a>
+                            <button type="submit" name="<?= $page ?>" class="btn btn-success">Simpan</i></button>
+                            <a href="<?= base_url('penduduk/show'); ?>" class="btn btn-secondary">Batal</i></a>
                         </div>
                         <!-- /.card-footer -->
                     </form>

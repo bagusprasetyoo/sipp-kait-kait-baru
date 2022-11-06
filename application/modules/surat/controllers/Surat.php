@@ -50,6 +50,19 @@ class Surat extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
+    public function add_sk_domisili()
+    {
+        check_pengguna();
+        $post = $this->input->post(null, TRUE);
+        $this->surat_model->add_skdomisili($post);
+
+        //pemberitahuan berupa flashdata
+        $this->session->set_flashdata('alert_surat', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            Surat berhasil dikirim!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
+        redirect('surat/show');
+    }
+
     public function delete()
     {
         $id = $this->input->post('id_surat');

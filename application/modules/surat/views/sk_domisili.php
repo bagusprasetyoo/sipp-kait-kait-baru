@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url('surat/sk_domisili') ?>" method="post">
+                    <form class="form-horizontal" action="<?= base_url('surat/add_sk_domisili') ?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NIK/No KTP</label>
@@ -27,7 +27,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tempat Lahir/Tanggal Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $penduduk['tempat_lahir']; ?>, <?= $penduduk['tanggal_lahir']; ?>" readonly>
+                                    <input type="text" class="form-control" name="ttl" placeholder="Tempat Lahir" value="<?= $penduduk['tempat_lahir']; ?>, <?= $penduduk['tanggal_lahir']; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -55,12 +55,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Pekerjaan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan" value="<?= $penduduk['pekerjaan']; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Alamat/Tempat Tinggal</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="alamat" placeholder="Alamat/Tempat Tinggal" value="<?= $penduduk['alamat']; ?> RT <?= $penduduk['rt']; ?>/<?= $penduduk['rw']; ?> Dusun <?= $penduduk['dusun']; ?> <?= $penduduk['desa']; ?>" readonly>
@@ -73,13 +67,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success">Simpan</i></button>
+                            <a href="<?= base_url('surat/show'); ?>" class="btn btn-secondary">Kembali</i></a>
+                        </div>
+                        <!-- /.card-footer -->
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Simpan</i></button>
-                    <a href="<?= base_url('surat/show'); ?>" class="btn btn-secondary">Kembali</i></a>
-                </div>
-                <!-- /.card-footer -->
                 </form>
             </div>
             <!-- /.card -->
