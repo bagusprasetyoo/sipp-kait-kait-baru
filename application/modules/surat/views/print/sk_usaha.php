@@ -54,8 +54,8 @@
 <div class="garis"></div>
 <br />
 <div align="center" style="line-height: 1.8;">
-    <u><b style="font-size: 14pt; ">SURAT KETERANGAN DOMISILI</b></u><br>
-    Nomor:009/. . . ./Pem
+    <u><b style="font-size: 14pt; ">SURAT KETERANGAN USAHA</b></u><br>
+    Nomor : 009/. . . ./Umum
 </div>
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
@@ -88,9 +88,15 @@
     </tr>
     <tr>
         <td></td>
+        <td style="vertical-align: text-top;">Alamat KTP</td>
+        <td style="vertical-align: text-top;">:</td>
+        <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
+    </tr>
+    <tr>
+        <td></td>
         <td>Agama</td>
         <td>:</td>
-        <td><?= $row->agama; ?></td>
+        <td><?= $row->status_nikah; ?></td>
     </tr>
     <tr>
         <td></td>
@@ -104,17 +110,10 @@
         <td>:</td>
         <td><?= $row->pekerjaan; ?></td>
     </tr>
-    <tr>
-        <td></td>
-        <td style="vertical-align: text-top;">Alamat KTP</td>
-        <td style="vertical-align: text-top;">:</td>
-        <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
-    </tr>
 </table>
 <p align="justify">
-    <span class="masuk_alinea">&nbsp;</span>Orang tersebut di atas adalah benar-benar warga kami yang bertempat tinggal di Kait-Kait Baru <?= $row->alamat; ?> sejak kurang lebih <?= $row->waktumenetap; ?>.
+    <span class="masuk_alinea">&nbsp;</span>Sepanjang pengetahuan dan pengamatan kami, hingga dikeluarkannya surat keterangan ini, bahwa orang tersebut adalah warga Kait-Kait Baru dengan data seperti di atas dan memiliki usaha <strong><?= $row->namausaha; ?></strong> kurang lebih sejak <strong><?= $row->waktuusaha; ?></strong> hingga sekarang.
     <br /><br />
-    <span class="masuk_alinea">&nbsp;</span>Surat Keterangan ini dibuat sebagai dokumen pegangan kepada yang bersangkutan.<br /><br />
     <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini dibuat dengan sebenarnya, untuk dipergunakan sebagaimana mestinya.<br /><br />
 </p>
 <table width="100%">

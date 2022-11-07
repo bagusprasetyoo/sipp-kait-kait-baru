@@ -12,7 +12,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <a href="<?= base_url('surat/add'); ?>" class="btn btn-success"> + Buat
+                                        <a href="<?= base_url('surat/pilih'); ?>" class="btn btn-success"> + Buat
                                             Surat </a>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                                 <?php }  ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('surat/view_surat/') . $data->id_surat; ?>" class="btn btn-info btn-sm">
+                                                <a href="<?= base_url('surat/read_surat/') . $data->id_surat; ?>" class="btn btn-info btn-sm">
                                                     <i class="fas fa-eye"></i></a>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <?php if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>

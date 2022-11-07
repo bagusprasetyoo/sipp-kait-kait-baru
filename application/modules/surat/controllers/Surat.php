@@ -24,7 +24,7 @@ class Surat extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
-    public function add()
+    public function pilih()
     {
         check_pengguna();
         $data['row'] = $this->pend_model->get();
@@ -33,10 +33,11 @@ class Surat extends CI_Controller
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
         $this->load->view('template/user_sidebar', $data);
-        $this->load->view('surat/add_surat', $data);
+        $this->load->view('surat/pilih_surat', $data);
         $this->load->view('template/user_footer');
     }
 
+    //== sk domisili ==
     public function sk_domisili()
     {
         check_pengguna();
@@ -62,8 +63,37 @@ class Surat extends CI_Controller
             <span aria-hidden="true">&times;</span></button></div>');
         redirect('surat/show');
     }
+    //=== end sk domisili ===
 
-    public function view_surat($id)
+    //== sk usaha ==
+    public function sk_usaha()
+    {
+        check_pengguna();
+        $data['penduduk'] = $this->db->get_where('tb_penduduk', ['nik' => $this->session->userdata('nik')])->row_array();
+
+        $data['title'] = 'Surat Keterangan Domisili';
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/create/sk_usaha', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function add_sk_usaha()
+    {
+        check_pengguna();
+        $post = $this->input->post(null, TRUE);
+        $this->surat_model->add_skusaha($post);
+
+        //pemberitahuan berupa flashdata
+        $this->session->set_flashdata('alert_surat', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            Surat berhasil dikirim!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>');
+        redirect('surat/show');
+    }
+    //=== end sk usaha ===
+
+    public function read_surat($id)
     {
         //mengambil data surat dari tb_surat
         $surat = $this->db->get_where('tb_surat', ['id_surat' => $id])->row_array();
@@ -80,6 +110,18 @@ class Surat extends CI_Controller
             $this->load->view('template/user_header', $data);
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_domisili', $data);
+            $this->load->view('template/user_footer');
+        } else if ($surat['jenis_surat'] == 'SK Usaha') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            //melempar data $isisurat berupa $row ke view/read/sk_domisili
+            $data['row'] = $isisurat;
+
+            $data['title'] = 'Surat Keterangan Domisili';
+            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
+            $this->load->view('surat/read/sk_usaha', $data);
             $this->load->view('template/user_footer');
         }
     }
@@ -99,6 +141,15 @@ class Surat extends CI_Controller
             $data['title'] = 'Surat Keterangan Domisili';
             $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
             $this->load->view('surat/print/sk_domisili', $data);
+        } else if ($surat['jenis_surat'] == 'SK Usaha') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            //melempar data $isisurat berupa $row ke view/read/sk_domisili
+            $data['row'] = $isisurat;
+
+            $data['title'] = 'Surat Keterangan Domisili';
+            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+            $this->load->view('surat/print/sk_usaha', $data);
         }
     }
 
