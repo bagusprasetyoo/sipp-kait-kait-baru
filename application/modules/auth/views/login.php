@@ -9,7 +9,7 @@
       <div class="card-body">
         <p class="login-box-msg">Silahkan login</p>
 
-        <?= $this->session->flashdata('message'); ?>
+        <?= $this->view('template/alert'); ?>
 
         <form action="<?= base_url('auth/login'); ?>" method="post">
           <div class="form-group mb-3">

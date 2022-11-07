@@ -18,6 +18,13 @@ class Fungsi
         return $user_data;
     }
 
+    //meringkas penulisan kode untuk mendapatkan data tb_pengguna seorang user yang login
+    function user()
+    {
+        $user = $this->ci->db->get_where('tb_pengguna', ['nik' => $this->ci->session->userdata('nik')])->row_array();
+        return $user;
+    }
+
     //menghitung jumlah data berdasarkan table
     function count_data($table)
     {

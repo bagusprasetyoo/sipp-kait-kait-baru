@@ -3,11 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Surat_model extends CI_Model
 {
-    public function view_penduduk()
-    {
-        return $this->db->get('tb_penduduk')->result();
-    }
-
     public function get($id = null)
     {
         $this->db->select('*');
@@ -17,6 +12,13 @@ class Surat_model extends CI_Model
             $this->db->where('id_surat', $id);
         }
         $query = $this->db->get();
+        return $query;
+    }
+
+    //mendapatkan data sebuah surat sesuai id
+    public function get_where($id)
+    {
+        $query = $this->db->get_where('tb_surat', ['id_surat' => $id])->row_array();
         return $query;
     }
 

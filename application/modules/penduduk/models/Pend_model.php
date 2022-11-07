@@ -13,6 +13,13 @@ class Pend_model extends CI_Model
         return $query;
     }
 
+    //mendapatkan data penduduk yang melakukan login menggunakan clause where
+    public function get_where()
+    {
+        $query = $this->db->get_where('tb_penduduk', ['nik' => $this->session->userdata('nik')])->row_array();
+        return $query;
+    }
+
     public function add($post)
     {
         $params = [
