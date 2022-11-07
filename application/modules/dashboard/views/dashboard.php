@@ -1,14 +1,14 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <?php if ($this->fungsi->user_login()->role == 'Admin' || $this->fungsi->user_login()->role == 'Kepala Desa' || $this->fungsi->user_login()->role == 'RT') { ?>
+        <?php if ($this->fungsi->user_login()->role == 'Admin' || $this->fungsi->user_login()->role == 'Kepala Desa') { ?>
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>50</h3>
+                            <h3><?= $this->fungsi->count_suratmasuk(); ?></h3>
 
                             <p>Surat Masuk</p>
                         </div>
@@ -23,9 +23,9 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>33</h3>
+                            <h3><?= $this->fungsi->count_suratselesai(); ?></h3>
 
-                            <p>Surat Disetujui</p>
+                            <p>Surat Selesai</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-envelope-circle-check"></i>
@@ -38,14 +38,14 @@
                     <!-- small box -->
                     <div class="small-box bg-gray">
                         <div class="inner">
-                            <h3>83</h3>
+                            <h3><?= $this->fungsi->count_data('tb_surat'); ?></h3>
 
                             <p>Total Surat</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-envelopes-bulk"></i>
                         </div>
-                        <a href="/xadmin/surat.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('surat/show'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -60,7 +60,7 @@
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div>
-                        <a href="<?= base_url('pengguna/tampil_peng'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('pengguna/show'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

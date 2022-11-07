@@ -46,7 +46,7 @@ class Surat extends CI_Controller
         $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
         $this->load->view('template/user_header', $data);
         $this->load->view('template/user_sidebar', $data);
-        $this->load->view('surat/sk_domisili', $data);
+        $this->load->view('surat/create/sk_domisili', $data);
         $this->load->view('template/user_footer');
     }
 
@@ -100,6 +100,46 @@ class Surat extends CI_Controller
             $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
             $this->load->view('surat/print/sk_domisili', $data);
         }
+    }
+
+    public function validasi_rt($id)
+    {
+        check_rt();
+        $this->surat_model->validasi_rt($id);
+        $this->session->set_flashdata('alert_surat', '<div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-check"></i> Surat berhasil divalidasi RT</small></div>');
+        redirect('surat/show');
+    }
+
+    public function validasi_kades($id)
+    {
+        check_kades();
+        $this->surat_model->validasi_kades($id);
+        $this->session->set_flashdata('alert_surat', '<div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-check"></i> Surat berhasil divalidasi Kepala Desa</small></div>');
+        redirect('surat/show');
+    }
+
+    public function tolak_rt($id)
+    {
+        check_kades();
+        $this->surat_model->tolak_rt($id);
+        $this->session->set_flashdata('alert_surat', '<div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-xmark"></i> Surat ditolak Kepala Desa</small></div>');
+        redirect('surat/show');
+    }
+
+    public function tolak_kades($id)
+    {
+        check_kades();
+        $this->surat_model->tolak_kades($id);
+        $this->session->set_flashdata('alert_surat', '<div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-xmark"></i> Surat ditolak Kepala Desa</small></div>');
+        redirect('surat/show');
     }
 
     public function delete($id)

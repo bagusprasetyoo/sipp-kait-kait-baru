@@ -3,6 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <?= $this->session->flashdata('alert_surat'); ?>
                 <div class="card">
 
                     <!-- /.content-header -->
@@ -42,10 +43,12 @@
                                             <td><?= $data->jenis_surat; ?></td>
                                             <td><?= $data->nik; ?></td>
                                             <td><?= $data->nama; ?></td>
-                                            <td><?= date('d-m-Y', strtotime($data->tanggal_surat)); ?></td>
+                                            <td><?= date('d-m-Y H:i', strtotime($data->tanggal_surat)); ?></td>
                                             <td class="text-center">
                                                 <?php if ($data->valid_rt == '1') { ?>
                                                     <span class="badge bg-success"><i class="fas fa-check"></i></span>
+                                                <?php } else if ($data->valid_rt == '2') { ?>
+                                                    <span class="badge bg-danger"><i class="fas fa-xmark"></i></span>
                                                 <?php } else { ?>
                                                     <span class="badge bg-secondary"><i class="far fa-clock"></i></span>
                                                 <?php } ?>
@@ -53,6 +56,8 @@
                                             <td class="text-center">
                                                 <?php if ($data->valid_kades == '1') { ?>
                                                     <span class="badge bg-success"><i class="fas fa-check"></i></span>
+                                                <?php } else if ($data->valid_kades == '2') { ?>
+                                                    <span class="badge bg-danger"><i class="fas fa-xmark"></i></span>
                                                 <?php } else { ?>
                                                     <span class="badge bg-secondary"><i class="far fa-clock"></i></span>
                                                 <?php } ?>
@@ -62,10 +67,11 @@
                                                     <span class="badge bg-info">Diterima</span>
                                                 <?php } else if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
                                                     <span class="badge bg-success">Selesai</span>
+                                                <?php } else if ($data->valid_rt == '2' || $data->valid_kades == '2') { ?>
+                                                    <span class="badge bg-danger">Ditolak</span>
                                                 <?php } else { ?>
                                                     <span class="badge bg-warning">Menunggu</span>
                                                 <?php }  ?>
-
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('surat/view_surat/') . $data->id_surat; ?>" class="btn btn-info btn-sm">
@@ -77,12 +83,12 @@
                                                     <a href="<?= base_url('surat/delete/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                 <?php } ?>
                                                 <?php if ($this->fungsi->user_login()->role == 'RT') { ?>
-                                                    <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-check"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i></a>
+                                                    <a href="<?= base_url('surat/validasi_rt/') . $data->id_surat; ?>" onclick="return confirm('Setujui surat?')" class="btn btn-success btn-sm"><i class="fas fa-check"></i></a>
+                                                    <a href="<?= base_url('surat/tolak_rt/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menolak surat?')" class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i></a>
                                                 <?php } ?>
                                                 <?php if ($this->fungsi->user_login()->role == 'Kepala Desa') { ?>
-                                                    <a href="<?= base_url(); ?>" class="btn btn-warning btn-sm"><i class="fas fa-check"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i></a>
+                                                    <a href="<?= base_url('surat/validasi_kades/') . $data->id_surat; ?>" onclick="return confirm('Setujui surat?')" class="btn btn-success btn-sm"><i class="fas fa-check"></i></a>
+                                                    <a href="<?= base_url('surat/tolak_kades/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menolak surat?')" class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i></a>
                                                 <?php } ?>
                                             </td>
                                     </tr>

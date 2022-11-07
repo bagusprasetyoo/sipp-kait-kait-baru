@@ -23,4 +23,24 @@ class Fungsi
     {
         return $this->ci->db->get($table)->num_rows();
     }
+
+    //menghitung jumlah surat masuk yg belum divalidasi rt dan kades
+    function count_suratmasuk()
+    {
+        $this->ci->db->select('*');
+        $this->ci->db->from('tb_surat');
+        $this->ci->db->where('valid_rt', 0);
+        $this->ci->db->where('valid_kades', 0);
+        return $this->ci->db->get()->num_rows();
+    }
+
+    //menghitung jumlah surat yg sudah divalidasi rt dan kades
+    function count_suratselesai()
+    {
+        $this->ci->db->select('*');
+        $this->ci->db->from('tb_surat');
+        $this->ci->db->where('valid_rt', 1);
+        $this->ci->db->where('valid_kades', 1);
+        return $this->ci->db->get()->num_rows();
+    }
 }

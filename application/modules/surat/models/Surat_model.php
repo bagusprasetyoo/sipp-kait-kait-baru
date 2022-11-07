@@ -22,6 +22,7 @@ class Surat_model extends CI_Model
 
     public function add_skdomisili($post)
     {
+        date_default_timezone_set('Asia/Ujung_Pandang');
         $isi = [
             'nik' => $post['nik'],
             'nama' => $post['nama'],
@@ -39,10 +40,46 @@ class Surat_model extends CI_Model
         $params = [
             'jenis_surat' => 'SK Domisili',
             'isi_surat' => $isisurat,
-            'tanggal_surat' => date('Y-m-d'),
+            'tanggal_surat' => date('Y-m-d H:i:s'),
             'nik' => $post['nik'],
         ];
         $this->db->insert('tb_surat', $params);
+    }
+
+    public function validasi_rt($id)
+    {
+        $params = [
+            'valid_rt' => 1
+        ];
+        $this->db->where('id_surat', $id);
+        $this->db->update('tb_surat', $params);
+    }
+
+    public function validasi_kades($id)
+    {
+        $params = [
+            'valid_kades' => 1
+        ];
+        $this->db->where('id_surat', $id);
+        $this->db->update('tb_surat', $params);
+    }
+
+    public function tolak_rt($id)
+    {
+        $params = [
+            'valid_rt' => 2
+        ];
+        $this->db->where('id_surat', $id);
+        $this->db->update('tb_surat', $params);
+    }
+
+    public function tolak_kades($id)
+    {
+        $params = [
+            'valid_kades' => 2
+        ];
+        $this->db->where('id_surat', $id);
+        $this->db->update('tb_surat', $params);
     }
 
     public function delete($id)

@@ -49,3 +49,13 @@ function check_rt()
         redirect('dashboard');
     }
 }
+
+//helper untuk mengecek apakah rolenya bukan sebagai RW
+function check_kades()
+{
+    $ci = &get_instance();
+    $ci->load->library('fungsi');
+    if ($ci->fungsi->user_login()->role != 'Kepala Desa') {
+        redirect('dashboard');
+    }
+}
