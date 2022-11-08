@@ -13,12 +13,17 @@ class Pengaturan extends CI_Controller
 
     public function edit_profile()
     {
+        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $data['title'] = 'Edit Profile';
+
         $this->form_validation->set_rules('email',  'Email', 'required|trim', [
             'required' => 'Email harus diisi !'
         ]);
         $this->form_validation->set_rules('nohp',  'No HP', 'required|trim', [
             'required' => 'No HP harus diisi !'
         ]);
+
+        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/user_header', $data);
