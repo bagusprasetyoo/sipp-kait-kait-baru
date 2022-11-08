@@ -16,7 +16,7 @@ class Pengguna extends CI_Controller
         $data['row'] = $this->peng_model->get();
 
         $data['title'] = 'Data Pengguna';
-        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $data['user'] = $this->fungsi->user();
         $this->load->view('template/user_header', $data);
         $this->load->view('template/user_sidebar', $data);
         $this->load->view('pengguna/tampil_peng', $data);
@@ -25,7 +25,7 @@ class Pengguna extends CI_Controller
 
     public function add()
     {
-        //rules untuk form validation halaaman Registrasi
+        //rules untuk form validation halaman add pengguna
         $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]', [
             'required' => 'NIK harus diisi !',
             'is_unique' => 'NIK sudah diregistrasi !'
@@ -49,13 +49,13 @@ class Pengguna extends CI_Controller
             'required' => 'Role belum di pilih !'
         ]);
 
-        //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
+        //set_error_delimiters: memperpendek penulisan form error di halaman add pengguna
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
-        //menampilkan form registrasi
+        //menampilkan form add pengguna
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Tambah Data Pengguna';
-            $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+            $data['user'] = $this->fungsi->user();
             $this->load->view('template/user_header', $data);
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('pengguna/add_peng', $data);
@@ -81,14 +81,10 @@ class Pengguna extends CI_Controller
                 $this->db->insert('tb_pengguna', $data);
 
                 //pesan sebelum redirect
-                $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Selamat data berhasil ditambahkan.</small></div>');
+                $this->session->set_flashdata('success', 'Selamat data berhasil ditambahkan.');
                 redirect('pengguna/show');
             } else {
-                $this->session->set_flashdata('alert_peng', '<div class="alert alert-warning alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum terdata di Data Penduduk</small></div>');
+                $this->session->set_flashdata('warning', 'NIK belum terdata di Data Penduduk.');
                 redirect('pengguna/add');
             }
         }
@@ -96,7 +92,7 @@ class Pengguna extends CI_Controller
 
     public function edit($id)
     {
-        //rules untuk form validation halaaman Registrasi
+        //rules untuk form validation halaman edit pengguna
         $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email', [
             'required' => 'Email harus diisi !',
             'valid_email' => 'Penulisan email tidak valid !'
@@ -109,33 +105,31 @@ class Pengguna extends CI_Controller
             'required' => 'Role belum di pilih !'
         ]);
 
-        //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
+        //set_error_delimiters: memperpendek penulisan form error di halaman edit pengguna
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
-        //menampilkan form registrasi
+        //menampilkan form edit pengguna
         if ($this->form_validation->run() == false) {
             $query = $this->peng_model->get($id);
             if ($query->num_rows() > 0) {
                 $data['row'] = $query->row();
                 $data['title'] = 'Edit Data Pengguna';
-                $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+                $data['user'] = $this->fungsi->user();
                 $this->load->view('template/user_header', $data);
                 $this->load->view('template/user_sidebar', $data);
                 $this->load->view('pengguna/edit_peng', $data);
                 $this->load->view('template/user_footer');
             } else {
-                echo "<script>alert('Data tidak ditemukan');";
-                echo "window.location='" . base_url('pengguna') . "';</script>";
+                $this->session->set_flashdata('warning', 'Data tidak ditemukan!');
+                redirect('pengguna/show');
             }
         } else {
             $post = $this->input->post(null, TRUE);
             $this->peng_model->edit($post);
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Data berhasil diedit.</small></div>');
+                $this->session->set_flashdata('success', "Data $post[nik] berhasil diedit.");
+                redirect('pengguna/show');
             }
-            echo "<script>window.location='" . base_url('pengguna/show') . "';</script>";
         }
     }
 
@@ -144,9 +138,7 @@ class Pengguna extends CI_Controller
         $this->peng_model->delete($id);
 
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('alert_peng', '<div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-trash"></i> Data berhasil dihapus.</small></div>');
+            $this->session->set_flashdata('success', '<i class="icon fas fa-trash"></i> Data berhasil dihapus.');
             redirect('pengguna/show');
         }
     }

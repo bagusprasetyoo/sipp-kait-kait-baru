@@ -13,17 +13,12 @@ class Pengaturan extends CI_Controller
 
     public function edit_profile()
     {
-        $data['title'] = 'Pengaturan Profile';
-        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
-
         $this->form_validation->set_rules('email',  'Email', 'required|trim', [
             'required' => 'Email harus diisi !'
         ]);
         $this->form_validation->set_rules('nohp',  'No HP', 'required|trim', [
             'required' => 'No HP harus diisi !'
         ]);
-
-        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/user_header', $data);
@@ -67,7 +62,7 @@ class Pengaturan extends CI_Controller
 
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Selamat Profile Berhasil diUbah</small></div>');
+                <small><i class="icon fas fa-check"></i> Selamat Profile Berhasil diUbah.</small></div>');
             redirect('pengaturan/edit_profile');
         }
     }

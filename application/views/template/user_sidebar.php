@@ -70,6 +70,14 @@
                         </a>
                     </li>
                 <?php  } ?>
+                <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('pejabat/show'); ?>" class="nav-link">
+                            <i class="nav-icon fas fa-briefcase"></i>
+                            <p>Pejabat Desa</p>
+                        </a>
+                    </li>
+                <?php  } ?>
                 <li class="nav-item">
                     <a href="<?= base_url('pengaturan/edit_profile'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-gear"></i>

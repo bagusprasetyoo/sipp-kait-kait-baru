@@ -209,13 +209,13 @@
                                 <center><b><u></u></b></center>
                             </td>
                             <td>
-                                <center><b><u>nama pejabat</u></b></center>
+                                <center><b>ARIF BADRUS SHOLEH</b></center>
                             </td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>
-                                <center>NIP.</center>
+                                <!-- <center>NIP.</center> -->
                             </td>
                         </tr>
                     </table>

@@ -50,16 +50,12 @@ class Auth extends CI_Controller
                 redirect('dashboard');
             } else {
                 //pesan jika password salah
-                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <small><i class="icon fas fa-triangle-exclamation"></i> Password salah!</small></div>');
+                $this->session->set_flashdata('danger', 'Password salah!');
                 redirect('auth/login');
             }
         } else {
             //pesan sebelum redirect
-            $this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum diregistrasi!</small></div>');
+            $this->session->set_flashdata('warning', "NIK belum diregistrasi!");
             redirect('auth/login');
         }
     }
@@ -119,14 +115,10 @@ class Auth extends CI_Controller
                 $this->db->insert('tb_pengguna', $data);
 
                 //pesan sebelum redirect
-                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Selamat, NIK anda berhasil diregistrasi! Silahkan Login</small></div>');
+                $this->session->set_flashdata('success', 'Selamat, NIK anda berhasil diregistrasi! Silahkan Login');
                 redirect('auth/login');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-triangle-exclamation"></i> NIK belum terdata di desa!</small></div>');
+                $this->session->set_flashdata('warning', "NIK belum terdata di desa!, Hubungi admin untuk memasukkan data Anda.");
                 redirect('auth/registration');
             }
         }
