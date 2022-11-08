@@ -220,7 +220,9 @@
             <center><b><u></u></b></center>
         </td>
         <td>
-            <center><b>ARIF BADRUS SHOLEH</b></center>
+            <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
+                <center style="text-transform: uppercase;"><b><?= $ttd->nama_pejabat; ?></b></center>
+            <?php } ?>
         </td>
     </tr>
     <tr>

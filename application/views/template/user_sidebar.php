@@ -63,12 +63,12 @@
                     </a>
                 </li>
                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-building"></i>
                             <p>Profile Desa</p>
                         </a>
-                    </li>
+                    </li> -->
                 <?php  } ?>
                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                     <li class="nav-item">

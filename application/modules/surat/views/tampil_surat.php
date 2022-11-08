@@ -42,7 +42,7 @@
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->jenis_surat; ?></td>
                                             <td><a href="" class="text-dark" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>"><?= $data->nik; ?></a></td>
-                                            <td><?= $data->nama; ?></td>
+                                            <td><a href="" class="text-dark" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>"><?= $data->nama; ?></a></td>
                                             <td><?= date('d-m-Y H:i', strtotime($data->tanggal_surat)); ?></td>
                                             <td class="text-center">
                                                 <?php if ($data->valid_rt == '1') { ?>

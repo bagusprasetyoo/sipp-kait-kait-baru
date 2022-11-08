@@ -94,6 +94,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
             // var_dump($isisurat->waktumenetap);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
             $data['title'] = 'Surat Keterangan Domisili';
@@ -105,9 +106,9 @@ class Surat extends CI_Controller
         } else if ($surat['jenis_surat'] == 'SK Usaha') {
             $isisurat = json_decode($surat['isi_surat']);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
-
             $data['title'] = 'Surat Keterangan Domisili';
             $data['user'] = $this->fungsi->user();
             $this->load->view('template/user_header', $data);
@@ -126,6 +127,7 @@ class Surat extends CI_Controller
         if ($surat['jenis_surat'] == 'SK Domisili') {
             $isisurat = json_decode($surat['isi_surat']);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
 
@@ -135,6 +137,7 @@ class Surat extends CI_Controller
         } else if ($surat['jenis_surat'] == 'SK Usaha') {
             $isisurat = json_decode($surat['isi_surat']);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
 
