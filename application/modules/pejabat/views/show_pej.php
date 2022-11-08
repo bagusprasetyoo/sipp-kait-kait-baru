@@ -19,7 +19,7 @@
                         <?php } ?>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped table-sm">
+                            <table id="example3" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
                                         <th>Nama</th>
@@ -38,8 +38,8 @@
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->id_pejabat; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
-                                                    <a href="<?= base_url('penduduk/edit/') . $data->id_pejabat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                    <a href="<?= base_url('penduduk/delete/') . $data->id_pejabat; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                    <a href="<?= base_url('pejabat/edit/') . $data->id_pejabat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                    <a href="<?= base_url('pejabat/delete/') . $data->id_pejabat; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                 <?php } ?>
                                             </td>
                                         </tr>

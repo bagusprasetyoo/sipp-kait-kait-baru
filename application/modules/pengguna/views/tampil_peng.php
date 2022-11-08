@@ -60,7 +60,7 @@
         </div>
         <!-- /.container-fluid -->
 
-        <!-- Modal -->
+        <!-- Modal Detail Pengguna -->
         <?php foreach ($row->result() as $key => $data) { ?>
             <div class="modal fade" id="modalpend<?= $data->nik; ?>">
                 <div class="modal-dialog">
@@ -72,6 +72,13 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            <div class="user-block mb-3">
+                                <img class="img-circle img-bordered-sm" src="<?= base_url('assets/img/profile/') . $data->image; ?>" alt="user image">
+                                <span class="username">
+                                    <?= $data->nama; ?>
+                                </span>
+                                <span class="description"><?= $data->role; ?> - Bergabung sejak <?= date('d-m-Y', strtotime($data->tanggal_daftar)); ?></span>
+                            </div>
                             <table class="table table-borderless table-sm">
                                 <tr class="border-bottom">
                                     <th>Info Pribadi</th>

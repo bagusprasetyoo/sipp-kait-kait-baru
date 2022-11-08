@@ -36,12 +36,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <?php $no = 1;
-                                        foreach ($row->result() as $key => $data) { ?>
+                                    <?php $no = 1;
+                                    foreach ($row->result() as $key => $data) { ?>
+                                        <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->jenis_surat; ?></td>
-                                            <td><?= $data->nik; ?></td>
+                                            <td><a href="" class="text-dark" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>"><?= $data->nik; ?></a></td>
                                             <td><?= $data->nama; ?></td>
                                             <td><?= date('d-m-Y H:i', strtotime($data->tanggal_surat)); ?></td>
                                             <td class="text-center">
@@ -91,8 +91,8 @@
                                                     <a href="<?= base_url('surat/tolak_kades/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menolak surat?')" class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i></a>
                                                 <?php } ?>
                                             </td>
-                                    </tr>
-                                <?php } ?>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -107,3 +107,72 @@
         <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<?php if ($this->fungsi->user_login()->role != 'Pengguna') { ?>
+    <!-- Modal Detail Pengguna Pengirim surat -->
+    <?php foreach ($row->result() as $key => $data) { ?>
+        <div class="modal fade" id="modalpend<?= $data->nik; ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detail Pengirim</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless table-sm">
+                            <tr>
+                                <th style="width:50%">No KK</th>
+                                <td><?= $data->nokk; ?></td>
+                            </tr>
+                            <tr>
+                                <th>NIK/No KTP</th>
+                                <td><?= $data->nik; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Nama</th>
+                                <td><strong><?= $data->nama; ?></strong></td>
+                            </tr>
+                            <tr>
+                                <th>Tempat/Tanggal Lahir</th>
+                                <td><?= $data->tempat_lahir; ?>, <?= date('d-m-Y', strtotime($data->tanggal_lahir)); ?></td>
+                            </tr>
+                            <tr>
+                                <th>Jenis Kelamin</th>
+                                <td><?= $data->jenis_kelamin; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Alamat</th>
+                                <td><?= $data->alamat; ?></td>
+                            </tr>
+                            <tr>
+                                <th>RT/RW/Dusun</th>
+                                <td>
+                                    <?= $data->rt; ?>/
+                                    <?= $data->rw; ?>/
+                                    <?= $data->dusun; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Kel/Desa</th>
+                                <td><?= $data->desa; ?></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td> Kecamatan Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer right-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    <?php } ?>
+    <!-- /.modal -->
+<?php } ?>

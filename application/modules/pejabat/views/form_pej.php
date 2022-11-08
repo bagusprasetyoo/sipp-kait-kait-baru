@@ -3,6 +3,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <div class="callout callout-success">
+                    <h5><i class="fas fa-info"></i> Info:</h5>
+                    Data pejabat digunakan untuk pilihan penandatanganan surat yang telah divalidasi.
+                </div>
                 <?= $this->session->flashdata('alert_pend'); ?>
                 <div class="card card-success">
                     <div class="card-header">
