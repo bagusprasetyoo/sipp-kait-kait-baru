@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $user['role']; ?> - <?= $title; ?></title>
 
+    <link rel="icon" href="<?= base_url(); ?>/assets/img/Lambang_Kabupaten_Tanah_Laut.svg" type="image/svg">
+
     <!-- Customm CSS -->
     <!-- <link rel="stylesheet" href="assets/customstyle.css"> -->
     <!-- Google Font: Source Sans Pro -->

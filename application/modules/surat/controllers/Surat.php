@@ -175,7 +175,7 @@ class Surat extends CI_Controller
     {
         check_kades();
         $this->surat_model->tolak_kades($id);
-        $this->session->set_flashdata('danger', '<Surat ditolak Kepala Desa');
+        $this->session->set_flashdata('danger', 'Surat ditolak Kepala Desa');
         redirect('surat/show');
     }
 
