@@ -42,7 +42,7 @@
 <!-- date-range-picker -->
 <script src="<?= base_url('assets/'); ?>plugins/daterangepicker/daterangepicker.js"></script>
 
-<!-- custom file profile -->
+<!-- custom nama file profile -->
 <script>
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();

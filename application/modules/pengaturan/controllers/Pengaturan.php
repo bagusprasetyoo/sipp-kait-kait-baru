@@ -19,9 +19,11 @@ class Pengaturan extends CI_Controller
         $this->form_validation->set_rules('email',  'Email', 'required|trim', [
             'required' => 'Email harus diisi !'
         ]);
-        $this->form_validation->set_rules('no_hp',  'No HP', 'required|trim', [
+        $this->form_validation->set_rules('nohp',  'No HP', 'required|trim', [
             'required' => 'No HP harus diisi !'
         ]);
+
+        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/user_header', $data);
@@ -30,11 +32,11 @@ class Pengaturan extends CI_Controller
             $this->load->view('template/user_footer');
         } else {
             $email = $this->input->post('email');
-            $no_hp = $this->input->post('no_hp');
+            $no_hp = $this->input->post('nohp');
             $nik = $this->input->post('nik');
 
-            //cek gambar
-            $upload_image = $_FILES['image']['nama'];
+            //cek gambar ketika diupload
+            $upload_image = $_FILES['image']['name'];
 
             if ($upload_image) {
                 $config['upload_path'] = './assets/img/profile/';
@@ -43,16 +45,18 @@ class Pengaturan extends CI_Controller
 
                 $this->load->library('upload', $config);
 
-                if (!$this->upload->do_upload('image')) {
+                if ($this->upload->do_upload('image')) {
                     $old_image = $data['user']['image'];
                     if ($old_image != 'default.jpg') {
                         unlink(FCPATH . 'assets/img/profile/' . $old_image);
                     }
-
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('image', $new_image);
                 } else {
-                    echo $this->upload->dispay_errors();
+                    echo $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <small><i class="icon fas fa-check"></i> Salah Upload Gambar</small></div>');
+                    redirect('pengaturan/edit_profile');
                 }
             }
 
@@ -63,7 +67,7 @@ class Pengaturan extends CI_Controller
 
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Selamat Profile Berhasil diUbah.</small></div>');
+                <small><i class="icon fas fa-check"></i> Selamat Profile Berhasil diUbah</small></div>');
             redirect('pengaturan/edit_profile');
         }
     }
