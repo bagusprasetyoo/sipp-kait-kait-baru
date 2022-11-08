@@ -66,7 +66,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($data->valid_rt == '1' && $data->valid_kades == '0') { ?>
-                                                    <span class="badge bg-warning">Disetujui RT</span>
+                                                    <span class="badge bg-secondary">Disetujui RT</span>
                                                 <?php } else if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
                                                     <span class="badge bg-success">Selesai</span>
                                                 <?php } else if ($data->valid_rt == '2' || $data->valid_kades == '2') { ?>

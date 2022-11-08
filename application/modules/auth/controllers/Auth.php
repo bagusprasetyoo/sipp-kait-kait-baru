@@ -74,7 +74,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('nohp',  'NoHP', 'required|trim', [
             'required' => 'No Handphone harus diisi !'
         ]);
-        $this->form_validation->set_rules('password',  'Password', 'required|trim|min_length[3]|matches[passconf]', [
+        $this->form_validation->set_rules('password',  'Password', 'required|trim|min_length[6]|matches[passconf]', [
             'required' => 'Password harus diisi !',
             'matches' => 'Password tidak cocok!',
             'min_length' => 'Password terlalu pendek!'

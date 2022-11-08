@@ -35,7 +35,7 @@
                                             <td><?= $data->jabatan; ?></td>
                                             <td><?= $data->nip; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->id_pejabat; ?>">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->id_pejabat; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <a href="<?= base_url('pejabat/edit/') . $data->id_pejabat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
