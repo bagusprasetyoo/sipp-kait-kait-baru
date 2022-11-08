@@ -51,7 +51,6 @@
                                         <option value="Laki-Laki" <?= $jenis_kelamin == 'Laki-Laki' ? "selected" : null; ?>>Laki - laki</option>
                                         <option value="Perempuan" <?= $jenis_kelamin == 'Perempuan' ? "selected" : null; ?>>Perempuan</option>
                                     </select>
-                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">

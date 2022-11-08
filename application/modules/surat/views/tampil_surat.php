@@ -23,16 +23,18 @@
                         <div class="card-body">
                             <table id="example3" class="table table-bordered table-striped table-sm">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
                                         <th>Jenis Surat</th>
                                         <th>NIK</th>
                                         <th>Dikirim Oleh</th>
                                         <th>Tanggal Surat</th>
-                                        <th>Valid RT</th>
-                                        <th>Valid Kades</th>
+                                        <th width="5%">Valid RT</th>
+                                        <th width="5%">Valid Kades</th>
                                         <th>Status</th>
-                                        <th width="13%">Aksi</th>
+                                        <th <?php if ($this->fungsi->user_login()->role != 'Pengguna') { ?>width="17%" <?php } ?>>
+                                            Aksi
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,7 +52,7 @@
                                                 <?php } else if ($data->valid_rt == '2') { ?>
                                                     <span class="badge bg-danger"><i class="fas fa-xmark"></i></span>
                                                 <?php } else { ?>
-                                                    <span class="badge bg-secondary"><i class="far fa-clock"></i></span>
+                                                    <span class="badge bg-gray"><i class="far fa-clock"></i></span>
                                                 <?php } ?>
                                             </td>
                                             <td class="text-center">
@@ -59,26 +61,27 @@
                                                 <?php } else if ($data->valid_kades == '2') { ?>
                                                     <span class="badge bg-danger"><i class="fas fa-xmark"></i></span>
                                                 <?php } else { ?>
-                                                    <span class="badge bg-secondary"><i class="far fa-clock"></i></span>
+                                                    <span class="badge bg-gray"><i class="far fa-clock"></i></span>
                                                 <?php } ?>
                                             </td>
                                             <td>
                                                 <?php if ($data->valid_rt == '1' && $data->valid_kades == '0') { ?>
-                                                    <span class="badge bg-info">Diterima</span>
+                                                    <span class="badge bg-warning">Disetujui RT</span>
                                                 <?php } else if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
                                                     <span class="badge bg-success">Selesai</span>
                                                 <?php } else if ($data->valid_rt == '2' || $data->valid_kades == '2') { ?>
                                                     <span class="badge bg-danger">Ditolak</span>
                                                 <?php } else { ?>
-                                                    <span class="badge bg-warning">Menunggu</span>
+                                                    <span class="badge bg-secondary">Menunggu</span>
                                                 <?php }  ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('surat/read_surat/') . $data->id_surat; ?>" class="btn btn-info btn-sm">
+                                                <a href="<?= base_url('surat/read_surat/') . $data->id_surat; ?>" class="btn btn-secondary btn-sm">
                                                     <i class="fas fa-eye"></i></a>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <?php if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
-                                                        <a target="blank" href="<?= base_url('surat/print/') . $data->id_surat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-print"></i></a>
+                                                        <a target="blank" href="<?= base_url('surat/print/') . $data->id_surat; ?>" onclick="return confirm('Cetak surat?')" class="btn btn-warning btn-sm"><i class="fas fa-print"></i></a>
+                                                        <button ttype="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalsignature<?= $data->id_surat; ?>"><i class="fas fa-file-signature"></i></button>
                                                     <?php } ?>
                                                     <a href="<?= base_url('surat/delete/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                 <?php } ?>
@@ -176,3 +179,41 @@
     <?php } ?>
     <!-- /.modal -->
 <?php } ?>
+
+<!-- Modal Memilih Penandatangan -->
+<?php foreach ($row->result() as $key => $data) { ?>
+    <div class="modal fade" id="modalsignature<?= $data->id_surat; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pilih Penandatangan</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="form-horizontal" action="<?= base_url('surat/tanda_tangan') ?>" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Pilih Penandatangan Surat</label>
+                            <input type="hidden" name="idsurat" value="<?= $data->id_surat; ?>">
+                            <select class="form-control" name="tanda_tangan">
+                                <?php foreach ($pejabat->result() as $key => $row) { ?>
+                                    <option value="<?= $row->id_pejabat; ?>" <?= $row->id_pejabat == $data->id_pejabat ? "selected" : null; ?>>
+                                        <?= $row->nama_pejabat; ?> - <?= $row->jabatan; ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer right-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-success">Pilih</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
+<!-- /.modal -->

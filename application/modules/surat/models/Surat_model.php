@@ -94,6 +94,15 @@ class Surat_model extends CI_Model
         $this->db->update('tb_surat', $params);
     }
 
+    public function tanda_tangan($post)
+    {
+        $params = [
+            'id_pejabat' => $post['tanda_tangan'],
+        ];
+        $this->db->where('id_surat', $post['idsurat']);
+        $this->db->update('tb_surat', $params);
+    }
+
     public function tolak_rt($id)
     {
         $params = [
