@@ -22,6 +22,7 @@
                             <table id="example3" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
                                         <th>NIP</th>
@@ -29,8 +30,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($row->result() as $key => $data) { ?>
+                                    <?php $no = 1;
+                                    foreach ($row->result() as $key => $data) { ?>
                                         <tr>
+                                            <td><?= $no++; ?></td>
                                             <td><?= $data->nama_pejabat; ?></td>
                                             <td><?= $data->jabatan; ?></td>
                                             <td><?= $data->nip; ?></td>
