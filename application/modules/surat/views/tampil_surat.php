@@ -32,7 +32,7 @@
                                         <th>Valid RT</th>
                                         <th>Valid Kades</th>
                                         <th>Status</th>
-                                        <th>Aksi</th>
+                                        <th width="13%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
