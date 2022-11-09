@@ -52,23 +52,17 @@
                     <br />
                     <table width="100%">
                         <tr>
-                            <td></td>
-                            <td>NIK / No KTP</td>
-                            <td>:</td>
-                            <td><?= $row->nik; ?></td>
-                        </tr>
-                        <tr>
                             <td width="8%" align="right"></td>
                             <td width="30%">Nama Lengkap</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama; ?></strong></td>
-                        </tr>                
+                        </tr>        
                         <tr>
                             <td></td>
-                            <td>Jenis Kelamin</td>
+                            <td>NIK / No KTP</td>
                             <td>:</td>
-                            <td><?= $row->jenis_kelamin; ?></td>
-                        </tr>
+                            <td><?= $row->nik; ?></td>
+                        </tr>          
                         <tr>
                             <td></td>
                             <td>Tempat/Tanggal Lahir</td>
@@ -77,9 +71,27 @@
                         </tr>
                         <tr>
                             <td></td>
+                            <td>Jenis Kelamin</td>
+                            <td>:</td>
+                            <td><?= $row->jenis_kelamin; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
                             <td>Agama</td>
                             <td>:</td>
                             <td><?= $row->agama; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td><?= $row->status_nikah; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Pendidikan</td>
+                            <td>:</td>
+                            <td><?= $row->pendidikan; ?></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -94,8 +106,9 @@
                             <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
                         </tr>
                     </table>
+                    <br />
                     <p align="justify">
-                        <span class="masuk_alinea">&nbsp;</span>Pemilik nama tersebut diatas adalah benar warga desa kami Kait-Kait Baru, Kecamatan Bati-Bati, Kabupaten Tanah Laut. Sejauh pengamatan yang kami lakukan, yang bersangkutan <b><u>BELUM PERNAH MENIKAH</u></b>.
+                        <span class="masuk_alinea">&nbsp;</span>Pemilik nama tersebut diatas adalah benar-benar warga desa kami yang bertempat tinggal di <?= $row->alamat; ?>, Kecamatan Bati-Bati, Kabupaten Tanah Laut. Dan belum pernah menikah baik didalam daerah maupun diluar daerah. Sejauh pengamatan yang kami lakukan, yang bersangkutan <b><u>BELUM MENIKAH</u></b>.
                         <br /><br />
                         <span class="masuk_alinea">&nbsp;</span>Surat Keterangan Belum Menikah ini diberikan kepada yang bersangkutan untuk keperluan <?= $row->keperluan; ?><br /><br />
                         <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini dibuat dengan sebenarnya, untuk dipergunakan sebagaimana mestinya.<br /><br />
@@ -112,7 +125,11 @@
                                 <!-- <center>Yang Bersangkutan</center> -->
                             </td>
                             <td>
-                                <center>Kepala Desa Kait-Kait Baru</center>
+                                <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
+                                        <center>
+                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                            Kepala Desa Kait-Kait Baru
+                                        </center>
                             </td>
                         </tr>
                         <tr>
@@ -204,7 +221,8 @@
                                 <center><b><u></u></b></center>
                             </td>
                             <td>
-                                <center><b>ARIF BADRUS SHOLEH</b></center>
+                                <center style="text-transform: uppercase;"><b><?= $ttd->nama_pejabat; ?></b></center>
+                            <?php } ?>
                             </td>
                         </tr>
                         <tr>

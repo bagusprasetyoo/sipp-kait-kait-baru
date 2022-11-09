@@ -100,6 +100,7 @@
                             <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
                         </tr>
                     </table>
+                    <br />
                     <p align="justify">
                         <span class="masuk_alinea">&nbsp;</span>Orang tersebut di atas adalah benar-benar warga kami yang bertempat tinggal di Kait-Kait Baru <?= $row->alamat; ?> sejak kurang lebih <?= $row->waktumenetap; ?>.
                         <br /><br />

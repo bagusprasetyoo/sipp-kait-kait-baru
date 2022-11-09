@@ -27,9 +27,9 @@
                             margin-right: 20px;
                         }
                     </style>
-                    <table width="90%">
+                    <table width="80%">
                         <tr>
-                            <td align="right"><img src="<?= base_url('assets/img/TanahLaut.jpg'); ?>" width="100px" height="100px" valign="baseline" /></td>
+                            <td align="right"><img src="<?= base_url('assets/img/TanahLaut.jpg'); ?>" width="100px" height="100px" /></td>
                             <td align="center">
                                 <strong style="font-size : 16pt; ">PEMERINTAH KABUPATEN TANAH LAUT<br />
                                     KECAMATAN BATI-BATI<br />
@@ -43,26 +43,49 @@
                     <div class="garis"></div>
                     <br />
                     <div align="center" style="line-height: 1.8;">
-                        <u><b style="font-size: 14pt; ">SURAT KETERANGAN USAHA</b></u><br>
-                        Nomor : 009/. . . ./Umum
+                        <u><b style="font-size: 14pt; ">SURAT PENGANTAR SURAT KETERANGAN CATATAN KEPOLISIAN</b></u><br>
+                        Nomor:009/. . . ./Pem
                     </div>
                     <p align="justify">
-                        <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
+                        <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini :
                     </p>
+                    <table widht="100">
+                        <tr>
+                            <td width="8%" align="right"></td>    
+                            <td width="30%">Nama</td>
+                            <td width="3%">:</td>
+                            <td width="57%" style="text-transform: uppercase;">Arif Badrus Sholeh</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Jabatan</td>
+                            <td>:</td>
+                            <td>Kepala Desa Kait-Kait Baru</td>
+                        </tr>   
+                        <tr>
+                            <td></td>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td>Desa Kait-Kait Baru RT 014/004 Dusun IV Kec. Bati-Bati Kab. Tanah Laut</td>
+                        </tr>   
+                    </table>
                     <br />
+                    <p align="justify">
+                    <span class="masuk_alinea">&nbsp;</span>Dengan ini menerangkan bahwa :
+                    </p>
                     <table width="100%">
                         <tr>
                             <td width="8%" align="right"></td>
                             <td width="30%">Nama Lengkap</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama; ?></strong></td>
-                        </tr>
+                        </tr>        
                         <tr>
                             <td></td>
                             <td>NIK / No KTP</td>
                             <td>:</td>
                             <td><?= $row->nik; ?></td>
-                        </tr>
+                        </tr>          
                         <tr>
                             <td></td>
                             <td>Tempat/Tanggal Lahir</td>
@@ -71,25 +94,13 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td>Jenis Kelamin</td>
-                            <td>:</td>
-                            <td><?= $row->jenis_kelamin; ?></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style="vertical-align: text-top;">Alamat KTP</td>
-                            <td style="vertical-align: text-top;">:</td>
-                            <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
-                        </tr>
-                        <tr>
-                            <td></td>
                             <td>Agama</td>
                             <td>:</td>
-                            <td><?= $row->status_nikah; ?></td>
+                            <td><?= $row->agama; ?></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td>Status Perkawinan</td>
+                            <td>Status</td>
                             <td>:</td>
                             <td><?= $row->status_nikah; ?></td>
                         </tr>
@@ -99,12 +110,24 @@
                             <td>:</td>
                             <td><?= $row->pekerjaan; ?></td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td style="vertical-align: text-top;">Alamat KTP</td>
+                            <td style="vertical-align: text-top;">:</td>
+                            <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Keperluan</td>
+                            <td>:</td>
+                            <td><?= $row->keperluan; ?></td>
+                        </tr>
                     </table>
                     <br />
                     <p align="justify">
-                        <span class="masuk_alinea">&nbsp;</span>Sepanjang pengetahuan dan pengamatan kami, hingga dikeluarkannya surat keterangan ini, bahwa orang tersebut adalah warga Kait-Kait Baru dengan data seperti di atas dan memiliki usaha <strong><?= $row->namausaha; ?></strong> kurang lebih sejak <strong><?= $row->waktuusaha; ?></strong> hingga sekarang.
+                        <span class="masuk_alinea">&nbsp;</span>Diketahui nama yang bersangkutan diatas adalah benar warga Desa Kait-Kait Baru, dan sepengetahuan kami yang bersangkutan benar berkelakuan baik dan tidak pernah tersangkut perkara hukum dan tindak pidana apapun.
                         <br /><br />
-                        <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini dibuat dengan sebenarnya, untuk dipergunakan sebagaimana mestinya.<br /><br />
+                        <span class="masuk_alinea">&nbsp;</span>Demikian surat pengantar ini kami buat dan kami berikan kepada yang bersangkutan, untuk dipergunakan sebagaimana mestinya. Atas bantuan dan kerjasamanya kami ucapkan terima kasih.<br /><br />
                     </p>
                     <table width="100%">
                         <tr>
@@ -119,10 +142,10 @@
                             </td>
                             <td>
                                 <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
-                                    <center>
-                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
-                                        Kepala Desa Kait-Kait Baru
-                                    </center>
+                                        <center>
+                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                            Kepala Desa Kait-Kait Baru
+                                        </center>
                             </td>
                         </tr>
                         <tr>

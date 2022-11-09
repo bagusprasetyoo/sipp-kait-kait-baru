@@ -10,12 +10,18 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="<?= base_url('surat/add_sk_belumnikah') ?>" method="post">
+                    <form class="form-horizontal" action="<?= base_url('surat/add_sk_tidakmampu') ?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?= $penduduk['nama']; ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">No KK</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nokk" placeholder="No KK" value="<?= $penduduk['nokk']; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -37,39 +43,15 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $penduduk['jenis_kelamin']; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Agama</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="agama" placeholder="Agama" value="<?= $penduduk['agama']; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Status</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="status_nikah" placeholder="Status Perkawinan" value="<?= $penduduk['status_nikah']; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Pendidikan</label>
-                                <div class="col-sm-10">
-                                <input type="text" class="form-control" name="pendidikan" placeholder="Contoh: SMA/SLTA" value="" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Pekerjaan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan" value="<?= $penduduk['pekerjaan']; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Alamat/Tempat Tinggal</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="alamat" placeholder="Alamat/Tempat Tinggal" value="<?= $penduduk['alamat']; ?> RT <?= $penduduk['rt']; ?>/ RW <?= $penduduk['rw']; ?> Dusun <?= $penduduk['dusun']; ?> <?= $penduduk['desa']; ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Kepala Keluarga</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="kepalakeluarga" placeholder="Contoh: Ahmad" value="" required>
                                 </div>
                             </div>
                             <div class="form-group row">

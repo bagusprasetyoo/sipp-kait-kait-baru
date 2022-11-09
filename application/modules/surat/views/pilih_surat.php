@@ -21,7 +21,7 @@
                         <h3 class="card-title m-0"><b>Surat Pengantar SKCK</b></h3>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-success">Buat Surat</a>
+                        <a href="<?= base_url('surat/sp_skck'); ?>" class="btn btn-success">Buat Surat</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         <h3 class="card-title m-0"><b>Surat Keterangan Tidak Mampu</b></h3>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-success">Buat Surat</a>
+                        <a href="<?= base_url('surat/sk_tidakmampu'); ?>" class="btn btn-success">Buat Surat</a>
                     </div>
                 </div>
             </div>

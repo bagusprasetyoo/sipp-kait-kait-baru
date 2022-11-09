@@ -80,12 +80,14 @@ class Surat_model extends CI_Model
     {
         date_default_timezone_set('Asia/Ujung_Pandang');
         $isi = [
-            'nik' => $post['nik'],
             'nama' => $post['nama'],
-            'jenis_kelamin' => $post['jenis_kelamin'],
+            'nik' => $post['nik'],
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
+            'jenis_kelamin' => $post['jenis_kelamin'],
             'agama' => $post['agama'],
+            'status_nikah' => $post['status_nikah'],
+            'pendidikan' => $post['pendidikan'],
             'pekerjaan' => $post['pekerjaan'],
             'alamat' => $post['alamat'],
             'keperluan' => $post['keperluan'],
@@ -94,6 +96,55 @@ class Surat_model extends CI_Model
         $isisurat = json_encode($isi);
         $params = [
             'jenis_surat' => 'SK Belum Menikah',
+            'isi_surat' => $isisurat,
+            'tanggal_surat' => date('Y-m-d H:i:s'),
+            'nik' => $post['nik'],
+        ];
+        $this->db->insert('tb_surat', $params);
+    }
+
+    public function add_sktidakmampu($post)
+    {
+        date_default_timezone_set('Asia/Ujung_Pandang');
+        $isi = [
+            'nama' => $post['nama'],
+            'nokk' => $post['n'],
+            'nik' => $post['nik'],
+            'tempat_lahir' => $post['tempat_lahir'],
+            'tanggal_lahir' => $post['tanggal_lahir'],
+            'alamat' => $post['alamat'],
+            'kepalakeluarga' =>$post['kepalakeluarga'],
+            'keperluan' => $post['keperluan'],
+            'tanggal_surat' => date('Y-m-d'),
+        ];
+        $isisurat = json_encode($isi);
+        $params = [
+            'jenis_surat' => 'SK Tidak Mampu',
+            'isi_surat' => $isisurat,
+            'tanggal_surat' => date('Y-m-d H:i:s'),
+            'nik' => $post['nik'],
+        ];
+        $this->db->insert('tb_surat', $params);
+    }
+
+    public function add_spskck($post)
+    {
+        date_default_timezone_set('Asia/Ujung_Pandang');
+        $isi = [
+            'nama' => $post['nama'],
+            'nik' => $post['nik'],
+            'tempat_lahir' => $post['tempat_lahir'],
+            'tanggal_lahir' => $post['tanggal_lahir'],
+            'agama' => $post['agama'],
+            'status_nikah' => $post['status_nikah'],
+            'pekerjaan' => $post['pekerjaan'],
+            'alamat' => $post['alamat'],
+            'keperluan' => $post['keperluan'],
+            'tanggal_surat' => date('Y-m-d'),
+        ];
+        $isisurat = json_encode($isi);
+        $params = [
+            'jenis_surat' => 'SP SKCK',
             'isi_surat' => $isisurat,
             'tanggal_surat' => date('Y-m-d H:i:s'),
             'nik' => $post['nik'],
