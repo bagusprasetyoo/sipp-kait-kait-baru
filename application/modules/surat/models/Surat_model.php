@@ -75,6 +75,31 @@ class Surat_model extends CI_Model
         $this->db->insert('tb_surat', $params);
     }
 
+    public function add_skbelumnikah($post)
+    {
+        date_default_timezone_set('Asia/Ujung_Pandang');
+        $isi = [
+            'nik' => $post['nik'],
+            'nama' => $post['nama'],
+            'jenis_kelamin' => $post['jenis_kelamin'],
+            'tempat_lahir' => $post['tempat_lahir'],
+            'tanggal_lahir' => $post['tanggal_lahir'],
+            'agama' => $post['agama'],
+            'pekerjaan' => $post['pekerjaan'],
+            'alamat' => $post['alamat'],
+            'keperluan' => $post['keperluan'],
+            'tanggal_surat' => date('Y-m-d'),
+        ];
+        $isisurat = json_encode($isi);
+        $params = [
+            'jenis_surat' => 'SK Belum Menikah',
+            'isi_surat' => $isisurat,
+            'tanggal_surat' => date('Y-m-d H:i:s'),
+            'nik' => $post['nik'],
+        ];
+        $this->db->insert('tb_surat', $params);
+    }
+
     public function validasi_rt($id)
     {
         $params = [

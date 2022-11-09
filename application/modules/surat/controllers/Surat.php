@@ -85,6 +85,33 @@ class Surat extends CI_Controller
     }
     //=== end sk usaha ===
 
+
+    //== sk belum menikah==//
+    public function sk_belumnikah()
+    {
+        check_pengguna();
+        $data['penduduk'] = $this->pend_model->get_where();
+        $data['title'] = 'Surat Keterangan Belum Menikah';
+        $data['user'] = $this->fungsi->user();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/create/sk_belumnikah', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function add_sk_belumnikah()
+    {
+        check_pengguna();
+        $post = $this->input->post(null, TRUE);
+        $this->surat_model->add_skbelumnikah($post);
+
+        //pemberitahuan berupa flashdata
+        $this->session->set_flashdata('success', "SK Belum Menikah <strong>$post[nama]</strong> berhasil dikirim!");
+        redirect('surat/show');
+    }
+
+    //=== end sk belum menikah==//
+
     public function read_surat($id)
     {
         //mengambil data surat dari tb_surat
@@ -113,6 +140,18 @@ class Surat extends CI_Controller
             $this->load->view('template/user_header', $data);
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_usaha', $data);
+            $this->load->view('template/user_footer');
+        } else if ($surat['jenis_surat'] == 'SK Belum Menikah') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            //melempar data $isisurat berupa $row ke view/read/sk_belumnikah
+            $data['row'] = $isisurat;
+
+            $data['title'] = 'Surat Keterangan Belum Menikah';
+            $data['user'] = $this->fungsi->user();
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
+            $this->load->view('surat/read/sk_belumnikah', $data);
             $this->load->view('template/user_footer');
         }
     }
