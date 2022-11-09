@@ -20,6 +20,15 @@ class Pend_model extends CI_Model
         return $query;
     }
 
+    //mendapatkan data penduduk per rt untuk memfilter data sesuai rt yang login
+    public function get_data_perrt()
+    {
+        $this->db->from('tb_penduduk');
+        $this->db->where('rt', $this->session->userdata('rt'));
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function add($post)
     {
         $params = [

@@ -14,13 +14,13 @@
             </div>
         </div>
         <div class="carousel-item active">
-            <img class="first-slide" style="opacity: 0.6;" src="<?= base_url('assets/'); ?>img/IMG_4187.jpg" alt="First slide">
+            <img class="first-slide" style="opacity: 0.3;" src="<?= base_url('assets/'); ?>img/IMG_4187.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="second-slide" style="opacity: 0.6;" src="<?= base_url('assets/'); ?>img/IMG_4191.jpg" alt="Second slide">
+            <img class="second-slide" style="opacity: 0.3;" src="<?= base_url('assets/'); ?>img/IMG_4191.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="third-slide" style="opacity: 0.6;" src="<?= base_url('assets/'); ?>img/IMG_4192.jpg" alt="Third slide">
+            <img class="third-slide" style="opacity: 0.3;" src="<?= base_url('assets/'); ?>img/IMG_4192.jpg" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">

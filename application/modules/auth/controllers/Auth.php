@@ -34,6 +34,8 @@ class Auth extends CI_Controller
 
         //select * from tb_pengguna where nik=$nik
         $user = $this->db->get_where('tb_pengguna', ['nik' => $nik])->row_array();
+        //select * from tb_penduduk untuk mendapatkan data rt
+        $rt = $this->db->get_where('tb_penduduk', ['nik' => $nik])->row_array();
 
         // jika usernya ada
         if ($user) {
@@ -42,7 +44,8 @@ class Auth extends CI_Controller
                 $data = [
                     'idpengguna' => $user['id_pengguna'],
                     'nik' => $user['nik'],
-                    'role' => $user['role']
+                    'role' => $user['role'],
+                    'rt' => $rt['rt'],
                 ];
                 //simpan data ke dalam session
                 $this->session->set_userdata($data);
