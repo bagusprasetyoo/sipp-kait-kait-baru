@@ -22,20 +22,23 @@
                             <table id="example3" class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
                                         <th>NIP</th>
-                                        <th>Aksi</th>
+                                        <th width="13%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($row->result() as $key => $data) { ?>
+                                    <?php $no = 1;
+                                    foreach ($row->result() as $key => $data) { ?>
                                         <tr>
+                                            <td><?= $no++; ?></td>
                                             <td><?= $data->nama_pejabat; ?></td>
                                             <td><?= $data->jabatan; ?></td>
                                             <td><?= $data->nip; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->id_pejabat; ?>">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->id_pejabat; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <a href="<?= base_url('pejabat/edit/') . $data->id_pejabat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>

@@ -8,6 +8,7 @@ class Surat_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_surat');
         $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
+        $this->db->join('tb_pejabat', 'tb_pejabat.id_pejabat = tb_surat.id_pejabat');
         if ($id != null) {
             $this->db->where('id_surat', $id);
         }
@@ -115,6 +116,15 @@ class Surat_model extends CI_Model
             'valid_kades' => 1
         ];
         $this->db->where('id_surat', $id);
+        $this->db->update('tb_surat', $params);
+    }
+
+    public function tanda_tangan($post)
+    {
+        $params = [
+            'id_pejabat' => $post['tanda_tangan'],
+        ];
+        $this->db->where('id_surat', $post['idsurat']);
         $this->db->update('tb_surat', $params);
     }
 

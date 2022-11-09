@@ -15,10 +15,10 @@
                                             Data Penduduk</a>
                                     </div>
                                 </div>
-                                <div class="btn-group mt-2">
-                                    <a href="#" class="btn btn-info btn-sm"><i class="fas fa-file-import"></i> import
+                                <!-- <div class="btn-group mt-2">
+                                    <a href="#" class="btn btn-secondary btn-sm"><i class="fas fa-file-import"></i> import
                                         excel</a>
-                                </div>
+                                </div> -->
                             </div>
                         <?php } ?>
                         <!-- /.card-header -->
@@ -47,7 +47,7 @@
                                             <td><?= $data->alamat; ?></td>
                                             <td><?= $data->rt; ?>/<?= $data->rw; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <a href="<?= base_url('penduduk/edit/') . $data->nik; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>

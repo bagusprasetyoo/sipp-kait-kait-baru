@@ -128,7 +128,11 @@
             <!-- <center>Yang Bersangkutan</center> -->
         </td>
         <td>
-            <center>Kepala Desa Kait-Kait Baru</center>
+            <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
+                <center>
+                    <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                    Kepala Desa Kait-Kait Baru
+                </center>
         </td>
     </tr>
     <tr>
@@ -220,7 +224,8 @@
             <center><b><u></u></b></center>
         </td>
         <td>
-            <center><b>ARIF BADRUS SHOLEH</b></center>
+            <center style="text-transform: uppercase;"><b><?= $ttd->nama_pejabat; ?></b></center>
+        <?php } ?>
         </td>
     </tr>
     <tr>

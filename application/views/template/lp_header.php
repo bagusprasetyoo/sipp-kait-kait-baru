@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?= $title; ?></title>
+    <title><?= $title; ?></title>
 
+    <link rel="icon" href="<?= base_url(); ?>/assets/img/Lambang_Kabupaten_Tanah_Laut.svg" type="image/svg">
     <!-- Customm CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>mycss/customstyle.css">
     <!-- Font Awesome Icons -->

@@ -39,7 +39,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col sm-10 input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input type="date" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal_lahir" placeholder="Tanggal Lahir" value="<?= $row->tanggal_lahir ?>" required>
+                                    <input type="date" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir" value="<?= $row->tanggal_lahir ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -50,7 +50,6 @@
                                         <option value="">-Pilih-</option>
                                         <option value="Laki-Laki" <?= $jenis_kelamin == 'Laki-Laki' ? "selected" : null; ?>>Laki - laki</option>
                                         <option value="Perempuan" <?= $jenis_kelamin == 'Perempuan' ? "selected" : null; ?>>Perempuan</option>
-                                    </select>
                                     </select>
                                 </div>
                             </div>

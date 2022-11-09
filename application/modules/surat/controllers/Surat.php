@@ -6,14 +6,15 @@ class Surat extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('surat_model');
-        $this->load->model('penduduk/pend_model');
+        //multiple pemangilan model menggunakan array[] mempersingkat penulisan
+        $this->load->model(['surat_model', 'penduduk/pend_model', 'pejabat/pejabat_model']);
         check_not_login();
     }
 
     public function show()
     {
         $data['row'] = $this->surat_model->get();
+        $data['pejabat'] = $this->pejabat_model->get();
         $data['title'] = 'Data Surat';
         $data['user'] = $this->fungsi->user();
         $this->load->view('template/user_header', $data);
@@ -25,8 +26,6 @@ class Surat extends CI_Controller
     public function pilih()
     {
         check_pengguna();
-        $data['row'] = $this->pend_model->get();
-
         $data['title'] = 'Pilih Surat';
         $data['user'] = $this->fungsi->user();
         $this->load->view('template/user_header', $data);
@@ -121,6 +120,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
             // var_dump($isisurat->waktumenetap);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
             $data['title'] = 'Surat Keterangan Domisili';
@@ -132,9 +132,9 @@ class Surat extends CI_Controller
         } else if ($surat['jenis_surat'] == 'SK Usaha') {
             $isisurat = json_decode($surat['isi_surat']);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
-
             $data['title'] = 'Surat Keterangan Domisili';
             $data['user'] = $this->fungsi->user();
             $this->load->view('template/user_header', $data);
@@ -165,6 +165,7 @@ class Surat extends CI_Controller
         if ($surat['jenis_surat'] == 'SK Domisili') {
             $isisurat = json_decode($surat['isi_surat']);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
 
@@ -174,6 +175,7 @@ class Surat extends CI_Controller
         } else if ($surat['jenis_surat'] == 'SK Usaha') {
             $isisurat = json_decode($surat['isi_surat']);
 
+            $data['tandatangan'] =  $this->surat_model->get($id);
             //melempar data $isisurat berupa $row ke view/read/sk_domisili
             $data['row'] = $isisurat;
 
@@ -187,7 +189,7 @@ class Surat extends CI_Controller
     {
         check_rt();
         $this->surat_model->validasi_rt($id);
-        $this->session->set_flashdata('success', 'Surat berhasil divalidasi RT');
+        $this->session->set_flashdata('success', 'Surat berhasil divalidasi RT.');
         redirect('surat/show');
     }
 
@@ -195,13 +197,22 @@ class Surat extends CI_Controller
     {
         check_kades();
         $this->surat_model->validasi_kades($id);
-        $this->session->set_flashdata('success', 'Surat berhasil divalidasi Kepala Desa');
+        $this->session->set_flashdata('success', 'Surat berhasil divalidasi Kepala Desa.');
+        redirect('surat/show');
+    }
+
+    public function tanda_tangan()
+    {
+        check_admin();
+        $post = $this->input->post(null, TRUE);
+        $this->surat_model->tanda_tangan($post);
+        $this->session->set_flashdata('success', 'Tanda tangan berhasil dipilih.');
         redirect('surat/show');
     }
 
     public function tolak_rt($id)
     {
-        check_kades();
+        check_rt();
         $this->surat_model->tolak_rt($id);
         $this->session->set_flashdata('danger', 'Surat ditolak RT');
         redirect('surat/show');
@@ -211,7 +222,7 @@ class Surat extends CI_Controller
     {
         check_kades();
         $this->surat_model->tolak_kades($id);
-        $this->session->set_flashdata('danger', '<Surat ditolak Kepala Desa');
+        $this->session->set_flashdata('danger', 'Surat ditolak Kepala Desa');
         redirect('surat/show');
     }
 

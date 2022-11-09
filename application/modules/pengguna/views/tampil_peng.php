@@ -40,7 +40,7 @@
                                             <td><?= $data->role; ?></td>
                                             <td><?= date('d-m-Y', strtotime($data->tanggal_daftar)); ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalpend<?= $data->nik; ?>">
                                                     <i class="fas fa-eye"></i></button>
                                                 <a href="<?= base_url('pengguna/edit/' . $data->id_pengguna); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                                 <a href="<?= base_url('pengguna/delete/') . $data->id_pengguna; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
