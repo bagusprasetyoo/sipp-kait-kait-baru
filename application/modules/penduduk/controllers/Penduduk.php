@@ -13,8 +13,13 @@ class Penduduk extends CI_Controller
 
     public function show()
     {
-        $data['row'] = $this->pend_model->get();
+        if ($this->fungsi->user_login()->role == 'RT') {
+            $datapend = $this->pend_model->get_data_perrt();
+        } else {
+            $datapend = $this->pend_model->get();
+        }
 
+        $data['row'] = $datapend;
         $data['title'] = 'Data Penduduk';
         $data['user'] = $this->fungsi->user();
         $this->load->view('template/user_header', $data);
