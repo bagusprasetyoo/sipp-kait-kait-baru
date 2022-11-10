@@ -13,7 +13,14 @@ class Surat extends CI_Controller
 
     public function show()
     {
-        $data['row'] = $this->surat_model->get();
+        if ($this->fungsi->user_login()->role == 'Pengguna') {
+            $datasurat = $this->surat_model->filter_pengguna();
+        } else if ($this->fungsi->user_login()->role == 'RT') {
+            $datasurat = $this->surat_model->filter_rt();
+        } else {
+            $datasurat = $this->surat_model->get();
+        }
+        $data['row'] = $datasurat;
         $data['pejabat'] = $this->pejabat_model->get();
         $data['title'] = 'Data Surat';
         $data['user'] = $this->fungsi->user();
@@ -246,7 +253,6 @@ class Surat extends CI_Controller
             $data['title'] = 'Surat Keterangan Domisili';
             $data['user'] = $this->fungsi->user();
             $this->load->view('surat/print/sk_domisili', $data);
-
         } else if ($surat['jenis_surat'] == 'SK Usaha') {
             $isisurat = json_decode($surat['isi_surat']);
 
@@ -257,7 +263,6 @@ class Surat extends CI_Controller
             $data['title'] = 'Surat Keterangan Usaha';
             $data['user'] = $this->fungsi->user();
             $this->load->view('surat/print/sk_usaha', $data);
-
         } else if ($surat['jenis_surat'] == 'SK Belum Menikah') {
             $isisurat = json_decode($surat['isi_surat']);
 

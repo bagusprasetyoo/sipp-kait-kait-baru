@@ -33,7 +33,7 @@
                                         <th>JK</th>
                                         <th>Alamat</th>
                                         <th>RT/RW</th>
-                                        <th>Aksi</th>
+                                        <th width="13%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

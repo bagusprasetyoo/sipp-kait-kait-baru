@@ -16,6 +16,30 @@ class Surat_model extends CI_Model
         return $query;
     }
 
+    //filter untuk menampilkan data surat sesuai nik pengguna yang login yang login
+    public function filter_pengguna()
+    {
+        $nik = $this->session->userdata('nik');
+        $this->db->from('tb_surat');
+        $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
+        $this->db->join('tb_pejabat', 'tb_pejabat.id_pejabat = tb_surat.id_pejabat');
+        $this->db->where('tb_surat.nik', $nik);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    //filter untuk menampilkan data surat sesuai rt yang login
+    public function filter_rt()
+    {
+        $rt = $this->session->userdata('rt');
+        $this->db->from('tb_surat');
+        $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
+        $this->db->join('tb_pejabat', 'tb_pejabat.id_pejabat = tb_surat.id_pejabat');
+        $this->db->where('tb_penduduk.rt', $rt);
+        $query = $this->db->get();
+        return $query;
+    }
+
     //mendapatkan data sebuah surat sesuai id
     public function get_where($id)
     {
@@ -113,7 +137,7 @@ class Surat_model extends CI_Model
             'tempat_lahir' => $post['tempat_lahir'],
             'tanggal_lahir' => $post['tanggal_lahir'],
             'alamat' => $post['alamat'],
-            'kepalakeluarga' =>$post['kepalakeluarga'],
+            'kepalakeluarga' => $post['kepalakeluarga'],
             'keperluan' => $post['keperluan'],
             'tanggal_surat' => date('Y-m-d'),
         ];
