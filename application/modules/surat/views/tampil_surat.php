@@ -145,7 +145,7 @@
                                 <th>Jenis Kelamin</th>
                                 <td><?= $data->jenis_kelamin; ?></td>
                             </tr>
-                            <tr>
+                            <tr class="border-top">
                                 <th>Alamat</th>
                                 <td><?= $data->alamat; ?></td>
                             </tr>
@@ -163,7 +163,31 @@
                             </tr>
                             <tr>
                                 <th></th>
-                                <td> Kecamatan Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan</td>
+                                <td> Kec. Bati-Bati, Kab. Tanah Laut, Prov. Kalimantan Selatan</td>
+                            </tr>
+                            <tr class="border-top">
+                                <th>Agama</th>
+                                <td><?= $data->agama; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Status Perkawinan</th>
+                                <td><?= $data->status_nikah; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Pekerjaan</th>
+                                <td><?= $data->pekerjaan; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Gol. Darah</th>
+                                <td><?= $data->gol_darah; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Nama Ayah</th>
+                                <td><?= $data->nama_ayah; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Nama Ibu</th>
+                                <td><?= $data->nama_ibu; ?></td>
                             </tr>
                         </table>
                     </div>

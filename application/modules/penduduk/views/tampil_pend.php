@@ -111,15 +111,12 @@
                                     <td><?= $data->alamat; ?></td>
                                 </tr>
                                 <tr>
-                                    <th>RT/RW</th>
+                                    <th>RT/RW/Dusun</th>
                                     <td>
                                         <?= $data->rt; ?>/
-                                        <?= $data->rw; ?>
+                                        <?= $data->rw; ?>/
+                                        <?= $data->dusun; ?>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <th>Dusun</th>
-                                    <td><?= $data->dusun; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Kel/Desa</th>
