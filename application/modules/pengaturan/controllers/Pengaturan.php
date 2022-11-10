@@ -13,7 +13,7 @@ class Pengaturan extends CI_Controller
 
     public function edit_profile()
     {
-        $data['user'] = $this->db->get_where('tb_pengguna', ['nik' => $this->session->userdata('nik')])->row_array();
+        $data['user'] = $this->fungsi->user();
         $data['title'] = 'Edit Profile';
 
         $this->form_validation->set_rules('email',  'Email', 'required|trim', [
@@ -53,9 +53,7 @@ class Pengaturan extends CI_Controller
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('image', $new_image);
                 } else {
-                    echo $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Salah Upload Gambar</small></div>');
+                    echo $this->session->set_flashdata('warning', 'Salah Upload Gambar');
                     redirect('pengaturan/edit_profile');
                 }
             }
@@ -65,10 +63,59 @@ class Pengaturan extends CI_Controller
             $this->db->where('nik', $nik);
             $this->db->update('tb_pengguna');
 
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <small><i class="icon fas fa-check"></i> Selamat Profile Berhasil diUbah</small></div>');
+            $this->session->set_flashdata('success', 'Selamat Profile Berhasil diubah');
             redirect('pengaturan/edit_profile');
+        }
+    }
+
+    public function change_password()
+    {
+        //rules
+        $this->form_validation->set_rules('current_password',  'Password Sekarang', 'required|trim', [
+            'required' => 'Password harus diisi !',
+        ]);
+        $this->form_validation->set_rules('new_password',  'Password Baru', 'required|trim|min_length[6]|matches[new_passconf]', [
+            'required' => 'Password harus diisi !',
+            'matches' => 'Password tidak cocok!',
+            'min_length' => 'Password terlalu pendek!'
+        ]);
+        $this->form_validation->set_rules('new_passconf',  'Ulang password baru', 'required|trim|matches[new_password]', [
+            'required' => 'Tulis ulang Password !'
+        ]);
+
+        //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
+        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
+
+        $data['user'] = $this->fungsi->user();
+        $data['title'] = 'Edit Profile';
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
+            $this->load->view('pengaturan/edit_profile', $data);
+            $this->load->view('template/user_footer');
+        } else {
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password');
+            if (!password_verify($current_password, $data['user']['password'])) {
+                $this->session->set_flashdata('danger', 'Salah input password.');
+                redirect('pengaturan/change_password');
+            } else {
+                if ($current_password == $new_password) {
+                    $this->session->set_flashdata('warning', 'Password baru tidak boleh sama dengan password terdahulu.');
+                    redirect('pengaturan/change_password');
+                } else {
+                    //input password sudah benar
+                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                    //opsional bisa dimasukkan ke model 
+                    $this->db->set('password', $password_hash);
+                    $this->db->where('nik', $this->session->userdata('nik'));
+                    $this->db->update('tb_pengguna');
+
+                    $this->session->set_flashdata('success', 'Password berhasil diganti.');
+                    redirect('pengaturan/edit_profile');
+                }
+            }
         }
     }
 }
