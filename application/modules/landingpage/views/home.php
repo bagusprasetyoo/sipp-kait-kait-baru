@@ -85,12 +85,12 @@
     <div class="container p-4 my-3">
         <div class="row">
             <div class="col">
-                <h5 class="text-center" style="color: #207030;"><b>FITUR SISTEM INFORMASI LAYANAN DESA</b></h>
+                <h4 class="text-center text-success"><b>FITUR SISTEM INFORMASI LAYANAN DESA</b></h4>
             </div>
         </div>
         <div class="row pt-2 mx-2">
             <div class="col">
-                <p class="text-justify">
+                <p class="text-justify" style="font-size: 14pt;">
                     Sistem ini dibuat untuk mempermudah masyarakat mengakses layanan umum yang tersedia di Desa Kait-Kait
                     Baru. Sistem ini dapat menjangkau dan mempercepat proses pelayanan yang tersedia di desa. Sistem ini
                     menyediakan layanan pembuatan surat yang diproses oleh sistem. Dengan adanya sistem ini masyarakat dapat
@@ -100,29 +100,33 @@
         </div>
     </div>
     <!-- /Info Fitur Aplikasi -->
-
-    <div class="container-fluid">
-        <div class="card card-widget widget-user">
-
-
+    <div class="row py-4" style="background-color: #eaeaea;">
+        <div class="col-12 text-center">
+            <h4 class="text-green mb-3"><b>STATISTIK PENDUDUK</b></h4>
         </div>
-    </div>
-
-    <div class="container-fluid text-center my-3" style="background-color: #eaeaea;">
-        <div class="row">
-            <div class="col pt-3">
-                <h5 style="color: #207030;"><b>STATISTIK PENDUDUK</b></h>
+        <div class="col-12 col-sm-4">
+            <div class="info-box bg-light">
+                <div class="info-box-content">
+                    <span class="info-box-number text-center mb-0" style="font-size: 23pt;"><?= $this->fungsi->count_pend_lk(); ?></span>
+                    <span class="info-box-text text-center text-green">Laki-Laki</span>
+                </div>
             </div>
         </div>
-        <div class="row fs-1" style="color: #47AF42;">
-            <div class="col-4">1095</div>
-            <div class="col-4">1055</div>
-            <div class="col-4">2150</div>
+        <div class="col-12 col-sm-4">
+            <div class="info-box bg-light">
+                <div class="info-box-content">
+                    <span class="info-box-number text-center mb-0" style="font-size: 23pt;"><?= $this->fungsi->count_pend_pr(); ?></span>
+                    <span class="info-box-text text-center text-green">Perempuan</span>
+                </div>
+            </div>
         </div>
-        <div class="row pb-4" style="color: #353535;">
-            <div class="col-4">Laki-Laki</div>
-            <div class="col-4">Perempuan</div>
-            <div class="col-4">Total Penduduk</div>
+        <div class="col-12 col-sm-4">
+            <div class="info-box bg-light">
+                <div class="info-box-content">
+                    <span class="info-box-number text-center mb-0" style="font-size: 23pt;"><?= $this->fungsi->count_data('tb_penduduk'); ?></span>
+                    <span class="info-box-text text-center text-green">Total Penduduk</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

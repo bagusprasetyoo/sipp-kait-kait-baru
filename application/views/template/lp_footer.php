@@ -9,14 +9,14 @@
 
       </div>
       <div class="row mx-auto">
-        <div class="col-4 col-md">
+        <div class="col-6 col-sm-4">
           <h5 class="font-weight-bold">Alamat</h5>
           <ul class="list-unstyled text-small text-justify">
-            <li><a>Jl. Penghijauan Rt 03 Rw 02, Kec. Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan
-                Kode Pos 70852</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> Jl. Penghijauan Rt 03 Rw 02, Kec. Bati-Bati, Kabupaten Tanah Laut, Provinsi Kalimantan Selatan
+              Kode Pos 70852</li>
           </ul>
         </div>
-        <div class="col-4 col-md">
+        <div class="col-6 col-sm-4">
           <h5 class="font-weight-bold">Jelajahi</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-light" href="<?= base_url('landingpage/layanan'); ?>">Layanan</a></li>
@@ -24,11 +24,11 @@
             <li><a class="text-light" href="<?= base_url('landingpage/kontak'); ?>">Kontak</a></li>
           </ul>
         </div>
-        <div class="col-4 col-md">
+        <div class="col-6 col-sm-4">
           <h5 class="font-weight-bold">Kontak</h5>
           <ul class="list-unstyled text-small ">
-            <li><i class="fas fa-phone text-dark"></i>+6288776543211</li>
-            <li><a class="text-light" href="#">kaitkaitbaru@gmail.com</a></li>
+            <li><i class="fa-solid fa-phone"></i> +6288776543211</li>
+            <li><a class="text-light" href="#"><i class="fa-solid fa-envelope"></i> kaitkaitbaru@gmail.com</a></li>
           </ul>
         </div>
       </div>

@@ -30,6 +30,22 @@ class Fungsi
     {
         return $this->ci->db->get($table)->num_rows();
     }
+    //jumlah penduduk laki-laki
+    function count_pend_lk()
+    {
+        $this->ci->db->select('*');
+        $this->ci->db->from('tb_penduduk');
+        $this->ci->db->where('jenis_kelamin', 'Laki-Laki');
+        return $this->ci->db->get()->num_rows();
+    }
+    //jumlah penduduk perempuan
+    function count_pend_pr()
+    {
+        $this->ci->db->select('*');
+        $this->ci->db->from('tb_penduduk');
+        $this->ci->db->where('jenis_kelamin', 'Perempuan');
+        return $this->ci->db->get()->num_rows();
+    }
 
     //menghitung jumlah surat masuk yg belum divalidasi rt dan kades
     function count_suratmasuk()
