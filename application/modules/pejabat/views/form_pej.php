@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="callout callout-success">
-                    <h5><i class="fas fa-info"></i> Info:</h5>
-                    Data pejabat digunakan untuk pilihan penandatanganan surat yang telah divalidasi.
+                    <strong>Info</strong>: Data pejabat digunakan untuk pilihan penandatanganan surat yang telah disetujui RT dan Kepala Desa.
                 </div>
                 <?= $this->session->flashdata('alert_pend'); ?>
                 <div class="card card-success">
@@ -27,7 +26,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Jabatan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="<?= $row->jabatan ?>" required>
+                                    <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="<?= $row->jabatan ?>" required <?php if ($row->id_pejabat == 1) { ?>readonly<?php } ?>>
                                 </div>
                             </div>
                             <div class="form-group row">

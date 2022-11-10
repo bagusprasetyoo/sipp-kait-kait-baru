@@ -3,6 +3,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <div class="callout callout-success">
+                    <strong>Info</strong>: Data pejabat digunakan untuk pilihan penandatanganan surat yang telah disetujui RT dan Kepala Desa.
+                </div>
                 <?= $this->view('template/alert'); ?>
                 <div class="card">
                     <!-- /.content-header -->
@@ -42,7 +45,9 @@
                                                     <i class="fas fa-eye"></i></button>
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <a href="<?= base_url('pejabat/edit/') . $data->id_pejabat; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                    <a href="<?= base_url('pejabat/delete/') . $data->id_pejabat; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                    <?php if ($data->id_pejabat != 1) { ?>
+                                                        <a href="<?= base_url('pejabat/delete/') . $data->id_pejabat; ?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                    <?php } ?>
                                                 <?php } ?>
                                             </td>
                                         </tr>
