@@ -6,9 +6,17 @@ Sistem ini dibuat untuk memudahkan masyarakat untuk melakukan pembuatan surat-me
 
 ## Fitur yang tersedia
 
+- 🏠 Halaman landing page.
 - 🔐 Authentication untuk Admin, Kades, RT , dan Pengguna.
 - 📝 Pembuatan isi surat otomatis oleh sistem.
 - 📃 Surat pengantar dari RT yang langsung diproses oleh sistem.
+- 🖊 Validasi surat dari RT dan Kades di dalam sistem.
+- 📃Melihat surat.
+- 🖨 Memilih penandatangan dan mencetak surat oleh Admin.
+- 🗃 Filter surat berdasarkan Pengguna yang login untuk Pengguna.
+- 🗃 Filter data penduduk berdasarkan RT untuk RT.
+- ⚙ Pengaturan ubah profil.
+- 🔑 Ubah kata sandi.
 
 ---
 
