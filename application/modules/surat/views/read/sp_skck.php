@@ -51,7 +51,7 @@
                     </p>
                     <table widht="100">
                         <tr>
-                            <td width="8%" align="right"></td>    
+                            <td width="8%" align="right"></td>
                             <td width="30%">Nama</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;">Arif Badrus Sholeh</td>
@@ -61,17 +61,17 @@
                             <td>Jabatan</td>
                             <td>:</td>
                             <td>Kepala Desa Kait-Kait Baru</td>
-                        </tr>   
+                        </tr>
                         <tr>
                             <td></td>
                             <td>Alamat</td>
                             <td>:</td>
                             <td>Desa Kait-Kait Baru RT 014/004 Dusun IV Kec. Bati-Bati Kab. Tanah Laut</td>
-                        </tr>   
+                        </tr>
                     </table>
                     <br />
                     <p align="justify">
-                    <span class="masuk_alinea">&nbsp;</span>Dengan ini menerangkan bahwa :
+                        <span class="masuk_alinea">&nbsp;</span>Dengan ini menerangkan bahwa :
                     </p>
                     <table width="100%">
                         <tr>
@@ -79,13 +79,13 @@
                             <td width="30%">Nama Lengkap</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama; ?></strong></td>
-                        </tr>        
+                        </tr>
                         <tr>
                             <td></td>
                             <td>NIK / No KTP</td>
                             <td>:</td>
                             <td><?= $row->nik; ?></td>
-                        </tr>          
+                        </tr>
                         <tr>
                             <td></td>
                             <td>Tempat/Tanggal Lahir</td>
@@ -142,10 +142,13 @@
                             </td>
                             <td>
                                 <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
-                                        <center>
-                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
-                                            Kepala Desa Kait-Kait Baru
-                                        </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                        Kepala Desa Kait-Kait Baru
+                                    </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
+                                    </center>
                             </td>
                         </tr>
                         <tr>

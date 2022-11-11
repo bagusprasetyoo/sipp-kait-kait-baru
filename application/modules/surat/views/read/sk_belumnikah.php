@@ -56,13 +56,13 @@
                             <td width="30%">Nama Lengkap</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama; ?></strong></td>
-                        </tr>        
+                        </tr>
                         <tr>
                             <td></td>
                             <td>NIK / No KTP</td>
                             <td>:</td>
                             <td><?= $row->nik; ?></td>
-                        </tr>          
+                        </tr>
                         <tr>
                             <td></td>
                             <td>Tempat/Tanggal Lahir</td>
@@ -126,10 +126,13 @@
                             </td>
                             <td>
                                 <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
-                                        <center>
-                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
-                                            Kepala Desa Kait-Kait Baru
-                                        </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                        Kepala Desa Kait-Kait Baru
+                                    </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
+                                    </center>
                             </td>
                         </tr>
                         <tr>

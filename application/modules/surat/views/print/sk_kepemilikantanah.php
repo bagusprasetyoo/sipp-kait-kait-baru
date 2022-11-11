@@ -94,40 +94,40 @@
     </tr>
 </table>
 <br />
-    <p align="justify">
-        <span class="masuk_alinea">&nbsp;</span>Pemegang SURAT PENGUASAAN (SHM) No. <?= $row->nosurat; ?> tanggal <?= $row->tglsurat; ?> Atas Nama <strong style="text-transform: uppercase;"><?= $row->atas_nama; ?></strong> Terletak di Desa Kait-Kait Baru, Kecamatan Bati-Bati, Kabupaten Tanah Laut.
-    </p>
-    <br />
-    <p align="justify">
-         <span class="masuk_alinea">&nbsp;</span>Dengan Batas-Batas :
-    </p>
+<p align="justify">
+    <span class="masuk_alinea">&nbsp;</span>Pemegang SURAT PENGUASAAN (SHM) No. <?= $row->nosurat; ?> tanggal <?= $row->tglsurat; ?> Atas Nama <strong style="text-transform: uppercase;"><?= $row->atas_nama; ?></strong> Terletak di Desa Kait-Kait Baru, Kecamatan Bati-Bati, Kabupaten Tanah Laut.
+</p>
+<br />
+<p align="justify">
+    <span class="masuk_alinea">&nbsp;</span>Dengan Batas-Batas :
+</p>
 <br />
 <table width="100%">
-<tr>
-                                        <td width="8%" align="right"></td>
-                                        <td width="30%">Utara</td>
-                                        <td width="3%">:</td>
-                                        <td width="57%"><?= $row->utara; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Timur</td>
-                                        <td>:</td>
-                                        <td><?= $row->timur; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Selatan</td>
-                                        <td>:</td>
-                                        <td><?= $row->selatan; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Timur</td>
-                                        <td>:</td>
-                                        <td><?= $row->timur; ?></td>
-                                    </tr>
-                                </table>                                 
+    <tr>
+        <td width="8%" align="right"></td>
+        <td width="30%">Utara</td>
+        <td width="3%">:</td>
+        <td width="57%"><?= $row->utara; ?></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Timur</td>
+        <td>:</td>
+        <td><?= $row->timur; ?></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Selatan</td>
+        <td>:</td>
+        <td><?= $row->selatan; ?></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Timur</td>
+        <td>:</td>
+        <td><?= $row->timur; ?></td>
+    </tr>
+</table>
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Orang tersebut di atas adalah benar-benar warga kami yang bertempat tinggal di Kait-Kait Baru <?= $row->alamat; ?> sejak kurang lebih <?= $row->waktumenetap; ?>.
     <br /><br />
@@ -150,6 +150,9 @@
                 <center>
                     <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
                     Kepala Desa Kait-Kait Baru
+                </center>
+                <center>
+                    <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
                 </center>
         </td>
     </tr>

@@ -135,6 +135,9 @@
                     <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
                     Kepala Desa Kait-Kait Baru
                 </center>
+                <center>
+                    <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
+                </center>
         </td>
     </tr>
     <tr>
