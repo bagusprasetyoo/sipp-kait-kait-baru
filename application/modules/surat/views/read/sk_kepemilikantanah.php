@@ -43,7 +43,7 @@
                     <div class="garis"></div>
                     <br />
                     <div align="center" style="line-height: 1.8;">
-                        <u><b style="font-size: 14pt; ">SURAT KETERANGAN TIDAK MAMPU</b></u><br>
+                        <u><b style="font-size: 14pt; ">SURAT KETERANGAN KEPEMILIKAN TANAH</b></u><br>
                         Nomor:009/. . . ./Pem
                     </div>
                     <p align="justify">
@@ -62,7 +62,7 @@
                             <td>NIK / No KTP</td>
                             <td>:</td>
                             <td><?= $row->nik; ?></td>
-                        </tr>          
+                        </tr>
                         <tr>
                             <td></td>
                             <td>Tempat/Tanggal Lahir</td>
@@ -71,20 +71,54 @@
                         </tr>
                         <tr>
                             <td></td>
+                            <td>Jenis Kelamin</td>
+                            <td>:</td>
+                            <td><?= $row->jenis_kelamin; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
                             <td style="vertical-align: text-top;">Alamat KTP</td>
                             <td style="vertical-align: text-top;">:</td>
                             <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
                         </tr>
+                    </table>
+                    <br />
+                    <p align="justify">
+                        <span class="masuk_alinea">&nbsp;</span>Pemegang SURAT PENGUASAAN (SHM) No. <?= $row->nosurat; ?> tanggal <?= $row->tglsurat; ?> Atas Nama <strong style="text-transform: uppercase;"><?= $row->atas_nama; ?></strong> Terletak di Desa Kait-Kait Baru, Kecamatan Bati-Bati, Kabupaten Tanah Laut.
+                    </p>
+                    <br />
+                    <p align="justify">
+                        <span class="masuk_alinea">&nbsp;</span>Dengan Batas-Batas :
+                    </p>
+                    <table width="100%">
+                        <tr>
+                            <td width="8%" align="right"></td>
+                            <td width="30%">Utara</td>
+                            <td width="3%">:</td>
+                            <td width="57%"><?= $row->utara; ?></td>
+                        </tr>
                         <tr>
                             <td></td>
-                            <td>Keperluan</td>
+                            <td>Timur</td>
                             <td>:</td>
-                            <td><?= $row->keperluan; ?></td>
+                            <td><?= $row->timur; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Selatan</td>
+                            <td>:</td>
+                            <td><?= $row->selatan; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Timur</td>
+                            <td>:</td>
+                            <td><?= $row->timur; ?></td>
                         </tr>
                     </table>
                     <br />
                     <p align="justify">
-                        <span class="masuk_alinea">&nbsp;</span>Bahwa yang namanya tersebut diatas benar-benar warga desa Kait-Kait Baru dengan Nomor Kartu Keluarga <b><?= $row->nokk; ?></b>. Dengan Kepala Keluarga An. <b><?= $row->kepalakeluarga; ?></b> dan dari sepengetahuan kami memang benar-benar keluarga yang <b>TIDAK MAMPU</b>.
+                        <span class="masuk_alinea">&nbsp;</span><?= $row->pernyataan; ?>
                         <br /><br />
                         <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini diberikan kepada yang bersangkutan, untuk dipergunakan sebagaimana mestinya.<br /><br />
                     </p>

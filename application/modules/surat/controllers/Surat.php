@@ -167,6 +167,31 @@ class Surat extends CI_Controller
     }
     //== end sp skck==//
 
+    //== sk_kepemilikantanah==//
+    public function sk_kepemilikantanah()
+    {
+        check_pengguna();
+        $data['penduduk'] = $this->pend_model->get_where();
+        $data['title'] = 'Surat Keterangan Kepemilikan Tanah';
+        $data['user'] = $this->fungsi->user();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/create/sk_kepemilikantanah', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function add_sk_kepemilikantanah()
+    {
+        check_pengguna();
+        $post = $this->input->post(null, TRUE);
+        $this->surat_model->add_skkepemilikantanah($post);
+
+        //pemberitahuan berupa flashdata
+        $this->session->set_flashdata('success', "SK Kepemilikan Tanah <strong>$post[nama]</strong> berhasil dikirim!");
+        redirect('surat/show');
+    }
+    //== end sk kepemilikan tanah==//
+
 
     public function read_surat($id)
     {
@@ -186,6 +211,7 @@ class Surat extends CI_Controller
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_domisili', $data);
             $this->load->view('template/user_footer');
+
         } else if ($surat['jenis_surat'] == 'SK Usaha') {
             $isisurat = json_decode($surat['isi_surat']);
 
@@ -198,6 +224,7 @@ class Surat extends CI_Controller
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_usaha', $data);
             $this->load->view('template/user_footer');
+
         } else if ($surat['jenis_surat'] == 'SK Belum Menikah') {
             $isisurat = json_decode($surat['isi_surat']);
 
@@ -210,6 +237,7 @@ class Surat extends CI_Controller
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_belumnikah', $data);
             $this->load->view('template/user_footer');
+
         } else if ($surat['jenis_surat'] == 'SK Tidak Mampu') {
             $isisurat = json_decode($surat['isi_surat']);
 
@@ -234,7 +262,20 @@ class Surat extends CI_Controller
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sp_skck', $data);
             $this->load->view('template/user_footer');
-        }
+            
+        } else if ($surat['jenis_surat'] == 'SK Kepemilikan Tanah') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            $data['tandatangan'] =  $this->surat_model->get($id);
+            //melempar data $isisurat berupa $row ke view/read/sk_kepemilikantanah
+            $data['row'] = $isisurat;
+            $data['title'] = 'Surat Keterangan Kepemilikan Tanah';
+            $data['user'] = $this->fungsi->user();
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
+            $this->load->view('surat/read/sk_kepemilikantanah', $data);
+            $this->load->view('template/user_footer');
+        } 
     }
 
     public function print($id)

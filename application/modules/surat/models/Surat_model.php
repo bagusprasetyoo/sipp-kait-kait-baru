@@ -176,6 +176,37 @@ class Surat_model extends CI_Model
         $this->db->insert('tb_surat', $params);
     }
 
+    public function add_skkepemilikantanah($post)
+    {
+        date_default_timezone_set('Asia/Ujung_Pandang');
+        $isi = [
+            'nama' => $post['nama'],
+            'nik' => $post['nik'],
+            'tempat_lahir' => $post['tempat_lahir'],
+            'tanggal_lahir' => $post['tanggal_lahir'],
+            'jenis_kelamin' => $post['jenis_kelamin'],
+            'alamat' => $post['alamat'],
+            'utara' => $post['utara'],
+            'timur' => $post['timur'],
+            'selatan' => $post['selatan'],
+            'barat' => $post['barat'],      
+            'atas_nama' => $post['atas_nama'],      
+            'nosurat' => $post['nosurat'],          
+            'tglsurat' => $post['tglsurat'],          
+            'pernyataan' => $post['pernyataan'],          
+            'tanggal_surat' => date('Y-m-d'),
+        ];
+        $isisurat = json_encode($isi);
+        $params = [
+            'jenis_surat' => 'SK Kepemilikan Tanah',
+            'isi_surat' => $isisurat,
+            'tanggal_surat' => date('Y-m-d H:i:s'),
+            'nik' => $post['nik'],
+        ];
+        $this->db->insert('tb_surat', $params);
+    }
+
+
     public function validasi_rt($id)
     {
         $params = [
