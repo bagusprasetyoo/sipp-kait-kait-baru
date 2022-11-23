@@ -44,7 +44,7 @@
                     <br />
                     <div align="center" style="line-height: 1.8;">
                         <u><b style="font-size: 14pt; ">SURAT PENGANTAR SURAT KETERANGAN CATATAN KEPOLISIAN</b></u><br>
-                        Nomor:009/. . . ./Pem
+                        Nomor : . . . / . . . / . . .
                     </div>
                     <p align="justify">
                         <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini :

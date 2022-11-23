@@ -55,7 +55,7 @@
 <br />
 <div align="center" style="line-height: 1.8;">
     <u><b style="font-size: 14pt; ">SURAT KETERANGAN USAHA</b></u><br>
-    Nomor : 009/. . . ./Umum
+    Nomor : . . . / . . . / . . .
 </div>
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
@@ -96,7 +96,7 @@
         <td></td>
         <td>Agama</td>
         <td>:</td>
-        <td><?= $row->status_nikah; ?></td>
+        <td><?= $row->agama; ?></td>
     </tr>
     <tr>
         <td></td>
