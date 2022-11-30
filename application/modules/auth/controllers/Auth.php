@@ -5,7 +5,9 @@ class Auth extends CI_Controller
 {
     public function login()
     {
+        //helper mengecek apabila sudah login tidak dapat kembali ke halaman login
         check_already_login();
+        //memanggil fungsi validasi
         $this->validation_login();
 
         // jika form validasi salah maka akan kembali ke halaman login
@@ -20,6 +22,7 @@ class Auth extends CI_Controller
         }
     }
 
+    //method validasi form login
     private function validation_login()
     {
         // rules untuk form validation halaaman Login
@@ -70,6 +73,9 @@ class Auth extends CI_Controller
 
     public function registration()
     {
+        //helper mengecek apabila sudah login tidak dapat kembali ke halaman registrasi
+        check_already_login();
+        //memanggil fungsi validasi
         $this->validation_registration();
 
         //menampilkan form registrasi
