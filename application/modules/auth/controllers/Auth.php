@@ -6,13 +6,7 @@ class Auth extends CI_Controller
     public function login()
     {
         check_already_login();
-        // rules untuk form validation halaaman Login
-        $this->form_validation->set_rules('nik', 'NIK', 'trim|required', [
-            'required' => 'NIK harus diisi !'
-        ]);
-        $this->form_validation->set_rules('password', 'Password', 'trim|required', [
-            'required' => 'Password harus diisi !'
-        ]);
+        $this->validation_login();
 
         // jika form validasi salah maka akan kembali ke halaman login
         if ($this->form_validation->run() == false) {
@@ -24,6 +18,17 @@ class Auth extends CI_Controller
             // validasi success
             $this->_login();
         }
+    }
+
+    private function validation_login()
+    {
+        // rules untuk form validation halaaman Login
+        $this->form_validation->set_rules('nik', 'NIK', 'trim|required', [
+            'required' => 'NIK harus diisi !'
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'trim|required', [
+            'required' => 'Password harus diisi !'
+        ]);
     }
 
     //opsional membuat agar method validasi success tidak terlalu panjang
@@ -65,30 +70,7 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        //rules untuk form validation halaaman Registrasi
-        $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]', [
-            'required' => 'NIK harus diisi !',
-            'is_unique' => 'NIK sudah diregistrasi !'
-        ]);
-        $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email', [
-            'required' => 'Email harus diisi !',
-            'valid_email' => 'Penulisan email tidak valid !'
-        ]);
-        $this->form_validation->set_rules('nohp',  'NoHP', 'required|trim', [
-            'required' => 'No Handphone harus diisi !'
-        ]);
-        $this->form_validation->set_rules('password',  'Password', 'required|trim|min_length[6]|matches[passconf]', [
-            'required' => 'Password harus diisi !',
-            'matches' => 'Password tidak cocok!',
-            'min_length' => 'Password terlalu pendek!'
-        ]);
-        $this->form_validation->set_rules('passconf',  'Password', 'required|trim|matches[password]', [
-            'required' => 'Tulis ulang Password !'
-        ]);
-
-        //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
-        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
-
+        $this->validation_registration();
 
         //menampilkan form registrasi
         if ($this->form_validation->run() == false) {
@@ -125,6 +107,34 @@ class Auth extends CI_Controller
                 redirect('auth/registration');
             }
         }
+    }
+
+    // method validasi form registrasi
+    private function validation_registration()
+    {
+        //rules untuk form validation halaaman Registrasi
+        $this->form_validation->set_rules('nik',  'NIK', 'required|trim|is_unique[tb_pengguna.nik]', [
+            'required' => 'NIK harus diisi !',
+            'is_unique' => 'NIK sudah diregistrasi !'
+        ]);
+        $this->form_validation->set_rules('email',  'Email', 'required|trim|valid_email', [
+            'required' => 'Email harus diisi !',
+            'valid_email' => 'Penulisan email tidak valid !'
+        ]);
+        $this->form_validation->set_rules('nohp',  'NoHP', 'required|trim', [
+            'required' => 'No Handphone harus diisi !'
+        ]);
+        $this->form_validation->set_rules('password',  'Password', 'required|trim|min_length[6]|matches[passconf]', [
+            'required' => 'Password harus diisi !',
+            'matches' => 'Password tidak cocok!',
+            'min_length' => 'Password terlalu pendek!'
+        ]);
+        $this->form_validation->set_rules('passconf',  'Password', 'required|trim|matches[password]', [
+            'required' => 'Tulis ulang Password !'
+        ]);
+
+        //set_error_delimiters: memperpendek penulisan form error di halaman registrasi
+        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
     }
 
     public function logout()
