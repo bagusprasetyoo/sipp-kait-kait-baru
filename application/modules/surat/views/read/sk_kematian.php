@@ -27,9 +27,9 @@
                             margin-right: 20px;
                         }
                     </style>
-                    <table width="90%">
+                    <table width="80%">
                         <tr>
-                            <td align="right"><img src="<?= base_url('assets/img/TanahLaut.jpg'); ?>" width="100px" height="100px" valign="baseline" /></td>
+                            <td align="right"><img src="<?= base_url('assets/img/TanahLaut.jpg'); ?>" width="100px" height="100px" /></td>
                             <td align="center">
                                 <strong style="font-size : 16pt; ">PEMERINTAH KABUPATEN TANAH LAUT<br />
                                     KECAMATAN BATI-BATI<br />
@@ -43,8 +43,8 @@
                     <div class="garis"></div>
                     <br />
                     <div align="center" style="line-height: 1.8;">
-                        <u><b style="font-size: 14pt; ">SURAT KETERANGAN USAHA</b></u><br>
-                        Nomor : 009/. . . ./Umum
+                        <u><b style="font-size: 14pt; ">SURAT KETERANGAN KEMATIAN</b></u><br>
+                        Nomor:009/. . . ./Pem
                     </div>
                     <p align="justify">
                         <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
@@ -53,21 +53,15 @@
                     <table width="100%">
                         <tr>
                             <td width="8%" align="right"></td>
-                            <td width="30%">Nama Lengkap</td>
+                            <td width="30%">Nama</td>
                             <td width="3%">:</td>
-                            <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama; ?></strong></td>
-                        </tr>
+                            <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama_mati; ?></strong></td>
+                        </tr>        
                         <tr>
                             <td></td>
                             <td>NIK / No KTP</td>
                             <td>:</td>
-                            <td><?= $row->nik; ?></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Tempat/Tanggal Lahir</td>
-                            <td>:</td>
-                            <td><?= $row->tempat_lahir; ?>, <?= $row->tanggal_lahir; ?></td>
+                            <td><?= $row->nik_mati; ?></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -77,9 +71,9 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td style="vertical-align: text-top;">Alamat KTP</td>
-                            <td style="vertical-align: text-top;">:</td>
-                            <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
+                            <td>Tempat/Tanggal Lahir</td>
+                            <td>:</td>
+                            <td><?= $row->tempat_lahir; ?>, <?= $row->tanggallahir; ?></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -89,9 +83,57 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td>Status Perkawinan</td>
+                            <td>Alamat</td>
                             <td>:</td>
-                            <td><?= $row->status_nikah; ?></td>
+                            <td><?= $row->alamat_mati; ?></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <p align="justify">
+                        <span class="masuk_alinea">&nbsp;</span>Telah meninggal dunia pada :
+                    </p>
+                    <table width="100%">
+                        <tr>
+                            <td width="8%" align="right"></td>
+                            <td width="30%">Hari / Tanggal / Jam</td>
+                            <td width="3%">:</td>
+                            <td width="57%"><?= $row->hari; ?>, <?= $row->tanggal_mati; ?>, <?= $row->jam; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Bertempat di</td>
+                            <td>:</td>
+                            <td><?= $row->tempat; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Penyebab Kematian</td>
+                            <td>:</td>
+                            <td><?= $row->penyebab; ?></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <p align="justify">
+                        <span class="masuk_alinea">&nbsp;</span>Surat keterangan ini dibuat berdasarkan keterangan pelapor :
+                    </p>
+                    <table width="100%">
+                        <tr>
+                            <td width="8%" align="right"></td>
+                            <td width="30%">Nama Lengkap</td>
+                            <td width="3%">:</td>
+                            <td width="57%"><?= $row->nama; ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>NIK / No KTP</td>
+                            <td>:</td>
+                            <td><?= $row->nik; ?></td>
+                        </tr>          
+                        <tr>
+                            <td></td>
+                            <td>Tanggal Lahir</td>
+                            <td>:</td>
+                            <td><?= $row->tanggal_lahir; ?></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -99,12 +141,23 @@
                             <td>:</td>
                             <td><?= $row->pekerjaan; ?></td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td style="vertical-align: text-top;">Alamat KTP</td>
+                            <td style="vertical-align: text-top;">:</td>
+                            <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Hubungan dengan yang mati</td>
+                            <td>:</td>
+                            <td><?= $row->hubungan; ?></td>
+                        </tr>
                     </table>
                     <br />
                     <p align="justify">
-                        <span class="masuk_alinea">&nbsp;</span>Sepanjang pengetahuan dan pengamatan kami, hingga dikeluarkannya surat keterangan ini, bahwa orang tersebut adalah warga Kait-Kait Baru dengan data seperti di atas dan memiliki usaha <strong><?= $row->namausaha; ?></strong> kurang lebih sejak <strong><?= $row->waktuusaha; ?></strong> hingga sekarang.
                         <br /><br />
-                        <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini dibuat dengan sebenarnya, untuk dipergunakan sebagaimana mestinya.<br /><br />
+                        <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini diberikan kepada yang bersangkutan, untuk dipergunakan sebagaimana mestinya.<br /><br />
                     </p>
                     <table width="100%">
                         <tr>
@@ -119,10 +172,10 @@
                             </td>
                             <td>
                                 <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
-                                    <center>
-                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
-                                        Kepala Desa Kait-Kait Baru
-                                    </center>
+                                        <center>
+                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                            Kepala Desa Kait-Kait Baru
+                                        </center>
                             </td>
                         </tr>
                         <tr>

@@ -192,6 +192,31 @@ class Surat extends CI_Controller
     }
     //== end sk kepemilikan tanah==//
 
+    //== sk_kematian==//
+    public function sk_kematian()
+    {
+        check_pengguna();
+        $data['penduduk'] = $this->pend_model->get_where();
+        $data['title'] = 'Surat Keterangan Kematian';
+        $data['user'] = $this->fungsi->user();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('surat/create/sk_kematian', $data);
+        $this->load->view('template/user_footer');
+    }
+
+    public function add_sk_kematian()
+    {
+        check_pengguna();
+        $post = $this->input->post(null, TRUE);
+        $this->surat_model->add_skkematian($post);
+
+        //pemberitahuan berupa flashdata
+        $this->session->set_flashdata('success', "SK Kematian <strong>$post[nama]</strong> berhasil dikirim!");
+        redirect('surat/show');
+    }
+    //== end sk kematian==//
+
 
     public function read_surat($id)
     {
@@ -274,6 +299,19 @@ class Surat extends CI_Controller
             $this->load->view('template/user_header', $data);
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_kepemilikantanah', $data);
+            $this->load->view('template/user_footer');
+
+        } else if ($surat['jenis_surat'] == 'SK Kematian') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            $data['tandatangan'] =  $this->surat_model->get($id);
+            //melempar data $isisurat berupa $row ke view/read/sk_kematian
+            $data['row'] = $isisurat;
+            $data['title'] = 'Surat Keterangan Kematian';
+            $data['user'] = $this->fungsi->user();
+            $this->load->view('template/user_header', $data);
+            $this->load->view('template/user_sidebar', $data);
+            $this->load->view('surat/read/sk_kematian', $data);
             $this->load->view('template/user_footer');
         } 
     }

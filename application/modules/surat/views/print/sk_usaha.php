@@ -96,7 +96,7 @@
         <td></td>
         <td>Agama</td>
         <td>:</td>
-        <td><?= $row->status_nikah; ?></td>
+        <td><?= $row->agama; ?></td>
     </tr>
     <tr>
         <td></td>

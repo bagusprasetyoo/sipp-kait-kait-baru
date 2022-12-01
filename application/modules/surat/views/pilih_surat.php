@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <!-- <h6 class="card-title">Judul</h6> -->
                         <!-- <p class="card-text">Keterangan Surat</p> -->
-                        <a href="#" class="btn btn-success">Buat Surat</a>
+                        <a href="<?= base_url('surat/sk_kematian'); ?>" class="btn btn-success">Buat Surat</a>
                     </div>
                 </div>
             </div>
