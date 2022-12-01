@@ -12,7 +12,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <a href="<?= base_url('surat/pilih'); ?>" class="btn btn-success"> + Buat
+                                        <a href="<?= base_url('surat/pilih'); ?>" class="btn btn-success"> + Pilih
                                             Surat </a>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                                 <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
                                                     <?php if ($data->valid_rt == '1' && $data->valid_kades == '1') { ?>
                                                         <a target="blank" href="<?= base_url('surat/print/') . $data->id_surat; ?>" onclick="return confirm('Cetak surat?')" class="btn btn-warning btn-sm"><i class="fas fa-print"></i></a>
-                                                        <button ttype="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalsignature<?= $data->id_surat; ?>"><i class="fas fa-file-signature"></i></button>
+                                                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalsignature<?= $data->id_surat; ?>"><i class="fas fa-file-signature"></i></button>
                                                     <?php } ?>
                                                     <a href="<?= base_url('surat/delete/') . $data->id_surat; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                 <?php } ?>

@@ -18,8 +18,7 @@ class Landingpage extends CI_Controller
 
     public function layanan()
     {
-        $data['title'] = 'Layanan Umum';
-        $data['subtitle'] = 'Layanan';
+        $data['title'] = 'Layanan';
         $this->load->view('template/lp_header', $data);
         $this->load->view('template/lp_breadcrumb', $data);
         $this->load->view('landingpage/layanan');
@@ -30,8 +29,7 @@ class Landingpage extends CI_Controller
     {
         $data['title'] = 'Visi Misi';
         $data['subtitle'] = 'Profil Desa';
-        $this->load->view('template/lp_header', $data);
-        $this->load->view('template/lp_breadcrumb', $data);
+        $this->load->view('template/lp_header', $data);;
         $this->load->view('landingpage/visimisi');
         $this->load->view('template/lp_footer');
     }
@@ -41,7 +39,6 @@ class Landingpage extends CI_Controller
         $data['title'] = 'Struktur Pemerintah';
         $data['subtitle'] = 'Profil Desa';
         $this->load->view('template/lp_header', $data);
-        $this->load->view('template/lp_breadcrumb', $data);
         $this->load->view('landingpage/struktur');
         $this->load->view('template/lp_footer');
     }
@@ -50,6 +47,7 @@ class Landingpage extends CI_Controller
     {
         $data['title'] = 'Kontak';
         $this->load->view('template/lp_header', $data);
+        $this->load->view('template/lp_breadcrumb', $data);
         $this->load->view('landingpage/kontak');
         $this->load->view('template/lp_footer');
     }

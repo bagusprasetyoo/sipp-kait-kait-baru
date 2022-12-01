@@ -44,7 +44,7 @@
                     <br />
                     <div align="center" style="line-height: 1.8;">
                         <u><b style="font-size: 14pt; ">SURAT KETERANGAN KEPEMILIKAN TANAH</b></u><br>
-                        Nomor:009/. . . ./Pem
+                        Nomor :  . . . / . . . / . . .
                     </div>
                     <p align="justify">
                         <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
@@ -56,7 +56,7 @@
                             <td width="30%">Nama Lengkap</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama; ?></strong></td>
-                        </tr>        
+                        </tr>
                         <tr>
                             <td></td>
                             <td>NIK / No KTP</td>
@@ -135,10 +135,13 @@
                             </td>
                             <td>
                                 <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
-                                        <center>
-                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
-                                            Kepala Desa Kait-Kait Baru
-                                        </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                        Kepala Desa Kait-Kait Baru
+                                    </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
+                                    </center>
                             </td>
                         </tr>
                         <tr>

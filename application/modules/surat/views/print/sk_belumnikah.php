@@ -55,7 +55,7 @@
 <br />
 <div align="center" style="line-height: 1.8;">
     <u><b style="font-size: 14pt; ">SURAT KETERANGAN BELUM MENIKAH</b></u><br>
-    Nomor:009/. . . ./Pem
+    Nomor : . . . / . . . / . . .
 </div>
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
@@ -79,13 +79,13 @@
         <td>Jenis Kelamin</td>
         <td>:</td>
         <td><?= $row->jenis_kelamin; ?></td>
-    </tr>    
+    </tr>
     <tr>
         <td></td>
         <td>Tempat/Tanggal Lahir</td>
         <td>:</td>
         <td><?= $row->tempat_lahir; ?>, <?= $row->tanggal_lahir; ?></td>
-    </tr>  
+    </tr>
     <tr>
         <td></td>
         <td>Agama</td>
@@ -105,7 +105,7 @@
         <td><?= $row->alamat; ?> Kec. Bati Bati Kab. Tanah Laut </td>
     </tr>
 </table>
-    <br />
+<br />
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Pemilik nama tersebut diatas adalah benar-benar warga desa kami yang bertempat tinggal di <?= $row->alamat; ?>, Kecamatan Bati-Bati, Kabupaten Tanah Laut. Dan belum pernah menikah baik didalam daerah maupun diluar daerah. Sejauh pengamatan yang kami lakukan, yang bersangkutan <b><u>BELUM MENIKAH</u></b>.
     <br /><br />
@@ -128,6 +128,9 @@
                 <center>
                     <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
                     Kepala Desa Kait-Kait Baru
+                </center>
+                <center>
+                    <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
                 </center>
         </td>
     </tr>

@@ -55,14 +55,14 @@
 <br />
 <div align="center" style="line-height: 1.8;">
     <u><b style="font-size: 14pt; ">SURAT PENGANTAR SURAT KETERANGAN CATATAN KEPOLISIAN</b></u><br>
-    Nomor : 009/. . . ./Umum
+    Nomor : . . . / . . . / . . .
 </div>
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini :
 </p>
 <table widht="100">
     <tr>
-        <td width="8%" align="right"></td>    
+        <td width="8%" align="right"></td>
         <td width="30%">Nama</td>
         <td width="3%">:</td>
         <td width="57%" style="text-transform: uppercase;">Arif Badrus Sholeh</td>
@@ -72,13 +72,13 @@
         <td>Jabatan</td>
         <td>:</td>
         <td>Kepala Desa Kait-Kait Baru</td>
-    </tr>   
+    </tr>
     <tr>
         <td></td>
         <td>Alamat</td>
         <td>:</td>
         <td>Desa Kait-Kait Baru RT 014/004 Dusun IV Kec. Bati-Bati Kab. Tanah Laut</td>
-    </tr>   
+    </tr>
 </table>
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Dengan ini menerangkan bahwa :
@@ -149,6 +149,9 @@
                 <center>
                     <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
                     Kepala Desa Kait-Kait Baru
+                </center>
+                <center>
+                    <?php if ($ttd->jabatan != 'Kepala Desa') { ?><?= $ttd->jabatan; ?><?php } ?>
                 </center>
         </td>
     </tr>

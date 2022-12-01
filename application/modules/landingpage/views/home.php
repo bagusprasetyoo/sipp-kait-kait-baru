@@ -7,7 +7,7 @@
     </ol>
     <div class="carousel-inner bg-dark">
         <div class="container">
-            <div class="carousel-caption d-none d-md-block" style="bottom: 220px;">
+            <div class="carousel-caption" style="bottom: 220px;">
                 <h5>Kait-Kait Baru</h5>
                 <p>Kec. Bati-Bati, Kab. Tanah Laut</p>
                 <p><a class="btn btn-lg btn-success my-3" href="<?= base_url('auth/registration'); ?>" role="button">DAFTAR</a></p>
