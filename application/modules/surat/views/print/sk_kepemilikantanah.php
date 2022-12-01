@@ -97,7 +97,6 @@
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Pemegang SURAT PENGUASAAN (SHM) No. <?= $row->nosurat; ?> tanggal <?= $row->tglsurat; ?> Atas Nama <strong style="text-transform: uppercase;"><?= $row->atas_nama; ?></strong> Terletak di Desa Kait-Kait Baru, Kecamatan Bati-Bati, Kabupaten Tanah Laut.
 </p>
-<br />
 <p align="justify">
     <span class="masuk_alinea">&nbsp;</span>Dengan Batas-Batas :
 </p>
@@ -129,9 +128,9 @@
     </tr>
 </table>
 <p align="justify">
-    <span class="masuk_alinea">&nbsp;</span>Orang tersebut di atas adalah benar-benar warga kami yang bertempat tinggal di Kait-Kait Baru <?= $row->alamat; ?> sejak kurang lebih <?= $row->waktumenetap; ?>.
+    <span class="masuk_alinea">&nbsp;</span> <?= $row->pernyataan; ?>.
     <br /><br />
-    <span class="masuk_alinea">&nbsp;</span>Surat Keterangan ini dibuat sebagai dokumen pegangan kepada yang bersangkutan.<br /><br />
+
     <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini dibuat dengan sebenarnya, untuk dipergunakan sebagaimana mestinya.<br /><br />
 </p>
 <table width="100%">
