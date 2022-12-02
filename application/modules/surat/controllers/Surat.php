@@ -296,8 +296,6 @@ class Surat extends CI_Controller
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_kepemilikantanah', $data);
             $this->load->view('template/user_footer');
-<<<<<<< HEAD
-
         } else if ($surat['jenis_surat'] == 'SK Kematian') {
             $isisurat = json_decode($surat['isi_surat']);
 
@@ -310,10 +308,7 @@ class Surat extends CI_Controller
             $this->load->view('template/user_sidebar', $data);
             $this->load->view('surat/read/sk_kematian', $data);
             $this->load->view('template/user_footer');
-        } 
-=======
         }
->>>>>>> e57359fb268aee7ac54c9476bb65218822e6ae13
     }
 
     public function print($id)
