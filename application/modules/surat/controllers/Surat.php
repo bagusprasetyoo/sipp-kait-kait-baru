@@ -321,7 +321,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
 
             $data['tandatangan'] =  $this->surat_model->get($id);
-            //melempar data $isisurat berupa $row ke view/read/sk_domisili
+            //melempar data $isisurat berupa $row ke view/print/sk_domisili
             $data['row'] = $isisurat;
 
             $data['title'] = 'Surat Keterangan Domisili';
@@ -331,7 +331,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
 
             $data['tandatangan'] =  $this->surat_model->get($id);
-            //melempar data $isisurat berupa $row ke view/read/sk_usaha
+            //melempar data $isisurat berupa $row ke view/print/sk_usaha
             $data['row'] = $isisurat;
 
             $data['title'] = 'Surat Keterangan Usaha';
@@ -341,7 +341,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
 
             $data['tandatangan'] =  $this->surat_model->get($id);
-            //melempar data $isisurat berupa $row ke view/read/sk_belumnikah
+            //melempar data $isisurat berupa $row ke view/print/sk_belumnikah
             $data['row'] = $isisurat;
 
             $data['title'] = 'Surat Keterangan Belum Menikah';
@@ -351,7 +351,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
 
             $data['tandatangan'] =  $this->surat_model->get($id);
-            //melempar data $isisurat berupa $row ke view/read/sk_tidakmampu
+            //melempar data $isisurat berupa $row ke view/print/sk_tidakmampu
             $data['row'] = $isisurat;
 
             $data['title'] = 'Surat Keterangan Tidak Mampu';
@@ -361,7 +361,7 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
 
             $data['tandatangan'] =  $this->surat_model->get($id);
-            //melempar data $isisurat berupa $row ke view/read/sp_skck
+            //melempar data $isisurat berupa $row ke view/print/sp_skck
             $data['row'] = $isisurat;
 
             $data['title'] = 'Surat Pengantar Surat Keterangan Catatan Kepolisian';
@@ -371,12 +371,22 @@ class Surat extends CI_Controller
             $isisurat = json_decode($surat['isi_surat']);
 
             $data['tandatangan'] =  $this->surat_model->get($id);
-            //melempar data $isisurat berupa $row ke view/read/sp_skck
+            //melempar data $isisurat berupa $row ke view/print/sk_kepemilikantanah
             $data['row'] = $isisurat;
 
             $data['title'] = 'Surat Keterangan Kepemilikan Tanah';
             $data['user'] = $this->fungsi->user();
             $this->load->view('surat/print/sk_kepemilikantanah', $data);
+        } else if ($surat['jenis_surat'] == 'SK Kematian') {
+            $isisurat = json_decode($surat['isi_surat']);
+
+            $data['tandatangan'] =  $this->surat_model->get($id);
+            //melempar data $isisurat berupa $row ke view/print/sp_skck
+            $data['row'] = $isisurat;
+
+            $data['title'] = 'Surat Keterangan Kematian';
+            $data['user'] = $this->fungsi->user();
+            $this->load->view('surat/print/sk_kematian', $data);
         }
     }
 

@@ -27,8 +27,12 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jenis_kelamin" placeholder="Jenis Kelamin" value="" required>
+                                <div class="col-sm-3">
+                                    <select class="form-control" name="jenis_kelamin">
+                                        <option value="">-Pilih-</option>
+                                        <option value="Laki-Laki" <?= set_value('jenis_kelamin') == 'Laki-Laki' ? "selected" : null; ?>>Laki-Laki</option>
+                                        <option value="Perempuan" <?= set_value('jenis_kelamin') == 'Perempuan' ? "selected" : null; ?>>Perempuan</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -39,14 +43,22 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tanggallahir" placeholder="Tanggal Lahir" value="" required>
+                                <div class="col-sm-3">
+                                    <input type="date" class="form-control" name="tanggallahir" placeholder="Tanggal Lahir" value="" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Agama</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="agama" placeholder="Agama" value="" required>
+                                <div class="col-sm-3">
+                                    <select class="form-control" name="agama">
+                                        <option value="">-Pilih-</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen Protestan">Kristen Protestan</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -59,19 +71,19 @@
                             <label>Telah Meninggal Dunia Pada :</label>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Hari</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-3">
                                     <input type="text" class="form-control" name="hari" placeholder="Hari" value="" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tanggal</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tanggal_mati" placeholder="dd-mm-yyyy" value="" required>
+                                <div class="col-sm-3">
+                                    <input type="date" class="form-control" name="tanggal_mati" placeholder="dd-mm-yyyy" value="" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Jam</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-3">
                                     <input type="text" class="form-control" name="jam" placeholder="Jam" value="" required>
                                 </div>
                             </div>

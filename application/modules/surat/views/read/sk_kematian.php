@@ -44,19 +44,18 @@
                     <br />
                     <div align="center" style="line-height: 1.8;">
                         <u><b style="font-size: 14pt; ">SURAT KETERANGAN KEMATIAN</b></u><br>
-                        Nomor:009/. . . ./Pem
+                        Nomor: . . . / . . . / . . .
                     </div>
                     <p align="justify">
                         <span class="masuk_alinea">&nbsp;</span>Yang bertanda tangan di bawah ini Kepala Desa Kait Kait Baru Kecamatan Bati-Bati Kabupaten Tanah Laut Provinsi Kalimantan Selatan menerangkan dengan sebenarnya bahwa :
                     </p>
-                    <br />
                     <table width="100%">
                         <tr>
                             <td width="8%" align="right"></td>
                             <td width="30%">Nama</td>
                             <td width="3%">:</td>
                             <td width="57%" style="text-transform: uppercase;"><strong><?= $row->nama_mati; ?></strong></td>
-                        </tr>        
+                        </tr>
                         <tr>
                             <td></td>
                             <td>NIK / No KTP</td>
@@ -128,7 +127,7 @@
                             <td>NIK / No KTP</td>
                             <td>:</td>
                             <td><?= $row->nik; ?></td>
-                        </tr>          
+                        </tr>
                         <tr>
                             <td></td>
                             <td>Tanggal Lahir</td>
@@ -156,7 +155,6 @@
                     </table>
                     <br />
                     <p align="justify">
-                        <br /><br />
                         <span class="masuk_alinea">&nbsp;</span>Demikian surat keterangan ini diberikan kepada yang bersangkutan, untuk dipergunakan sebagaimana mestinya.<br /><br />
                     </p>
                     <table width="100%">
@@ -172,10 +170,10 @@
                             </td>
                             <td>
                                 <?php foreach ($tandatangan->result() as $key => $ttd) { ?>
-                                        <center>
-                                            <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
-                                            Kepala Desa Kait-Kait Baru
-                                        </center>
+                                    <center>
+                                        <?php if ($ttd->jabatan != 'Kepala Desa') { ?> An. <?php } ?>
+                                        Kepala Desa Kait-Kait Baru
+                                    </center>
                             </td>
                         </tr>
                         <tr>
