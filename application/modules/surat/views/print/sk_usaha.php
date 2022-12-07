@@ -8,6 +8,7 @@
     * {
         font-family: 'Bookman Old Style', serif;
         line-height: 1.0;
+        font-size: 11pt;
     }
 
     p {
