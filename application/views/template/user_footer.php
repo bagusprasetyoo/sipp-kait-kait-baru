@@ -3,7 +3,7 @@
 <footer class="main-footer bg-dark">
     <small><strong>Copyright &copy; 2022 </strong> All rights reserved.</small>
     <div class="float-right d-none d-sm-inline-block">
-        <small><strong>Sistem Informasi Pelayanan Publik Desa Kait-Kait Baru</strong> v 1.1.0</small>
+        <small><strong>Sistem Informasi Pelayanan Publik Desa Kait-Kait Baru</strong> v 1.1.1</small>
     </div>
 </footer>
 
