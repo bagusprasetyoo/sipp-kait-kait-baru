@@ -28,6 +28,20 @@ class Penduduk extends CI_Controller
         $this->load->view('template/user_footer');
     }
 
+    public function show_all()
+    {
+        check_admin();
+        $datapend = $this->pend_model->get_all();
+
+        $data['row'] = $datapend;
+        $data['title'] = 'Data Penduduk';
+        $data['user'] = $this->fungsi->user();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('penduduk/tampil_pend', $data);
+        $this->load->view('template/user_footer');
+    }
+
     public function add()
     {
         check_admin();

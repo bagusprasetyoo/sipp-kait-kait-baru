@@ -87,6 +87,25 @@
         $('ul.nav-sidebar a').filter(function() {
             return this.href == url;
         }).addClass('active bg-green')
+
+        // for sidebar menu and treeview
+        $('ul.nav-treeview a').filter(function() {
+                return this.href == url;
+            }).parentsUntil(".nav-sidebar > .nav-treeview")
+            .css({
+                'display': 'block'
+            })
+            .addClass('menu-open').prev('a')
+            .addClass('active bg-green');
+    })
+</script>
+
+<script>
+    $(function() {
+        var url = window.location;
+        $('#filter.btn-group a').filter(function() {
+            return this.href == url;
+        }).addClass('bg-green')
     })
 </script>
 

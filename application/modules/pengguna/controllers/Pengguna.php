@@ -13,7 +13,18 @@ class Pengguna extends CI_Controller
 
     public function show()
     {
-        $data['row'] = $this->peng_model->get();
+        $data['row'] = $this->peng_model->get_mas();
+
+        $data['title'] = 'Data Pengguna';
+        $data['user'] = $this->fungsi->user();
+        $this->load->view('template/user_header', $data);
+        $this->load->view('template/user_sidebar', $data);
+        $this->load->view('pengguna/tampil_peng', $data);
+        $this->load->view('template/user_footer');
+    }
+    public function show_pej()
+    {
+        $data['row'] = $this->peng_model->get_pej();
 
         $data['title'] = 'Data Pengguna';
         $data['user'] = $this->fungsi->user();

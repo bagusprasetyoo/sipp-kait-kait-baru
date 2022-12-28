@@ -10,6 +10,25 @@ class Peng_model extends CI_Model
         if ($id != null) {
             $this->db->where('id_pengguna', $id);
         }
+        $this->db->order_by('tanggal_daftar', 'DESC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function get_mas()
+    {
+        $this->db->from('tb_pengguna');
+        $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_pengguna.nik');
+        $this->db->where('role', 'Pengguna');
+        $this->db->order_by('tanggal_daftar', 'DESC');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function get_pej()
+    {
+        $this->db->from('tb_pengguna');
+        $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_pengguna.nik');
+        $this->db->where('role!=', 'Pengguna');
+        $this->db->order_by('tanggal_daftar', 'DESC');
         $query = $this->db->get();
         return $query;
     }

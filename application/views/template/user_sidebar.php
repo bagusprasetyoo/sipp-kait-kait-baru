@@ -50,10 +50,25 @@
                 <?php }
                 if ($this->fungsi->user_login()->role == 'Admin') { ?>
                     <li class="nav-item">
-                        <a href="<?= base_url('pengguna/show'); ?>" class="nav-link">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
                             <p>Data Pengguna</p>
+                            <i class="right fas fa-angle-left"></i>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('pengguna/show'); ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Masyarakat</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('pengguna/show_pej'); ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Petugas Desa</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 <?php  } ?>
                 <li class="nav-item">
@@ -106,7 +121,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 font-weight-bold" ><?= $title; ?></h1>
+                    <h1 class="m-0 font-weight-bold"><?= $title; ?></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
