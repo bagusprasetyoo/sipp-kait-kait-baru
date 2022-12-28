@@ -12,6 +12,7 @@ class Surat_model extends CI_Model
         if ($id != null) {
             $this->db->where('id_surat', $id);
         }
+        $this->db->order_by('tanggal_surat', 'DESC');
         $query = $this->db->get();
         return $query;
     }
