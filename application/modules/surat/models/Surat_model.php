@@ -25,6 +25,7 @@ class Surat_model extends CI_Model
         $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
         $this->db->join('tb_pejabat', 'tb_pejabat.id_pejabat = tb_surat.id_pejabat');
         $this->db->where('tb_surat.nik', $nik);
+        $this->db->order_by('tanggal_surat', 'DESC');
         $query = $this->db->get();
         return $query;
     }
@@ -37,6 +38,7 @@ class Surat_model extends CI_Model
         $this->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
         $this->db->join('tb_pejabat', 'tb_pejabat.id_pejabat = tb_surat.id_pejabat');
         $this->db->where('tb_penduduk.rt', $rt);
+        $this->db->order_by('tanggal_surat', 'DESC');
         $query = $this->db->get();
         return $query;
     }
