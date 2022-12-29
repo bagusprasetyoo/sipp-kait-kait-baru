@@ -75,4 +75,45 @@ class Fungsi
         $this->ci->db->where('valid_kades', 1);
         return $this->ci->db->get()->num_rows();
     }
+
+    // UNTUK RT
+    //menghitung jumlah surat masuk yg belum divalidasi rt dan kades
+    function count_suratmasuk_rt()
+    {
+        $this->ci->db->from('tb_surat');
+        $this->ci->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
+        $this->ci->db->where('valid_rt', 0);
+        $this->ci->db->where('valid_kades', 0);
+        $this->ci->db->where('tb_penduduk.rt', $this->ci->session->userdata('rt'));
+        return $this->ci->db->get()->num_rows();
+    }
+
+    //menghitung jumlah surat yg sudah divalidasi rt dan kades
+    function count_suratselesai_rt()
+    {
+        $this->ci->db->from('tb_surat');
+        $this->ci->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
+        $this->ci->db->where('valid_rt', 1);
+        $this->ci->db->where('valid_kades', 1);
+        $this->ci->db->where('tb_penduduk.rt', $this->ci->session->userdata('rt'));
+        return $this->ci->db->get()->num_rows();
+    }
+
+    //menghitung jumlah seluruh surat yg sudah divalidasi rt dan kades
+    function count_totalsurat_rt()
+    {
+        $this->ci->db->from('tb_surat');
+        $this->ci->db->join('tb_penduduk', 'tb_penduduk.nik = tb_surat.nik');
+        $this->ci->db->where('tb_penduduk.rt', $this->ci->session->userdata('rt'));
+        return $this->ci->db->get()->num_rows();
+    }
+
+    //menghitung jumlah seluruh pengguna setiap rt
+    function count_pengguna_rt()
+    {
+        $this->ci->db->from('tb_pengguna');
+        $this->ci->db->join('tb_penduduk', 'tb_penduduk.nik = tb_pengguna.nik');
+        $this->ci->db->where('tb_penduduk.rt', $this->ci->session->userdata('rt'));
+        return $this->ci->db->get()->num_rows();
+    }
 }
