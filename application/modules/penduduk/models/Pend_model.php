@@ -3,16 +3,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pend_model extends CI_Model
 {
-    public function get()
+    public function get($nik = null)
     {
         $this->db->from('tb_penduduk');
+        if ($nik != null) {
+            $this->db->where('nik', $nik);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+    public function get_pend($nik = null)
+    {
+        $this->db->from('tb_penduduk');
+        if ($nik != null) {
+            $this->db->where('nik', $nik);
+        }
         $this->db->like('nik', 63);
         $query = $this->db->get();
         return $query;
     }
-    public function get_all()
+    public function get_pej($nik = null)
     {
         $this->db->from('tb_penduduk');
+        if ($nik != null) {
+            $this->db->where('nik', $nik);
+        }
         $this->db->not_like('nik', 63);
         $query = $this->db->get();
         return $query;

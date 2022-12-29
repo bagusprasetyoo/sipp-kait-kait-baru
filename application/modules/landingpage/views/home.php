@@ -123,7 +123,7 @@
         <div class="col-12 col-sm-4">
             <div class="info-box bg-light">
                 <div class="info-box-content">
-                    <span class="info-box-number text-center mb-0" style="font-size: 23pt;"><?= $this->fungsi->count_data('tb_penduduk'); ?></span>
+                    <span class="info-box-number text-center mb-0" style="font-size: 23pt;"><?= $this->fungsi->count_pend(); ?></span>
                     <span class="info-box-text text-center text-green">Total Penduduk</span>
                 </div>
             </div>

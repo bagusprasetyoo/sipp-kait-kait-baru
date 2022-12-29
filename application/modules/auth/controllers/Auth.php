@@ -136,7 +136,8 @@ class Auth extends CI_Controller
             'min_length' => 'Password terlalu pendek!'
         ]);
         $this->form_validation->set_rules('passconf',  'Password', 'required|trim|matches[password]', [
-            'required' => 'Tulis ulang Password !'
+            'required' => 'Tulis ulang Password !',
+            'matches' => 'Password tidak cocok!',
         ]);
 
         //set_error_delimiters: memperpendek penulisan form error di halaman registrasi

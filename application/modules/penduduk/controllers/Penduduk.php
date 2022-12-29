@@ -16,7 +16,7 @@ class Penduduk extends CI_Controller
         if ($this->fungsi->user_login()->role == 'RT') {
             $datapend = $this->pend_model->get_data_perrt();
         } else {
-            $datapend = $this->pend_model->get();
+            $datapend = $this->pend_model->get_pend();
         }
 
         $data['row'] = $datapend;
@@ -31,7 +31,7 @@ class Penduduk extends CI_Controller
     public function show_all()
     {
         check_admin();
-        $datapend = $this->pend_model->get_all();
+        $datapend = $this->pend_model->get_pej();
 
         $data['row'] = $datapend;
         $data['title'] = 'Data Penduduk';

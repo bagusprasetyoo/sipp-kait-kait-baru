@@ -30,6 +30,15 @@ class Fungsi
     {
         return $this->ci->db->get($table)->num_rows();
     }
+
+    //menghitung jumlah seluruh penduduk
+    function count_pend()
+    {
+        $this->ci->db->select('nik');
+        $this->ci->db->from('tb_penduduk');
+        $this->ci->db->like('nik', 63);
+        return $this->ci->db->get()->num_rows();
+    }
     //jumlah penduduk laki-laki
     function count_pend_lk()
     {
