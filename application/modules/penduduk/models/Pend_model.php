@@ -45,6 +45,7 @@ class Pend_model extends CI_Model
     {
         $this->db->from('tb_penduduk');
         $this->db->where('rt', $this->session->userdata('rt'));
+        $this->db->like('nik', 63);
         $query = $this->db->get();
         return $query;
     }

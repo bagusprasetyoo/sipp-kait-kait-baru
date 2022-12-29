@@ -26,14 +26,16 @@
                             <?php } ?>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <div class="btn-group mb-2" id="filter">
-                                    <a href="<?= base_url('penduduk/show'); ?>" type="button" class="btn btn-secondary btn-xs">
-                                        <i class="fas fa-user"></i> Penduduk
-                                    </a>
-                                    <a href="<?= base_url('penduduk/show_all'); ?>" type="button" class="btn btn-secondary btn-xs">
-                                        <i class="fas fa-user-tie"></i> Petugas
-                                    </a>
-                                </div>
+                                <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>
+                                    <div class="btn-group mb-2" id="filter">
+                                        <a href="<?= base_url('penduduk/show'); ?>" type="button" class="btn btn-secondary btn-xs">
+                                            <i class="fas fa-user"></i> Penduduk
+                                        </a>
+                                        <a href="<?= base_url('penduduk/show_all'); ?>" type="button" class="btn btn-secondary btn-xs">
+                                            <i class="fas fa-user-tie"></i> Petugas
+                                        </a>
+                                    </div>
+                                <?php } ?>
                                 <table id="example1" class="table table-bordered table-striped table-sm">
                                     <thead>
                                         <tr class="text-center">
