@@ -21,7 +21,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example3" class="table table-bordered table-striped table-sm">
+                            <table <?php if($this->fungsi->user_login()->role == 'Admin'){ ?>id="example1"<?php } else {?>id="example3"<?php } ?> class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
