@@ -117,7 +117,8 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('success', 'Selamat, NIK anda berhasil diregistrasi! Silahkan Login');
                 redirect('auth/login');
             } else {
-                $this->session->set_flashdata('warning', "NIK belum terdata di desa!, Hubungi admin untuk memasukkan data Anda.");
+                $nik = $this->input->post('nik');
+                $this->session->set_flashdata('warning', "NIK $nik belum terdata di desa!, Hubungi admin untuk memasukkan data Anda.");
                 redirect('auth/registration');
             }
         }
