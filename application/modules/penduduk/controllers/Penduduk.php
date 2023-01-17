@@ -13,6 +13,7 @@ class Penduduk extends CI_Controller
 
     public function show()
     {
+        // percabangan  untuk mendapatkan data penduduk berdasarkan rt atau tidak
         if ($this->fungsi->user_login()->role == 'RT') {
             $datapend = $this->pend_model->get_data_perrt();
         } else {
@@ -136,8 +137,8 @@ class Penduduk extends CI_Controller
     public function delete($nik)
     {
         check_admin();
-        $query = $this->pend_model->delete($nik);
-        if ($query = true) {
+        $status = $this->pend_model->delete($nik);
+        if ($status = true) {
             $this->session->set_flashdata('success', '<i class="icon fas fa-trash"></i> Data berhasil dihapus!');
             redirect('penduduk/show');
         }

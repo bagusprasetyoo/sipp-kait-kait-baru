@@ -3,6 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <!-- menampilkan alert untuk flasdata dari session -->
                 <?= $this->view('template/alert'); ?>
                 <div class="card">
                     <!-- /.content-header -->
@@ -21,7 +22,7 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>Nik</th>
+                                        <th>NIK</th>
                                         <th>Email</th>
                                         <th>No HP</th>
                                         <th>Role</th>

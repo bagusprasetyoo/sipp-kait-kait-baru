@@ -3,6 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('auth_model');
+    }
+
     public function login()
     {
         //helper mengecek apabila sudah login tidak dapat kembali ke halaman login
@@ -71,6 +77,7 @@ class Auth extends CI_Controller
         }
     }
 
+    // method untuk melakukan registrasi
     public function registration()
     {
         //helper mengecek apabila sudah login tidak dapat kembali ke halaman registrasi
@@ -87,12 +94,13 @@ class Auth extends CI_Controller
         } else {
             $nik = $this->input->post('nik');
 
-            //select * from tb_pengguna where nik=$nik
-            $penduduk = $this->db->get_where('tb_penduduk', ['nik' => $nik])->row_array();
+            //mengecek nik dari database
+            $penduduk = $this->auth_model->get_nik($nik);
 
+            // mengecek apakah nik sama dengan nik pada data penduduk
             if ($nik == $penduduk['nik']) {
+                // jika sudah sama maka akan mengeset data berikut
                 $data = [
-
                     'email' => htmlspecialchars($this->input->post('email', true)),
                     'no_hp' => htmlspecialchars($this->input->post('nohp', true)),
                     'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
@@ -102,8 +110,8 @@ class Auth extends CI_Controller
                     'nik' => htmlspecialchars($this->input->post('nik', true))
                 ];
 
-                //opsional bisa dimasukkan ke model
-                $this->db->insert('tb_pengguna', $data);
+                //data akan disimpan ke dalam database tabel pengguna
+                $this->auth_model->add($data);
 
                 //pesan sebelum redirect
                 $this->session->set_flashdata('success', 'Selamat, NIK anda berhasil diregistrasi! Silahkan Login');
@@ -144,12 +152,11 @@ class Auth extends CI_Controller
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
     }
 
+    // method logout
     public function logout()
     {
-        $this->session->unset_userdata('idpengguna');
-        $this->session->unset_userdata('nik');
-        $this->session->unset_userdata('role');
-
+        // menghapus set_userdata yang ada di session
+        $this->session->unset_userdata(['idpengguna', 'nik', 'role', 'rt']);
         redirect('landingpage');
     }
 }

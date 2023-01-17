@@ -2,10 +2,12 @@
 
 class Fungsi
 {
+    // enskapsulasi protected yang artinya hanya dapat di akses di dala class ini saja
     protected $ci;
 
     function __construct()
     {
+        // get_instance berfunsi untuk menginstansi class agar dapat mengakses resource CI
         $this->ci = &get_instance();
     }
 
@@ -25,7 +27,7 @@ class Fungsi
         return $user;
     }
 
-    //menghitung jumlah data berdasarkan table
+    //menghitung jumlah data berdasarkan table dapat digunakan untuk berbagai tabel
     function count_data($table)
     {
         return $this->ci->db->get($table)->num_rows();

@@ -3,6 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <!-- menampilkan alert untuk flasdata dari session -->
                 <?= $this->view('template/alert'); ?>
                 <div class="card">
 
@@ -21,7 +22,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table <?php if($this->fungsi->user_login()->role == 'Admin'){ ?>id="example1"<?php } else {?>id="example3"<?php } ?> class="table table-bordered table-striped table-sm">
+                            <table <?php if ($this->fungsi->user_login()->role == 'Admin') { ?>id="example1" <?php } else { ?>id="example3" <?php } ?> class="table table-bordered table-striped table-sm">
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>

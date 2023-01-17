@@ -6,6 +6,7 @@
                 <div class="callout callout-success">
                     <strong>Info</strong>: Data pejabat digunakan untuk pilihan penandatanganan surat yang telah disetujui RT dan Kepala Desa.
                 </div>
+                <!-- menampilkan alert untuk flasdata dari session -->
                 <?= $this->view('template/alert'); ?>
                 <div class="card">
                     <!-- /.content-header -->
