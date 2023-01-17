@@ -122,7 +122,7 @@ class Surat extends CI_Controller
     {
         check_pengguna();
         $data['penduduk'] = $this->pend_model->get_where();
-        $data['title'] = 'Surat Keterangan Belum Menikah';
+        $data['title'] = 'Surat Keterangan Tidak Mampu';
         $data['user'] = $this->fungsi->user();
         $this->load->view('template/user_header', $data);
         $this->load->view('template/user_sidebar', $data);
