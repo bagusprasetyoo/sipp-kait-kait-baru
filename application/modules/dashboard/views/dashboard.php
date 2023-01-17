@@ -65,7 +65,7 @@
                 </div>
                 <!-- ./col -->
             </div>
-        <?php  } else { ?>
+        <?php  } else if ($this->fungsi->user_login()->role == 'RT') { ?>
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-lg-3 col-6">
