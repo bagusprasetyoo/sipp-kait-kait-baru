@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <?= $this->session->flashdata('alert_pend'); ?>
+                <?= $this->view('template/alert'); ?>
                 <div class="card card-success">
                     <div class="card-header">
                         <h3 class="card-title"><?= $title; ?></h3>
@@ -33,7 +33,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $row->tempat_lahir ?>" required>
+                                    <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="<?= $row->tempat_lahir ?>" pattern="^[A-Z a-z]+$" title="Kewarganegaraan harus berupa huruf" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -146,7 +146,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Kewarganegaraan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kewarganegaraan" placeholder="Kewarganegaraan" value="<?= $row->kewarganegaraan ?>" required>
+                                    <input type="text" class="form-control" name="kewarganegaraan" placeholder="Kewarganegaraan" value="<?= $row->kewarganegaraan ?>" pattern="^[A-Z a-z]+$" title="Kewarganegaraan harus berupa huruf" required>
                                 </div>
                             </div>
                             <div class="form-group row">
